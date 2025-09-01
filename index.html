@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOOWEXA - WEBSITE</title>
   <meta name="description" content="Sitio web Ideal para negocios." />
-  <meta name="keywords" content="Cuba, KOOWEXA" />
+  <meta name="keywords" content="Cuba, KOOWEXA, diseño web, sitio web económico" />
   <meta name="author" content="KOOWEXA" />
   <meta name="robots" content="index,follow" />
   <meta property="og:title" content="KOOWEXA - WEBSITE" />
   <meta property="og:description" content="Crea tu sitio web Ideal para negocios" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://koowexa.github.io/website/" />
+  <meta property="og:url" content="https://koowexa.github.io/WEBSITE/" />
   <meta property="og:image" content="assets/banner.jpeg" />
   <link rel="icon" type="image/jpeg" href="logo.jpeg" sizes="32x32" />
   <link rel="apple-touch-icon" href="logo.jpeg" />
@@ -255,7 +255,6 @@
     .btn-tg { background: #0088cc; }
     .btn-yt { background: #FF0000; }
     .btn-x { background: #000; }
-
     footer {
       color: #777;
       text-align: center;
@@ -323,7 +322,8 @@
       font-size: 1rem;
     }
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select {
       width: 100%;
       padding: 12px;
       border: 1px solid var(--border);
@@ -335,7 +335,8 @@
       transition: border 0.3s ease;
     }
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group textarea:focus,
+    .form-group select:focus {
       outline: none;
       border-color: var(--text);
       box-shadow: 0 0 0 2px var(--shadow-hover);
@@ -450,14 +451,11 @@
       <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">🌙 Claro</button>
     </div>
   </header>
-
-  <!-- Botón de compartir -->
   <div class="share-container">
     <button id="shareButton" class="share-button">
       Compartir este servicio
     </button>
   </div>
-
   <section class="hero">
     <div class="container hero-content">
       <div class="hero-img-container">
@@ -465,10 +463,9 @@
       </div>
       <h1>KOOWEXA</h1>
       <p>● Servicio de diseño web, económico y flexible. La mayoría de las personas que desean tener una página web se preocupan por el alto coste, sin dejar de mencionar los grandes beneficios que conlleva: presencia profesional, confiabilidad y crecimiento para tu negocio.</p>
-      <button id="openModal2" class="cta-button">‼️ Solicitar Ya ‼️</button>
+      <button class="cta-button openModal">‼️ Solicitar Ya ‼️</button>
     </div>
   </section>
-
   <main class="service">
     <div class="container">
       <h2 class="section-title">Sobre el Servicio</h2>
@@ -494,20 +491,18 @@
       <div style="text-align: center; margin-top: 30px;">
         <div class="price">$2000 / CUP</div>
         <img src="banner.gif" alt="Sitio web profesional para tu negocio en Cuba" width="500" height="300" loading="lazy" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border: 1px solid var(--border);" />
-        <button id="openModal2" class="cta-button">‼️ Solicitar Ya ‼️</button>
+        <button class="cta-button openModal">‼️ Solicitar Ya ‼️</button>
       </div>
     </div>
   </main>
-
-  <!-- Footer con enlaces atractivos -->
   <footer>
     <div class="container">
       <p><strong>Síguenos y contáctanos:</strong></p>
       <div class="footer-social">
-        <a href="https://youtube.com/@koowexa?si=QCFg-JY-QJLQe2sZ" target="_blank" aria-label="YouTube" class="btn-yt">▶</a>
-        <a href="https://x.com/koowexa?t=rW2wTyGXhZT-wShWyU2ROQ&s=09" target="_blank" aria-label="X (Twitter)" class="btn-x">𝕏</a>
-        <a href="https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w" target="_blank" aria-label="WhatsApp" class="btn-wa">💬</a>
-        <a href="https://t.me/KOOWEX" target="_blank" aria-label="Telegram" class="btn-tg">✈</a>
+        <a href="https://youtube.com/@koowexa?si=QCFg-JY-QJLQe2sZ" target="_blank" rel="noopener" aria-label="YouTube" class="btn-yt">▶</a>
+        <a href="https://x.com/koowexa?t=rW2wTyGXhZT-wShWyU2ROQ&s=09" target="_blank" rel="noopener" aria-label="X (Twitter)" class="btn-x">𝕏</a>
+        <a href="https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w" target="_blank" rel="noopener" aria-label="WhatsApp" class="btn-wa">💬</a>
+        <a href="https://t.me/KOOWEXA" target="_blank" rel="noopener" aria-label="Telegram" class="btn-tg">✈</a>
       </div>
       <p style="font-size: 0.85rem; color: #aaa;">
         &copy; 2025 KOOWEXA.<br>
@@ -515,8 +510,6 @@
       </p>
     </div>
   </footer>
-
-  <!-- Modal de solicitud -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <button class="close-modal" id="closeModal">&times;</button>
@@ -542,20 +535,25 @@
           <label for="address">Dirección (Ciudad, Provincia)</label>
           <input type="text" id="address" name="address" required />
         </div>
+        <div class="form-group">
+          <label for="method">¿Cómo deseas enviar tu solicitud?</label>
+          <select id="method" name="method" required>
+            <option value="">Selecciona una opción</option>
+            <option value="whatsapp">WhatsApp al +53 50 369270</option>
+            <option value="email">Correo a koowexa@gmail.com</option>
+          </select>
+        </div>
         <div class="form-actions">
           <button type="button" class="btn btn-cancel" id="cancelForm">Cancelar</button>
-          <button type="submit" class="btn btn-submit">Enviar por WhatsApp</button>
+          <button type="submit" class="btn btn-submit">Enviar Solicitud</button>
         </div>
       </form>
     </div>
   </div>
-
   <script>
-    // Manejo del tema oscuro/claro
     const html = document.getElementById('html-theme');
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('koowexa-theme') || 'dark';
-    
     function setTheme(theme) {
       if (theme === 'light') {
         html.setAttribute('data-theme', 'light');
@@ -567,17 +565,13 @@
       localStorage.setItem('koowexa-theme', theme);
     }
     setTheme(savedTheme);
-    
     themeToggle.addEventListener('click', () => {
       const current = localStorage.getItem('koowexa-theme');
       setTheme(current === 'light' ? 'dark' : 'light');
     });
-
-    // Modal
     const modal = document.getElementById('modalOverlay');
-    const openButtons = document.querySelectorAll('#openModal2');
+    const openButtons = document.querySelectorAll('.openModal');
     const closeButtons = document.querySelectorAll('#closeModal, #cancelForm');
-    
     const openModal = () => {
       modal.style.display = 'flex';
       requestNotificationPermission();
@@ -585,27 +579,22 @@
     const closeModal = () => {
       modal.style.display = 'none';
     };
-    
     openButtons.forEach(btn => btn.addEventListener('click', openModal));
     closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
     modal.addEventListener('click', e => {
       if (e.target === modal) closeModal();
     });
-    
     function requestNotificationPermission() {
       if ('Notification' in window && Notification.permission !== 'granted') {
         Notification.requestPermission();
       }
     }
-
-    // Botón de compartir
     const shareButton = document.getElementById('shareButton');
     const shareData = {
       title: 'KOOWEXA - Sitio Web Profesional desde $2000 CUP',
       text: '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores.',
-      url: 'https://koowexa.com'
+      url: 'https://koowexa.github.io/WEBSITE/'
     };
-
     if (navigator.share && navigator.canShare?.(shareData)) {
       shareButton.addEventListener('click', async () => {
         try {
@@ -619,16 +608,12 @@
     } else {
       shareButton.addEventListener('click', fallbackShare);
     }
-
     function fallbackShare() {
       const message = encodeURIComponent(
-        '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores. 👉 https://koowexa.com'
+        '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores. 👉 https://koowexa.github.io/WEBSITE/'
       );
-      window.open(`https://wa.me/?text=${message}`, '_blank');
+      window.open(`https://wa.me/?text=${message}`, '_blank', 'noopener');
     }
-
-    // Formulario y envío por WhatsApp
-    const phoneNumber = "+5350369270";
     const form = document.getElementById('serviceForm');
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -636,34 +621,34 @@
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
       const address = document.getElementById('address').value.trim();
-
-      if (!phone.startsWith('+53')) {
-        alert('Por favor, ingresa un número cubano válido con +53.');
-        return;
-      }
+      const method = document.getElementById('method').value;
       if (!/^\+53\d{8}$/.test(phone)) {
-        alert('Número inválido. Ejemplo: +5351234567');
+        alert('Por favor, ingresa un número válido de Cuba. Ejemplo: +5351234567');
         return;
       }
-
       const message = `Hola KOOWEXA, quiero solicitar el servicio de diseño web.\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\nDirección: ${address}\n\nPrecio: $2000 CUP`;
-      
+      if (method === 'whatsapp') {
+        const whatsappUrl = `https://wa.me/5350369270?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank', 'noopener');
+      } else if (method === 'email') {
+        const mailtoUrl = `mailto:koowexa@gmail.com?subject=Solicitud de Sitio Web&body=${encodeURIComponent(message)}`;
+        window.open(mailtoUrl, '_blank', 'noopener');
+      }
       if (Notification.permission === 'granted') {
         new Notification('✅ Solicitud enviada', {
-          body: 'Abriendo WhatsApp...',
+          body: `Tu mensaje se ha preparado para ${method === 'whatsapp' ? 'WhatsApp' : 'correo'}.`,
           icon: 'logo.jpeg'
         });
       }
-
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
+      if (!document.getElementById('toast')) {
+        const toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.textContent = `✅ Abriendo ${method === 'whatsapp' ? 'WhatsApp...' : 'cliente de correo...'}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
       form.reset();
       closeModal();
-      
-      if (!document.getElementById('toast')) {
-        document.body.insertAdjacentHTML('beforeend', `<div id="toast">✅ Mensaje enviado. Abre WhatsApp para confirmar.</div>`);
-        setTimeout(() => document.getElementById('toast')?.remove(), 3000);
-      }
     });
   </script>
 </body>
