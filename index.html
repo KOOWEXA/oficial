@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KOOWEXA</title>
-  <meta name="description" content="Sitio web profesional desde $2000 CUP. Ideal para negocios y freelancers en Cuba." />
-  <meta name="keywords" content="diseño web, Cuba, KOOWEXA, sitio web económico, desarrollo web" />
+  <title>KOOWEXA - WEBSITE</title>
+  <meta name="description" content="Sitio web Ideal para negocios." />
+  <meta name="keywords" content="Cuba, KOOWEXA" />
   <meta name="author" content="KOOWEXA" />
   <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="KOOWEXA - Diseño Web para Cuba" />
-  <meta property="og:description" content="Crea tu sitio web profesional desde $2000 CUP. Ideal para negocios y freelancers en Cuba." />
+  <meta property="og:title" content="KOOWEXA - WEBSITE" />
+  <meta property="og:description" content="Crea tu sitio web Ideal para negocios" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://koowexa.com" />
-  <meta property="og:image" content="assets/banner.webp" />
-  <link rel="icon" type="image/webp" href="logo.webp" sizes="32x32" />
-  <link rel="apple-touch-icon" href="logo.webp" />
+  <meta property="og:url" content="https://koowexa.github.io/WEBSITE/" />
+  <meta property="og:image" content="assets/banner.jpeg" />
+  <link rel="icon" type="image/jpeg" href="logo.jpeg" sizes="32x32" />
+  <link rel="apple-touch-icon" href="logo.jpeg" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <style>
@@ -99,6 +99,28 @@
     .theme-toggle:hover {
       background: var(--text-secondary);
       color: var(--bg-primary);
+    }
+    .share-container {
+      text-align: center;
+      padding: 12px 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+    .share-button {
+      background: #25D366;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .share-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
     }
     .hero {
       padding: 100px 0 80px;
@@ -205,17 +227,13 @@
       color: var(--text);
       margin: 20px 0;
     }
-    .social {
-      padding: 70px 0;
-      text-align: center;
-    }
-    .social-links {
+    .footer-social {
       display: flex;
       justify-content: center;
       gap: 18px;
-      margin-top: 20px;
+      margin: 16px 0;
     }
-    .social-links a {
+    .footer-social a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -229,40 +247,25 @@
       text-decoration: none;
       box-shadow: 0 4px 10px var(--shadow);
     }
-    .social-links a:hover {
+    .footer-social a:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 14px var(--shadow-hover);
     }
-    .contact-buttons {
-      margin-top: 30px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    .btn-wa { background: #25D366; }
+    .btn-tg { background: #0088cc; }
+    .btn-yt { background: #FF0000; }
+    .btn-x { background: #000; }
+
+    footer {
+      color: #777;
+      text-align: center;
+      padding: 30px 0;
+      background: var(--bg-primary);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
     }
-    .btn-contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    .btn-contact:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
-    }
-    .btn-wa {
-      background: #25D366;
-      color: #fff;
-    }
-    .btn-tg {
-      background: #0088cc;
-      color: #fff;
+    footer p {
+      margin-bottom: 8px;
     }
     .modal-overlay {
       position: fixed;
@@ -402,14 +405,6 @@
       from { opacity: 0; transform: translate(-50%, 20px); }
       to { opacity: 1; transform: translate(-50%, 0); }
     }
-    footer {
-      color: #777;
-      text-align: center;
-      padding: 30px 0;
-      background: var(--bg-primary);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-    }
     @media (max-width: 600px) {
       .hero h1 {
         font-size: 2.2rem;
@@ -449,22 +444,31 @@
   <header>
     <div class="container header-content">
       <a href="#" class="logo" aria-label="Inicio">
-        <img src="logo.webp" alt="Logo KOOWEXA" width="40" height="40" />
+        <img src="logo.jpeg" alt="Logo KOOWEXA" width="40" height="40" />
         <span>KOOWEXA</span>
       </a>
       <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">🌙 Claro</button>
     </div>
   </header>
+
+  <!-- Botón de compartir -->
+  <div class="share-container">
+    <button id="shareButton" class="share-button">
+      Compartir este servicio
+    </button>
+  </div>
+
   <section class="hero">
     <div class="container hero-content">
       <div class="hero-img-container">
-        <img src="banner.webp" alt="Diseño de sitio web profesional optimizado para Cuba" width="500" height="300" loading="lazy" />
+        <img src="banner.jpeg" alt="Web" width="500" height="300" loading="lazy" />
       </div>
       <h1>KOOWEXA</h1>
       <p>● Servicio de diseño web, económico y flexible. La mayoría de las personas que desean tener una página web se preocupan por el alto coste, sin dejar de mencionar los grandes beneficios que conlleva: presencia profesional, confiabilidad y crecimiento para tu negocio.</p>
       <button id="openModal2" class="cta-button">‼️ Solicitar Ya ‼️</button>
     </div>
   </section>
+
   <main class="service">
     <div class="container">
       <h2 class="section-title">Sobre el Servicio</h2>
@@ -484,7 +488,7 @@
         </div>
         <div class="feature-card">
           <h3>Variedad</h3>
-          <p>Puedes elegir entre tienda online, portafolio, servicios, etc.</p>
+          <p>Puedes elegir entre: tienda, servicios.</p>
         </div>
       </div>
       <div style="text-align: center; margin-top: 30px;">
@@ -494,27 +498,25 @@
       </div>
     </div>
   </main>
-  <section class="social">
-    <div class="container">
-      <h2 class="section-title">Redes Oficiales</h2>
-      <p>Siempre disponible para ti</p>
-      <div class="social-links">
-        <a href="https://x.com/koowexa" target="_blank" aria-label="Twitter">𝕏</a>
-        <a href="https://t.me/KOOWEXA" target="_blank" aria-label="Telegram Canal">T</a>
-        <a href="https://youtube.com/@koowexa" target="_blank" aria-label="YouTube">Y</a>
-      </div>
-      <p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">📢 Próximamente se añadira mas contenido en YouTube y Telegram.</p>
-      <div class="contact-buttons">
-        <button type="button" id="sendToWhatsApp" class="btn-contact btn-wa">💬 WhatsApp</button>
-        <button type="button" id="sendToTelegram" class="btn-contact btn-tg">✈️ Telegram</button>
-      </div>
-    </div>
-  </section>
+
+  <!-- Footer con enlaces atractivos -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 KOOWEXA. Todos los derechos reservados.</p>
+      <p><strong>Síguenos y contáctanos:</strong></p>
+      <div class="footer-social">
+        <a href="https://youtube.com/@koowexa?si=QCFg-JY-QJLQe2sZ" target="_blank" aria-label="YouTube" class="btn-yt">▶</a>
+        <a href="https://x.com/koowexa?t=rW2wTyGXhZT-wShWyU2ROQ&s=09" target="_blank" aria-label="X (Twitter)" class="btn-x">𝕏</a>
+        <a href="https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w" target="_blank" aria-label="WhatsApp" class="btn-wa">💬</a>
+        <a href="https://t.me/KOOWEX" target="_blank" aria-label="Telegram" class="btn-tg">✈</a>
+      </div>
+      <p style="font-size: 0.85rem; color: #aaa;">
+        &copy; 2025 KOOWEXA.<br>
+        Conectamos tu negocio con el mundo digital.
+      </p>
     </div>
   </footer>
+
+  <!-- Modal de solicitud -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <button class="close-modal" id="closeModal">&times;</button>
@@ -547,10 +549,13 @@
       </form>
     </div>
   </div>
+
   <script>
+    // Manejo del tema oscuro/claro
     const html = document.getElementById('html-theme');
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('koowexa-theme') || 'dark';
+    
     function setTheme(theme) {
       if (theme === 'light') {
         html.setAttribute('data-theme', 'light');
@@ -562,13 +567,17 @@
       localStorage.setItem('koowexa-theme', theme);
     }
     setTheme(savedTheme);
+    
     themeToggle.addEventListener('click', () => {
       const current = localStorage.getItem('koowexa-theme');
       setTheme(current === 'light' ? 'dark' : 'light');
     });
+
+    // Modal
     const modal = document.getElementById('modalOverlay');
     const openButtons = document.querySelectorAll('#openModal2');
     const closeButtons = document.querySelectorAll('#closeModal, #cancelForm');
+    
     const openModal = () => {
       modal.style.display = 'flex';
       requestNotificationPermission();
@@ -576,16 +585,49 @@
     const closeModal = () => {
       modal.style.display = 'none';
     };
+    
     openButtons.forEach(btn => btn.addEventListener('click', openModal));
     closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
     modal.addEventListener('click', e => {
       if (e.target === modal) closeModal();
     });
+    
     function requestNotificationPermission() {
       if ('Notification' in window && Notification.permission !== 'granted') {
         Notification.requestPermission();
       }
     }
+
+    // Botón de compartir
+    const shareButton = document.getElementById('shareButton');
+    const shareData = {
+      title: 'KOOWEXA - Sitio Web Profesional desde $2000 CUP',
+      text: '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores.',
+      url: 'https://koowexa.com'
+    };
+
+    if (navigator.share && navigator.canShare?.(shareData)) {
+      shareButton.addEventListener('click', async () => {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            fallbackShare();
+          }
+        }
+      });
+    } else {
+      shareButton.addEventListener('click', fallbackShare);
+    }
+
+    function fallbackShare() {
+      const message = encodeURIComponent(
+        '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores. 👉 https://koowexa.com'
+      );
+      window.open(`https://wa.me/?text=${message}`, '_blank');
+    }
+
+    // Formulario y envío por WhatsApp
     const phoneNumber = "+5350369270";
     const form = document.getElementById('serviceForm');
     form.addEventListener('submit', function(e) {
@@ -594,6 +636,7 @@
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
       const address = document.getElementById('address').value.trim();
+
       if (!phone.startsWith('+53')) {
         alert('Por favor, ingresa un número cubano válido con +53.');
         return;
@@ -602,28 +645,25 @@
         alert('Número inválido. Ejemplo: +5351234567');
         return;
       }
+
       const message = `Hola KOOWEXA, quiero solicitar el servicio de diseño web.\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\nDirección: ${address}\n\nPrecio: $2000 CUP`;
+      
       if (Notification.permission === 'granted') {
         new Notification('✅ Solicitud enviada', {
           body: 'Abriendo WhatsApp...',
-          icon: 'logo.webp'
+          icon: 'logo.jpeg'
         });
       }
+
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       form.reset();
       closeModal();
+      
       if (!document.getElementById('toast')) {
         document.body.insertAdjacentHTML('beforeend', `<div id="toast">✅ Mensaje enviado. Abre WhatsApp para confirmar.</div>`);
         setTimeout(() => document.getElementById('toast')?.remove(), 3000);
       }
-    });
-    document.getElementById('sendToWhatsApp').addEventListener('click', () => {
-      const msg = 'Hola, quiero información sobre diseño web.';
-      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-    });
-    document.getElementById('sendToTelegram').addEventListener('click', () => {
-      window.open('https://t.me/koowexa', '_blank');
     });
   </script>
 </body>
