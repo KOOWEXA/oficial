@@ -1,85 +1,630 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-theme">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KOOWEXA</title>
-  <meta name="description" content="Diseño web funcional y económico para Cuba. Desde $2000 CUP.">
-  <meta name="keywords" content="diseño web, Cuba, KOOWEXA, sitio web económico">
-  <meta name="author" content="KOOWEXA">
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="KOOWEXA - Diseño Web para Cuba">
-  <meta property="og:description" content="Crea tu sitio web profesional desde $2000 CUP. Ideal para negocios y freelancers en Cuba.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://koowexa.com">
-  <meta property="og:image" content="assets/banner.webp">
-  <link rel="icon" type="image/webp" href="logo.webp" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/logo.webp">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <meta name="google-site-verification" content="google30818713ef1cf3a6.html">
+  <meta name="description" content="Sitio web profesional desde $2000 CUP. Ideal para negocios y freelancers en Cuba." />
+  <meta name="keywords" content="diseño web, Cuba, KOOWEXA, sitio web económico, desarrollo web" />
+  <meta name="author" content="KOOWEXA" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="KOOWEXA - Diseño Web para Cuba" />
+  <meta property="og:description" content="Crea tu sitio web profesional desde $2000 CUP. Ideal para negocios y freelancers en Cuba." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koowexa.com" />
+  <meta property="og:image" content="assets/banner.webp" />
+  <link rel="icon" type="image/webp" href="logo.webp" sizes="32x32" />
+  <link rel="apple-touch-icon" href="logo.webp" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:#000;color:#fff;line-height:1.6;background-image:radial-gradient(circle,#111 0%,#000 100%);overflow-x:hidden}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{background:#000;box-shadow:0 2px 15px rgba(255,255,255,0.1);padding:15px 0;position:sticky;top:0;z-index:100}
-    .header-content{display:flex;justify-content:space-between;align-items:center}
-    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .logo img{height:40px;border-radius:8px}
-    .logo span{font-size:22px;font-weight:600;color:#fff}
-    .cta-button{background:#fff;color:#000;padding:12px 24px;border-radius:8px;font-weight:600;border:none;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 10px rgba(255,255,255,0.2)}
-    .cta-button:hover{background:#e0e0e0;transform:translateY(-2px);box-shadow:0 6px 15px rgba(255,255,255,0.3)}
-    .hero{padding:120px 0;text-align:center;color:#fff}
-    .hero-content{max-width:800px;margin:0 auto}
-    .hero img{width:100%;max-width:600px;margin:0 auto 30px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.5);border:1px solid #333}
-    .hero h1{font-size:3.2rem;margin-bottom:16px;color:#fff;text-shadow:0 2px 10px rgba(255,255,255,0.2)}
-    .hero p{font-size:1.3rem;color:#ccc;margin-bottom:30px}
-    .service{padding:100px 0;background:#000}
-    .section-title{color:#fff;text-align:center;font-size:2.3rem;margin-bottom:30px;position:relative;display:inline-block;left:50%;transform:translateX(-50%);border-bottom:3px solid #fff;padding-bottom:10px}
-    .service-features{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;max-width:900px;margin:0 auto;padding:20px}
-    .feature-card{background:#111;border:1px solid #444;border-radius:14px;padding:30px;width:100%;max-width:280px;box-shadow:0 6px 16px rgba(0,0,0,0.3);text-align:center;transition:all 0.3s ease;cursor:default}
-    .feature-card:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,0.5);border-color:#fff}
-    .feature-card h3{margin:18px 0 12px;font-size:1.4rem;color:#fff}
-    .feature-card p{color:#ccc;font-size:1rem;line-height:1.5}
-    .price{font-size:2.5rem;font-weight:700;color:#fff;margin:20px 0}
-    .social{padding:80px 0;background:#000;text-align:center}
-    .social-links{display:flex;justify-content:center;gap:22px;margin-top:25px}
-    .social-links a{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#fff;color:#000;font-size:1.6rem;transition:all 0.3s ease;text-decoration:none;box-shadow:0 4px 12px rgba(255,255,255,0.2)}
-    .social-links a:hover{transform:scale(1.1);background:#e0e0e0;box-shadow:0 6px 16px rgba(255,255,255,0.3)}
-    .contact-buttons{margin-top:35px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
-    .btn-contact{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:10px;font-weight:600;text-decoration:none;font-size:1.1rem;transition:all 0.3s ease;box-shadow:0 4px 10px rgba(0,0,0,0.2)}
-    .btn-contact:hover{transform:translateY(-3px);box-shadow:0 8px 15px rgba(0,0,0,0.3)}
-    .btn-wa{background:#25D366;color:#fff}
-    .btn-tg{background:#0088cc;color:#fff}
-    footer{color:#999;text-align:center;padding:40px 0;background:#000;font-size:0.95rem;border-top:1px solid #333}
-    footer p{color:#777}
-    .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);display:none;justify-content:center;align-items:center;z-index:1000;padding:20px}
-    .modal{background:#111;border:1px solid #444;padding:45px;border-radius:20px;width:90%;max-width:520px;box-shadow:0 20px 50px rgba(0,0,0,0.6);position:relative;animation:fadeIn 0.4s ease}
-    @keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
-    .modal h2{color:#fff;margin-bottom:25px;text-align:center;font-size:1.8rem}
-    .form-group{margin-bottom:22px}
-    .form-group label{display:block;margin-bottom:8px;font-weight:500;color:#ddd;font-size:1rem}
-    .form-group input,.form-group textarea{width:100%;padding:14px;border:1px solid #555;background:#222;color:#fff;border-radius:10px;font-family:'Inter',sans-serif;font-size:1rem;transition:border 0.3s ease}
-    .form-group input:focus,.form-group textarea:focus{outline:none;border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,0.2)}
-    .form-actions{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-    .btn{padding:12px 24px;border:none;border-radius:10px;cursor:pointer;font-weight:500;font-size:1rem;transition:all 0.3s ease}
-    .btn-cancel{background:#333;color:#ccc;border:1px solid #555}
-    .btn-cancel:hover{background:#444}
-    .btn-submit{background:#fff;color:#000;font-weight:600}
-    .btn-submit:hover{background:#e0e0e0;transform:scale(1.03)}
-    .close-modal{position:absolute;top:15px;right:15px;font-size:2rem;color:#999;cursor:pointer;background:none;border:none;transition:color 0.3s ease}
-    .close-modal:hover{color:#fff}
-    @media (max-width:600px){.hero h1{font-size:2.4rem}.hero p{font-size:1.1rem}.section-title{font-size:1.8rem}.cta-button{padding:10px 20px}.modal{padding:25px}.feature-card{padding:25px}.btn-contact{font-size:1rem;padding:12px 20px}}
+    :root {
+      --bg-primary: #000;
+      --bg-secondary: #111;
+      --text: #fff;
+      --text-secondary: #ccc;
+      --border: #444;
+      --cta-bg: #fff;
+      --cta-text: #000;
+      --shadow: rgba(255, 255, 255, 0.1);
+      --shadow-hover: rgba(255, 255, 255, 0.2);
+      --card-bg: #111;
+    }
+    [data-theme="light"] {
+      --bg-primary: #f5f5f5;
+      --bg-secondary: #fff;
+      --text: #000;
+      --text-secondary: #555;
+      --border: #ddd;
+      --cta-bg: #000;
+      --cta-text: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --shadow-hover: rgba(0, 0, 0, 0.15);
+      --card-bg: #fafafa;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: var(--bg-primary);
+      box-shadow: 0 2px 15px var(--shadow);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .logo img {
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      background: var(--text-secondary);
+      color: var(--bg-primary);
+    }
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero-img-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .hero img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .cta-button {
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px var(--shadow-hover);
+    }
+    .service {
+      padding: 80px 0;
+    }
+    .section-title {
+      color: var(--text);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .section-subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+    .service-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      width: 100%;
+      max-width: 260px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+      border-color: var(--text);
+    }
+    .feature-card h3 {
+      margin: 16px 0 10px;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 20px 0;
+    }
+    .social {
+      padding: 70px 0;
+      text-align: center;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 10px var(--shadow);
+    }
+    .social-links a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 14px var(--shadow-hover);
+    }
+    .contact-buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .btn-contact:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
+    }
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-tg {
+      background: #0088cc;
+      color: #fff;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+      animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+      color: var(--text);
+    }
+    .modal h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.7rem;
+    }
+    .payment-info {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-primary);
+      color: var(--text);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--text);
+      box-shadow: 0 0 0 2px var(--shadow-hover);
+    }
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    .btn-cancel {
+      background: #333;
+      color: #ccc;
+      flex: 1;
+    }
+    .btn-cancel:hover {
+      background: #444;
+    }
+    .btn-submit {
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      font-weight: 600;
+      flex: 2;
+    }
+    .btn-submit:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px var(--shadow-hover);
+    }
+    .close-modal {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 1.8rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.3s ease;
+    }
+    .close-modal:hover {
+      color: var(--text);
+    }
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.5s ease-out forwards;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translate(-50%, 20px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    footer {
+      color: #777;
+      text-align: center;
+      padding: 30px 0;
+      background: var(--bg-primary);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+      .cta-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+      .modal {
+        padding: 24px;
+      }
+      .feature-card {
+        padding: 20px;
+      }
+      .btn-contact {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+      }
+      .hero-img-container {
+        gap: 16px;
+      }
+      .hero img,
+      .price + img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
-<body>
-  <header><div class="container header-content"><a href="#" class="logo"><img src="logo.webp" alt="KOOWEXA" width="40" height="40"><span>KOOWEXA</span></a><button id="openModal" class="cta-button">Solicitar Servicio</button></div></header>
-  <section class="hero"><div class="container hero-content"><img src="banner.webp" alt="KOOWEXA" width="600"><h1>Diseño Web Profesional para Cuba</h1><p>Creemos tu sitio web moderno, funcional y optimizado. Ideal para emprendedores, negocios y freelancers en CUP.</p><button id="openModal2" class="cta-button">Comenzar Ahora</button></div></section>
-  <main class="service"><div class="container"><h2 class="section-title">Nuestro Servicio de Diseño Web</h2><p style="text-align:center;max-width:700px;margin:0 auto 40px;color:#ccc">Ofrecemos un servicio completo de diseño web a solo <strong>$2000 CUP</strong>, incluyendo todo lo necesario para comenzar.</p><div class="service-features"><div class="feature-card"><h3>Diseño Simple y Funcional</h3><p>Interfaces limpias, fáciles de usar y centradas en tus objetivos.</p></div><div class="feature-card"><h3>Accesible y Rápido</h3><p>Optimizado para móviles y conexiones lentas, ideal para Cuba.</p></div><div class="feature-card"><h3>Servidor Incluido (3 meses)</h3><p>Hospedaje gratuito durante los primeros 3 meses. Sin complicaciones.</p></div><div class="feature-card"><h3>Hasta 10 productos o 5 servicios</h3><p>Ideal para tiendas, servicios profesionales o portafolios.</p></div><div class="feature-card"><h3>Notificaciones y Permisos</h3><p>Sistema integrado de notificaciones y solicitudes seguras del navegador.</p></div><div class="feature-card"><h3>Adaptable a todos los dispositivos</h3><p>Diseño 100% responsivo: funciona en móviles, tablets y escritorio.</p></div></div><div style="text-align:center;margin-top:40px"><div class="price">$2000 CUP</div><button id="openModal3" class="cta-button">Reservar Ahora</button></div></div></main>
-  <section class="social"><div class="container"><h2 class="section-title">Redes de °KOOWEXA°</h2><p>LUGARES OFICIALES</p><div class="social-links"><a href="https://x.com/koowexa?t=yPUVCBWAxfT5NMklGrAFng&s=09" target="_blank" aria-label="Twitter">𝕏</a><a href="https://t.me/KOOWEXA" target="_blank" aria-label="Telegram">T</a><a href="https://youtube.com/@koowexa?si=KYW21dZMVnIQpJxN" target="_blank" aria-label="YouTube">Y</a></div><div class="contact-buttons"><a href="#" id="sendToWhatsApp" class="btn-contact btn-wa">💬 WhatsApp</a><a href="#" id="sendToTelegram" class="btn-contact btn-tg">✈️ Telegram</a></div></div></section>
-  <footer><div class="container"><p>&copy; 2025 KOOWEXA. Todos los derechos reservados.</p></div></footer>
-  <div class="modal-overlay" id="modalOverlay"><div class="modal"><button class="close-modal" id="closeModal">&times;</button><h2>Solicita tu Sitio Web</h2><form id="serviceForm"><div class="form-group"><label for="name">Nombre Completo</label><input type="text" id="name" name="name" required></div><div class="form-group"><label for="phone">Número de Teléfono (WhatsApp)</label><input type="tel" id="phone" name="phone" required></div><div class="form-group"><label for="email">Correo Gmail</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="address">Dirección</label><input type="text" id="address" name="address" required></div><div class="form-actions"><button type="button" class="btn btn-cancel" id="cancelForm">Cancelar</button><button type="submit" class="btn btn-submit">Enviar por WhatsApp</button></div></form></div></div>
+<body id="body-theme">
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo" aria-label="Inicio">
+        <img src="logo.webp" alt="Logo KOOWEXA" width="40" height="40" />
+        <span>KOOWEXA</span>
+      </a>
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">🌙 Claro</button>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-img-container">
+        <img src="banner.webp" alt="Diseño de sitio web profesional optimizado para Cuba" width="500" height="300" loading="lazy" />
+      </div>
+      <h1>KOOWEXA</h1>
+      <p>● Servicio de diseño web, económico y flexible. La mayoría de las personas que desean tener una página web se preocupan por el alto coste, sin dejar de mencionar los grandes beneficios que conlleva: presencia profesional, confiabilidad y crecimiento para tu negocio.</p>
+      <button id="openModal2" class="cta-button">‼️ Solicitar Ya ‼️</button>
+    </div>
+  </section>
+  <main class="service">
+    <div class="container">
+      <h2 class="section-title">Sobre el Servicio</h2>
+      <p class="section-subtitle">Ofrecemos las herramientas necesarias para mostrar tu presencia de forma virtual. Esto puede traer grandes beneficios <strong>para ti y tu negocio</strong>, solo por $2000 CUP.</p>
+      <div class="service-features">
+        <div class="feature-card">
+          <h3>Sencillo</h3>
+          <p>Fácil de usar, sin necesidad de experiencia técnica.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Rápido</h3>
+          <p>Optimizado para conexiones lentas. Ideal para usuarios en Cuba.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Hospedaje</h3>
+          <p>Servidor incluido durante 3 meses. Sin complicaciones.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Variedad</h3>
+          <p>Puedes elegir entre tienda online, portafolio, servicios, etc.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 30px;">
+        <div class="price">$2000 / CUP</div>
+        <img src="banner.gif" alt="Sitio web profesional para tu negocio en Cuba" width="500" height="300" loading="lazy" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border: 1px solid var(--border);" />
+        <button id="openModal2" class="cta-button">‼️ Solicitar Ya ‼️</button>
+      </div>
+    </div>
+  </main>
+  <section class="social">
+    <div class="container">
+      <h2 class="section-title">Redes Oficiales</h2>
+      <p>Siempre disponible para ti</p>
+      <div class="social-links">
+        <a href="https://x.com/koowexa" target="_blank" aria-label="Twitter">𝕏</a>
+        <a href="https://t.me/KOOWEXA" target="_blank" aria-label="Telegram Canal">T</a>
+        <a href="https://youtube.com/@koowexa" target="_blank" aria-label="YouTube">Y</a>
+      </div>
+      <p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">📢 Próximamente se añadira mas contenido en YouTube y Telegram.</p>
+      <div class="contact-buttons">
+        <button type="button" id="sendToWhatsApp" class="btn-contact btn-wa">💬 WhatsApp</button>
+        <button type="button" id="sendToTelegram" class="btn-contact btn-tg">✈️ Telegram</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 KOOWEXA. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="close-modal" id="closeModal">&times;</button>
+      <h2>Solicita tu Web</h2>
+      <div class="payment-info">
+        💳 Pago: $2000 CUP via transferencia móvil.
+      </div>
+      <form id="serviceForm">
+        <div class="form-group">
+          <label for="name">Nombre Completo</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono (WhatsApp)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+53..." required inputmode="numeric" pattern="\+53\d{8}" />
+          <small style="color: #aaa; font-size: 0.85rem;">Ejemplo: +5351234567</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo Gmail</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="address">Dirección (Ciudad, Provincia)</label>
+          <input type="text" id="address" name="address" required />
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-cancel" id="cancelForm">Cancelar</button>
+          <button type="submit" class="btn btn-submit">Enviar por WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <script>
-    const modal=document.getElementById("modalOverlay");const openButtons=document.querySelectorAll("#openModal,#openModal2,#openModal3");const closeButtons=document.querySelectorAll("#closeModal,#cancelForm");openButtons.forEach(btn=>{btn.addEventListener("click",()=>{modal.style.display="flex";requestNotificationPermission()})});closeButtons.forEach(btn=>{btn.addEventListener("click",()=>{modal.style.display="none"})});modal.addEventListener("click",e=>{if(e.target===modal){modal.style.display="none"}});function requestNotificationPermission(){if("Notification"in window){Notification.requestPermission()}}const phoneNumber="+5350369270";const form=document.getElementById("serviceForm");form.addEventListener("submit",function(e){e.preventDefault();const name=document.getElementById("name").value.trim();const phone=document.getElementById("phone").value.trim();const email=document.getElementById("email").value.trim();const address=document.getElementById("address").value.trim();if(!phone.startsWith("+53")){alert("Por favor, ingresa un número cubano válido con +53.");return}const message=`Hola KOOWEXA, quiero solicitar el servicio de diseño web.\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\nDirección: ${address}\n\nPrecio: $2000 CUP`;if(Notification.permission==="granted"){new Notification("✅ Solicitud enviada",{body:"Tu mensaje ha sido copiado. Abriendo WhatsApp...",icon:"assets/logo.webp"})}const whatsappUrl=`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;window.open(whatsappUrl,'_blank');modal.style.display="none";setTimeout(()=>{alert("Tu solicitud ha sido procesada. Se ha abierto WhatsApp para confirmar el envío.")},500)});document.getElementById("sendToWhatsApp").addEventListener("click",e=>{e.preventDefault();const defaultMsg="Hola, vi su servicio de diseño web y quiero saber más.";window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMsg)}`,'_blank')});document.getElementById("sendToTelegram").addEventListener("click",e=>{e.preventDefault();window.open("https://t.me/koowexa","_blank")});
+    const html = document.getElementById('html-theme');
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('koowexa-theme') || 'dark';
+    function setTheme(theme) {
+      if (theme === 'light') {
+        html.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '☀️ Oscuro';
+      } else {
+        html.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙 Claro';
+      }
+      localStorage.setItem('koowexa-theme', theme);
+    }
+    setTheme(savedTheme);
+    themeToggle.addEventListener('click', () => {
+      const current = localStorage.getItem('koowexa-theme');
+      setTheme(current === 'light' ? 'dark' : 'light');
+    });
+    const modal = document.getElementById('modalOverlay');
+    const openButtons = document.querySelectorAll('#openModal2');
+    const closeButtons = document.querySelectorAll('#closeModal, #cancelForm');
+    const openModal = () => {
+      modal.style.display = 'flex';
+      requestNotificationPermission();
+    };
+    const closeModal = () => {
+      modal.style.display = 'none';
+    };
+    openButtons.forEach(btn => btn.addEventListener('click', openModal));
+    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+    function requestNotificationPermission() {
+      if ('Notification' in window && Notification.permission !== 'granted') {
+        Notification.requestPermission();
+      }
+    }
+    const phoneNumber = "+5350369270";
+    const form = document.getElementById('serviceForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const address = document.getElementById('address').value.trim();
+      if (!phone.startsWith('+53')) {
+        alert('Por favor, ingresa un número cubano válido con +53.');
+        return;
+      }
+      if (!/^\+53\d{8}$/.test(phone)) {
+        alert('Número inválido. Ejemplo: +5351234567');
+        return;
+      }
+      const message = `Hola KOOWEXA, quiero solicitar el servicio de diseño web.\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\nDirección: ${address}\n\nPrecio: $2000 CUP`;
+      if (Notification.permission === 'granted') {
+        new Notification('✅ Solicitud enviada', {
+          body: 'Abriendo WhatsApp...',
+          icon: 'logo.webp'
+        });
+      }
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      form.reset();
+      closeModal();
+      if (!document.getElementById('toast')) {
+        document.body.insertAdjacentHTML('beforeend', `<div id="toast">✅ Mensaje enviado. Abre WhatsApp para confirmar.</div>`);
+        setTimeout(() => document.getElementById('toast')?.remove(), 3000);
+      }
+    });
+    document.getElementById('sendToWhatsApp').addEventListener('click', () => {
+      const msg = 'Hola, quiero información sobre diseño web.';
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+    document.getElementById('sendToTelegram').addEventListener('click', () => {
+      window.open('https://t.me/koowexa', '_blank');
+    });
   </script>
 </body>
 </html>
