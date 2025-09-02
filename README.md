@@ -15,7 +15,6 @@
 - [🎨 Tipos de Sitios Disponibles](#-tipos-de-sitios-disponibles)
 - [📩 Cómo Solicitar](#-cómo-solicitar)
 - [💡 Preguntas Frecuentes](#-preguntas-frecuentes)
-- [📬 Contacto](#-contacto)
 
 ---
 
@@ -86,18 +85,3 @@ No es necesario. Ofrecemos un subdominio gratuito (ej: `tunegocio.koowexa.cu`).
 
 **¿Funciona con Nauta Hogar?**  
 Sí, los sitios están optimizados para funcionar incluso con conexiones lentas.
-
----
-
-## 📬 Contacto
-
-¿Listo para llevar tu negocio al mundo digital?  
-Contáctanos hoy:
-
-📧 Correo: ejemplo@koowexa.cu  
-💬 WhatsApp: [+53 XXX XXXXX](https://wa.me/53XXXXXXXXX)  
-🌐 Sitio web: [https://koowexa.github.io/website/](https://koowexa.github.io/website/)
-
----
-
-⭐ Si este proyecto te ayudó o te inspiró, compártelo con alguien que lo necesite.
