@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"
+     role="img" aria-labelledby="koo-icon-title koo-icon-desc"
+     class="koo-icon"
+     style="user-select: none; shape-rendering: crispEdges;">
+  <title id="koo-icon-title">KOO</title>
+  <desc id="koo-icon-desc">Icono KOO con animaciones inteligentes, optimizado para rendimiento y accesibilidad.</desc>
+
+  <style>
+    /* === CONFIGURACIÓN DE ANIMACIONES INTELIGENTES === */
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    @keyframes draw {
+      0% { stroke-dashoffset: 70; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes glow {
+      0%, 100% { stop-color: #00cc99; }
+      50% { stop-color: #00ffaa; }
+    }
+
+    /* Reducir animaciones si el usuario lo prefiere */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* === ESTILOS DEL ÍCONO === */
+    .koo-icon {
+      background: none;
+    }
+
+    .bg {
+      fill: #1a1a1a;
+      transition: fill 0.4s ease;
+    }
+
+    .stroke, .ring {
+      stroke: url(#gradient);
+      stroke-width: 3.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .ring {
+      stroke-width: 2.8;
+    }
+
+    .dot {
+      fill: #00cc99;
+      opacity: 0.9;
+      transform-origin: center;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    #k-path {
+      stroke-dasharray: 70;
+      stroke-dashoffset: 70;
+      animation: draw 2s ease-out 0.2s forwards, glow 4s ease-in-out infinite;
+    }
+
+    #dot1 { animation-delay: 0.4s; }
+    #dot2 { animation-delay: 0.8s; }
+
+    /* Hover: pausa/resume animaciones */
+    .koo-icon:hover .dot,
+    .koo-icon:hover #k-path {
+      animation-play-state: paused;
+    }
+
+    /* Modo claro (toggle con JS o clase) */
+    .koo-icon.light .bg {
+      fill: #f8f8f8;
+    }
+
+    .koo-icon.light .stroke,
+    .koo-icon.light .ring {
+      stroke: #009977;
+    }
+
+    .koo-icon.light .dot {
+      fill: #009977;
+    }
+  </style>
+
+  <!-- Fondo -->
+  <rect x="2" y="2" width="60" height="60" rx="16" class="bg"/>
+
+  <!-- Gradiente reutilizable -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00cc99">
+        <animate attributeName="stop-color" values="#00cc99;#00ffaa;#00cc99" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#009977"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Letra K con trazado animado -->
+  <path id="k-path"
+        d="M18 12 v20 l10-20 m-10 20 l10 20 M18 32 v20"
+        class="stroke"/>
+
+  <!-- O1 -->
+  <circle cx="46" cy="22" r="6" class="ring"/>
+  <circle id="dot1" cx="46" cy="22" r="2" class="dot"/>
+
+  <!-- O2 -->
+  <circle cx="46" cy="42" r="6" class="ring"/>
+  <circle id="dot2" cx="46" cy="42" r="2" class="dot"/>
+</svg>

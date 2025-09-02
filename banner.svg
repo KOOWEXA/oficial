@@ -1,0 +1,214 @@
+<svg 
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 300"
+  width="100%"
+  height="100%"
+  preserveAspectRatio="xMidYMid meet"
+  aria-labelledby="banner-title banner-desc"
+  role="img"
+>
+  <title id="banner-title">KOOWEXA - Entorno de Desarrollo Digital</title>
+  <desc id="banner-desc">Banner tecnológico con animaciones suaves, efectos de brillo y movimiento. Representa a KOOWEXA como un entorno de desarrollo digital avanzado.</desc>
+
+  <defs>
+    <!-- Gradiente de fondo -->
+    <linearGradient id="grad-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1a2c" />
+      <stop offset="100%" stop-color="#1e3c6e" />
+    </linearGradient>
+
+    <!-- Patrón de circuito animado -->
+    <pattern id="circuit" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 10 20 M 0 10 L 20 10" fill="none" stroke="#2a4d8c" stroke-width="0.5" opacity="0.3"/>
+      <!-- Punto animado que simula señal -->
+      <circle cx="10" cy="10" r="1.5" fill="#4ecdc4" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0s" />
+        <animate attributeName="r" values="1.5;3;1.5" dur="2s" repeatCount="indefinite" />
+      </circle>
+    </pattern>
+
+    <!-- Gradiente para texto (animado) -->
+    <linearGradient id="grad-text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ecdc4"/>
+      <stop offset="50%" stop-color="#6a9eff"/>
+      <stop offset="100%" stop-color="#c792ea"/>
+      <!-- Animación de desplazamiento de color -->
+      <animate 
+        attributeName="x1" 
+        values="0%;100%;0%" 
+        dur="8s" 
+        repeatCount="indefinite" 
+      />
+      <animate 
+        attributeName="x2" 
+        values="100%;200%;100%" 
+        dur="8s" 
+        repeatCount="indefinite" 
+      />
+    </linearGradient>
+
+    <!-- Filtro de brillo (glow) -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="100%" height="100%" fill="url(#grad-bg)" />
+  <rect width="100%" height="100%" fill="url(#circuit)" fill-opacity="0.15" />
+
+  <!-- Grupo principal centrado -->
+  <g transform="translate(600, 150)">
+    <!-- Icono de chip con brillo -->
+    <g transform="translate(-480, -40)" filter="url(#glow)">
+      <rect x="0" y="0" width="80" height="80" rx="10" fill="none" stroke="#4ecdc4" stroke-width="3"/>
+      <!-- Pines -->
+      <g stroke="#4ecdc4" stroke-width="2">
+        <!-- Izquierda -->
+        <line x1="-10" y1="10" x2="0" y2="10"/>
+        <line x1="-10" y1="20" x2="0" y2="20"/>
+        <line x1="-10" y1="30" x2="0" y2="30"/>
+        <line x1="-10" y1="50" x2="0" y2="50"/>
+        <line x1="-10" y1="60" x2="0" y2="60"/>
+        <line x1="-10" y1="70" x2="0" y2="70"/>
+        <!-- Derecha -->
+        <line x1="80" y1="10" x2="90" y2="10"/>
+        <line x1="80" y1="20" x2="90" y2="20"/>
+        <line x1="80" y1="30" x2="90" y2="30"/>
+        <line x1="80" y1="50" x2="90" y2="50"/>
+        <line x1="80" y1="60" x2="90" y2="60"/>
+        <line x1="80" y1="70" x2="90" y2="70"/>
+        <!-- Arriba -->
+        <line x1="10" y1="-10" x2="10" y2="0"/>
+        <line x1="20" y1="-10" x2="20" y2="0"/>
+        <line x1="30" y1="-10" x2="30" y2="0"/>
+        <line x1="50" y1="-10" x2="50" y2="0"/>
+        <line x1="60" y1="-10" x2="60" y2="0"/>
+        <line x1="70" y1="-10" x2="70" y2="0"/>
+        <!-- Abajo -->
+        <line x1="10" y1="80" x2="10" y2="90"/>
+        <line x1="20" y1="80" x2="20" y2="90"/>
+        <line x1="30" y1="80" x2="30" y2="90"/>
+        <line x1="50" y1="80" x2="50" y2="90"/>
+        <line x1="60" y1="80" x2="60" y2="90"/>
+        <line x1="70" y1="80" x2="70" y2="90"/>
+      </g>
+    </g>
+
+    <!-- Texto principal con animaciones -->
+    <g id="text-group">
+      <!-- Texto KOOWEXA -->
+      <text 
+        x="0" 
+        y="25" 
+        font-family="Arial, sans-serif" 
+        font-size="80" 
+        font-weight="bold" 
+        fill="url(#grad-text)" 
+        text-anchor="middle" 
+        letter-spacing="3"
+        filter="url(#glow)"
+        opacity="0"
+        transform="translate(0, 20)"
+      >
+        KOOWEXA
+        <!-- Animación de entrada -->
+        <animate 
+          attributeName="opacity" 
+          values="0;1" 
+          dur="1s" 
+          begin="0.5s" 
+          fill="freeze" 
+        />
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,20;0,0" 
+          dur="1s" 
+          begin="0.5s" 
+          fill="freeze" 
+          calcMode="ease-out"
+        />
+        <!-- Pulso de brillo -->
+        <animate 
+          attributeName="opacity" 
+          values="1;0.9;1" 
+          dur="3s" 
+          begin="1.5s" 
+          repeatCount="indefinite" 
+        />
+      </text>
+
+      <!-- Subtítulo -->
+      <text 
+        x="0" 
+        y="60" 
+        font-family="Arial, sans-serif" 
+        font-size="20" 
+        fill="#a0d0ff" 
+        text-anchor="middle" 
+        opacity="0"
+        stroke="#0f1a2c" 
+        stroke-width="0.5" 
+        paint-order="stroke fill"
+        transform="translate(0, 15)"
+      >
+        Entorno de Desarrollo Digital
+        <animate 
+          attributeName="opacity" 
+          values="0;0.8;0.9" 
+          dur="1.2s" 
+          begin="1.2s" 
+          fill="freeze" 
+        />
+        <animate 
+          attributeName="transform" 
+          type="translate" 
+          values="0,15;0,0" 
+          dur="1.2s" 
+          begin="1.2s" 
+          fill="freeze" 
+          calcMode="ease-out"
+        />
+      </text>
+
+      <!-- Línea decorativa con escaneo -->
+      <line 
+        x1="-265" 
+        y1="70" 
+        x2="-265" 
+        y2="70" 
+        stroke="#6a9eff" 
+        stroke-width="1.5" 
+        stroke-dasharray="6,4" 
+        opacity="0.6"
+      >
+        <animate 
+          attributeName="x2" 
+          from="-265" 
+          to="265" 
+          dur="4s" 
+          begin="1.5s" 
+          repeatCount="indefinite" 
+          calcMode="spline"
+          keySplines="0.4 0 0.6 1"
+        />
+        <!-- Destello que recorre la línea -->
+        <animate 
+          attributeName="stroke-dashoffset" 
+          values="0;-10" 
+          dur="0.5s" 
+          begin="1.5s;5.5s" 
+          repeatCount="2"
+        />
+      </line>
+    </g>
+
+    <!-- Borde brillante perimetral (estático) -->
+    <rect x="5" y="5" width="1190" height="290" rx="12" fill="none" stroke="url(#grad-text)" stroke-width="1" opacity="0.15"/>
+  </g>
+</svg>
