@@ -31,7 +31,7 @@ Desde solo **$2000 CUP**, puedes tener tu propio sitio web listo en poco tiempo.
 ✅ **Sencillo**: Fácil de gestionar, sin necesidad de experiencia técnica.  
 ✅ **Rápido**: Sitios optimizados para cargar rápido, incluso en conexiones lentas.  
 ✅ **Hospedaje incluido**: Servidor gratuito durante **3 meses**. Sin complicaciones.  
-✅ **Accesible**: Precio pensado para emprendedores y micro negocios en Cuba.  
+✅ **Accesible**: Precio pensado para personas de bajo presupuesto.  
 ✅ **Profesional**: Da una imagen seria y moderna a tu negocio.
 
 ---
@@ -39,7 +39,6 @@ Desde solo **$2000 CUP**, puedes tener tu propio sitio web listo en poco tiempo.
 ## 📦 Qué Incluye
 
 - Diseño responsive (se ve bien en móviles y computadoras)
-- Dominio temporal o subdominio gratuito
 - Hospedaje gratuito por 3 meses
 - Formulario de contacto
 - Integración con WhatsApp
@@ -58,17 +57,15 @@ Ideal si vendes productos. Muestra tu catálogo, precios e imágenes.
 ### ⚙️ Servicios
 Perfecto si ofreces servicios (peluquería, reparaciones, clases, etc.). Destaca tu experiencia y contacto.
 
-> Próximamente: blogs, portafolios y más.
-
 ---
 
 ## 📩 Cómo Solicitar
 
-1. Contáctanos por [WhatsApp](https://wa.me/53XXXXXXXXX) o correo.
+1. Contáctanos por WhatsApp o correo.
 2. Elige el tipo de sitio web (tienda o servicios).
-3. Proporciona información básica: nombre, fotos, precios, descripción, contacto.
-4. Realiza el pago (transferencia, Zelle, efectivo u otra opción disponible).
-5. En pocos días, recibirás el enlace a tu nuevo sitio web.
+3. Proporciona información básica: nombre, fotos, precios, descripción, contacto y otros.
+4. Realiza el pago transferencia.
+5. En pocos tiempo, recibirás el enlace a tu sitio web.
 
 ---
 
