@@ -1,6 +1,6 @@
-# 🌐 Koowexa - Sitios Web para Negocios en Cuba
+# 🌐 Koowexa - Sitios Web
 
-> Herramientas simples y accesibles para que tu negocio tenga presencia virtual en Cuba, desde solo **$2000 CUP**.
+> Herramientas simples y accesibles para que tu negocio tenga presencia virtual en Cuba.
 
 ![Banner Koowexa](https://koowexa.github.io/website/banner.gif)
 
