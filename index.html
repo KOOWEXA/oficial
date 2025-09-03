@@ -538,7 +538,7 @@
           <label for="method">¿Cómo deseas enviar tu solicitud?</label>
           <select id="method" name="method" required>
             <option value="">Selecciona una opción</option>
-            <option value="whatsapp">WhatsApp al +53 50 369270</option>
+            <option value="whatsapp">WhatsApp al +53 50369270</option>
             <option value="email">Correo a koowexa@gmail.com</option>
           </select>
         </div>
@@ -590,9 +590,9 @@
     }
     const shareButton = document.getElementById('shareButton');
     const shareData = {
-      title: 'KOOWEXA - Sitio Web Profesional desde $2000 CUP',
-      text: '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores.',
-      url: 'https://koowexa.github.io/WEBSITE/'
+      title: 'KOOWEXA',
+      text: '¿Tienes un negocio pero aun no tienes pagina web? Consigue tu pagina web con un coste económico de $2000/CUP + un 10% de descuento, desde ahora Podrás mostrar tu negocio con presencia digital.',
+      url: 'https://koowexa.github.io/website/'
     };
     if (navigator.share && navigator.canShare?.(shareData)) {
       shareButton.addEventListener('click', async () => {
@@ -609,7 +609,7 @@
     }
     function fallbackShare() {
       const message = encodeURIComponent(
-        '¿Tienes un negocio en Cuba? ¡Consigue tu sitio web profesional desde solo $2000 CUP! Rápido, económico y optimizado para Cuba. Ideal para freelancers y emprendedores. 👉 https://koowexa.github.io/WEBSITE/'
+        '¿Tienes un negocio pero aun no tienes pagina web? Consigue tu pagina web con un coste económico de $2000/CUP + un 10% de descuento, desde ahora Podrás mostrar tu negocio con presencia digital. 👉 https://koowexa.github.io/WEBSITE/'
       );
       window.open(`https://wa.me/?text=${message}`, '_blank', 'noopener');
     }
