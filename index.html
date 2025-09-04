@@ -3,20 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KOOWEXA - WEBSITE</title>
-  <meta name="description" content="El sitio web Ideal para tu negocio." />
-  <meta name="keywords" content="Cuba, KOOWEXA" />
+  <title>KOOWEXA - OFICIAL</title>
+  <meta name="description" content="Diseño de sitios web económicos y profesionales para emprendedores en Cuba." />
+  <meta name="keywords" content="cuba, económico, emprendedores, online, KOOWEXA" />
   <meta name="author" content="KOOWEXA" />
-  <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="KOOWEXA - WEBSITE" />
-  <meta property="og:description" content="El sitio web Ideal para tu negocio." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://koowexa.github.io/oficial/" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="KOOWEXA - OFICIAL" />
+  <meta property="og:description" content="Diseño de sitios web económicos y profesionales para emprendedores en Cuba." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://koowexa.github.io/website/" />
-  <meta property="og:image" content="assets/banner.svg" />
+  <meta property="og:url" content="https://koowexa.github.io/oficial/" />
+  <meta property="og:image" content="https://koowexa.github.io/oficial/assets/banner.svg" />
+  <meta property="og:image:alt" content="KOOWEXA" />
+  <meta property="og:site_name" content="KOOWEXA" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@koowexa" />
+  <meta name="twitter:title" content="KOOWEXA - OFICIAL" />
+  <meta name="twitter:description" content="Tu presencia digital profesional." />
+  <meta name="twitter:image" content="https://koowexa.github.io/oficial/assets/banner.svg" />
+
+  <!-- Favicon mejorado (múltiples tamaños y formatos) -->
   <link rel="icon" type="image/svg" href="logo.svg" sizes="32x32" />
-  <link rel="apple-touch-icon" href="logo.jpeg" />
+  <link rel="icon" type="image/svg" href="logo.svg" sizes="192x192" />
+  <link rel="apple-touch-icon" href="logo.svg" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // Reemplaza con tu ID real
+  </script>
+
+  <!-- Preload font -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+
   <style>
     :root {
       --bg-primary: #000;
@@ -221,12 +252,32 @@
       font-size: 0.95rem;
       line-height: 1.5;
     }
-    .price {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 20px 0;
+
+    /* Descuento */
+    .discount-badge {
+      background: linear-gradient(45deg, #ff4081, #e91e63);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin: 10px 0;
+      box-shadow: 0 2px 8px rgba(255, 64, 129, 0.3);
     }
+    .price-original {
+      text-decoration: line-through;
+      color: #888;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    .price-final {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #0f9d58;
+      margin: 10px 0;
+    }
+
     .footer-social {
       display: flex;
       justify-content: center;
@@ -462,13 +513,13 @@
         <img src="banner.svg" alt="KOOWEXA" width="500" height="300" loading="lazy" />
       </div>
       <p>económico y flexible. La mayoría de las personas que desean tener una página web se preocupan por el alto coste, sin dejar de mencionar los grandes beneficios que conlleva: presencia profesional, confiabilidad y crecimiento para tu negocio.</p>
-      <button class="cta-button openModal">‼️ Solicitar Ya ‼️</button>
+      <button class="cta-button openModal">‼️ Solicitar Ya con Descuento ‼️</button>
     </div>
   </section>
   <main class="service">
     <div class="container">
       <h2 class="section-title">Sobre el Servicio</h2>
-      <p class="section-subtitle">Se ofrece las herramientas necesarias para mostrar tu presencia de forma virtual. Esto puede traer grandes beneficios <strong>para ti y tu negocio</strong>, si te interesa.</p>
+      <p class="section-subtitle">Se ofrecen las herramientas necesarias para mostrar tu presencia de forma virtual. Esto puede traer grandes beneficios <strong>para ti y tu negocio</strong>, si te interesa.</p>
       <div class="service-features">
         <div class="feature-card">
           <h3>Sencillo</h3>
@@ -488,9 +539,14 @@
         </div>
       </div>
       <div style="text-align: center; margin-top: 30px;">
-        <div class="price">$2000 / CUP</div>
+        <div class="discount-badge">🔥 10% de DESCUENTO por tiempo limitado</div>
+        <div class="price-original">$2000 CUP</div>
+        <div class="price-final">$1800 CUP</div>
+        <small style="color: #aaa; display: block; margin-bottom: 16px;">
+          ✅ Incluye 3 meses de hospedaje + subdominio, solo para primerisos.
+        </small>
         <img src="banner.gif" alt="KOOWEXA" width="500" height="300" loading="lazy" style="max-width: 100%; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); border: 1px solid var(--border);" />
-        <button class="cta-button openModal">‼️ Solicitar Ya ‼️</button>
+        <button class="cta-button openModal">‼️ Solicitar Ya con Descuento ‼️</button>
       </div>
     </div>
   </main>
@@ -505,7 +561,7 @@
       </div>
       <p style="font-size: 0.85rem; color: #aaa;">
         &copy; 2025 KOOWEXA.<br>
-        Conectamos tu negocio con el mundo digital.
+        Conectamos tu negocio con el mundo.
       </p>
     </div>
   </footer>
@@ -514,7 +570,7 @@
       <button class="close-modal" id="closeModal">&times;</button>
       <h2>Solicita tu Web</h2>
       <div class="payment-info">
-        💳 Pago: $2000 CUP via transferencia móvil.
+        💳 Pago: $1800 CUP (10% OFF) via transferencia móvil.
       </div>
       <form id="serviceForm">
         <div class="form-group">
@@ -533,13 +589,14 @@
         <div class="form-group">
           <label for="address">Dirección (Ciudad, Provincia)</label>
           <input type="text" id="address" name="address" required />
+          <small style="color: #aaa; font-size: 0.85rem;">Ejemplo: La Habana, Artemisa</small>
         </div>
         <div class="form-group">
           <label for="method">¿Cómo deseas enviar tu solicitud?</label>
           <select id="method" name="method" required>
             <option value="">Selecciona una opción</option>
-            <option value="whatsapp">WhatsApp al +53 50369270</option>
-            <option value="email">Correo a koowexa@gmail.com</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="email">Gmail</option>
           </select>
         </div>
         <div class="form-actions">
@@ -549,6 +606,7 @@
       </form>
     </div>
   </div>
+
   <script>
     const html = document.getElementById('html-theme');
     const themeToggle = document.getElementById('themeToggle');
@@ -568,6 +626,7 @@
       const current = localStorage.getItem('koowexa-theme');
       setTheme(current === 'light' ? 'dark' : 'light');
     });
+
     const modal = document.getElementById('modalOverlay');
     const openButtons = document.querySelectorAll('.openModal');
     const closeButtons = document.querySelectorAll('#closeModal, #cancelForm');
@@ -588,11 +647,12 @@
         Notification.requestPermission();
       }
     }
+
     const shareButton = document.getElementById('shareButton');
     const shareData = {
       title: 'KOOWEXA',
       text: '¿Tienes un negocio pero aun no tienes pagina web? Consigue tu pagina web con un coste económico de $2000/CUP + un 10% de descuento, desde ahora Podrás mostrar tu negocio con presencia digital.',
-      url: 'https://koowexa.github.io/website/'
+      url: 'https://koowexa.github.io/oficial/'
     };
     if (navigator.share && navigator.canShare?.(shareData)) {
       shareButton.addEventListener('click', async () => {
@@ -609,36 +669,70 @@
     }
     function fallbackShare() {
       const message = encodeURIComponent(
-        '¿Tienes un negocio pero aun no tienes pagina web? Consigue tu pagina web con un coste económico de $2000/CUP + un 10% de descuento, desde ahora Podrás mostrar tu negocio con presencia digital. 👉 https://koowexa.github.io/WEBSITE/'
+        '¿Tienes un negocio pero aun no tienes pagina web? Consigue tu pagina web con un coste económico de $2000/CUP + un 10% de descuento, desde ahora Podrás mostrar tu negocio con presencia digital. 👉 https://koowexa.github.io/oficial/ '
       );
       window.open(`https://wa.me/?text=${message}`, '_blank', 'noopener');
     }
+
     const form = document.getElementById('serviceForm');
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
       const address = document.getElementById('address').value.trim();
       const method = document.getElementById('method').value;
+
+      // Validación de nombre
+      if (name.length < 3) {
+        alert('Por favor, ingresa un nombre completo válido.');
+        return;
+      }
+
+      // Validación de teléfono cubano
       if (!/^\+53\d{8}$/.test(phone)) {
         alert('Por favor, ingresa un número válido de Cuba. Ejemplo: +5351234567');
         return;
       }
-      const message = `Hola KOOWEXA, quiero solicitar el servicio de diseño web.\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\nDirección: ${address}\n\nPrecio: $2000 CUP`;
+
+      // Validación de Gmail
+      if (!email.endsWith('@gmail.com') || !/^[^\s@]+@gmail\.com$/.test(email)) {
+        alert('Por favor, usa una dirección de correo válida de Gmail.');
+        return;
+      }
+
+      // Validación de dirección
+      const parts = address.split(',').map(part => part.trim());
+      if (parts.length < 2 || parts[0].length < 2 || parts[1].length < 2) {
+        alert('Por favor, ingresa ciudad y provincia separadas por coma. Ej: La Habana, Artemisa');
+        return;
+      }
+
+      if (!method) {
+        alert('Por favor, selecciona cómo deseas enviar tu solicitud.');
+        return;
+      }
+
+      const city = parts[0];
+      const province = parts[1];
+      const message = `Hola KOOWEXA, quiero solicitar el servicio con descuento.\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\nCiudad: ${city}\nProvincia: ${province}\n\nPrecio: $1800 CUP (10% OFF)\n\n¿Cómo procedo?`;
+
       if (method === 'whatsapp') {
         const whatsappUrl = `https://wa.me/5350369270?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank', 'noopener');
       } else if (method === 'email') {
-        const mailtoUrl = `mailto:koowexa@gmail.com?subject=Solicitud de Sitio Web&body=${encodeURIComponent(message)}`;
+        const mailtoUrl = `mailto:koowexa@gmail.com?subject=Solicitud con Descuento - Sitio Web&body=${encodeURIComponent(message)}`;
         window.open(mailtoUrl, '_blank', 'noopener');
       }
+
       if (Notification.permission === 'granted') {
         new Notification('✅ Solicitud enviada', {
-          body: `Tu mensaje se ha preparado para ${method === 'whatsapp' ? 'WhatsApp' : 'correo'}.`,
+          body: `Te contactaremos pronto por ${method === 'whatsapp' ? 'WhatsApp' : 'correo'}.`,
           icon: 'logo.jpeg'
         });
       }
+
       if (!document.getElementById('toast')) {
         const toast = document.createElement('div');
         toast.id = 'toast';
@@ -646,8 +740,15 @@
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 3000);
       }
+
       form.reset();
       closeModal();
+
+      // Evento de Google Analytics
+      gtag('event', 'submit_form', {
+        'event_category': 'Formulario',
+        'event_label': 'Solicitud con descuento'
+      });
     });
   </script>
 </body>
