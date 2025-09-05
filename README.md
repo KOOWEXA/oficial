@@ -1,84 +1,48 @@
-# 🌐 Koowexa - Sitios Web
+# 🌐 KOOWEXA — Tu Presencia Digital en Cuba
 
-> Herramientas simples y accesibles para que tu negocio tenga presencia virtual en Cuba.
+> **Diseño de sitios web económicos y profesionales para emprendedores en Cuba.**  
+> 🚀 Sencillo • Rápido • Incluye hospedaje • Ideal para conexiones lentas.
 
-![Banner Koowexa](https://koowexa.github.io/website/banner.gif)
-
----
-
-## 📌 Índice
-
-- [📌 Índice](#-índice)
-- [✨ Sobre el Servicio](#-sobre-el-servicio)
-- [🚀 Beneficios](#-beneficios)
-- [📦 Qué Incluye](#-qué-incluye)
-- [🎨 Tipos de Sitios Disponibles](#-tipos-de-sitios-disponibles)
-- [📩 Cómo Solicitar](#-cómo-solicitar)
-- [💡 Preguntas Frecuentes](#-preguntas-frecuentes)
+[![Vista Previa](https://koowexa.github.io/oficial/assets/banner.svg)](https://koowexa.github.io/oficial/)
 
 ---
 
-## ✨ Sobre el Servicio
+## 📌 ¿Qué es KOOWEXA?
 
-En **Koowexa**, creemos que toda persona o negocio en Cuba merece tener una presencia en línea, sin importar la conexión o el conocimiento técnico. Por eso ofrecemos sitios web simples, rápidos y funcionales, diseñados especialmente para el entorno cubano.
+KOOWEXA es una iniciativa orientada a ayudar a emprendedores en Cuba a crear una **presencia digital profesional** con sitios web económicos, fáciles de gestionar y optimizados para entornos con conectividad limitada.
 
-Desde solo **$2000 CUP**, puedes tener tu propio sitio web listo en poco tiempo.
-
----
-
-## 🚀 Beneficios
-
-✅ **Sencillo**: Fácil de gestionar, sin necesidad de experiencia técnica.  
-✅ **Rápido**: Sitios optimizados para cargar rápido, incluso en conexiones lentas.  
-✅ **Hospedaje incluido**: Servidor gratuito durante **3 meses**. Sin complicaciones.  
-✅ **Accesible**: Precio pensado para personas de bajo presupuesto.  
-✅ **Profesional**: Da una imagen seria y moderna a tu negocio.
+Este repositorio contiene el código fuente del sitio web oficial de KOOWEXA, desplegado mediante **GitHub Pages**, y sirve como ejemplo de una página informativa funcional, accesible y centrada en el usuario.
 
 ---
 
-## 📦 Qué Incluye
+## ✨ Características Principales
 
-- Diseño responsive (se ve bien en móviles y computadoras)
-- Hospedaje gratuito por 3 meses
-- Formulario de contacto
-- Integración con WhatsApp
-- Soporte básico durante el desarrollo
-- Optimización para bajas velocidades de internet
-
----
-
-## 🎨 Tipos de Sitios Disponibles
-
-Puedes elegir el tipo de sitio que mejor se ajuste a tu negocio:
-
-### 🛍️ Tienda Virtual
-Ideal si vendes productos. Muestra tu catálogo, precios e imágenes.
-
-### ⚙️ Servicios
-Perfecto si ofreces servicios (peluquería, reparaciones, clases, etc.). Destaca tu experiencia y contacto.
+- ✅ **Diseño económico**: Sitios desde $1800 CUP (con descuento).
+- 🇨🇺 **Optimizado para Cuba**: Páginas ligeras, rápidas y funcionales incluso en conexiones lentas.
+- 🏠 **Hospedaje incluido**: 3 meses de alojamiento gratuito + subdominio.
+- 🛒 **Tipos de sitios**: Opciones para tiendas online o páginas de servicios.
+- 📱 **Formulario de contacto**: Solicita tu sitio web directamente desde el navegador.
+- 🌙 **Modo oscuro/claro**: Cambia el tema según tu preferencia (guardado en `localStorage`).
+- 📲 **Compartir fácil**: Botón de compartir integrado (Web Share API).
+- 🔔 **Notificaciones opcionales**: Aviso cuando se envía una solicitud.
 
 ---
 
-## 📩 Cómo Solicitar
+## 🔗 Enlaces Oficiales
 
-1. Contáctanos por WhatsApp o correo.
-2. Elige el tipo de sitio web (tienda o servicios).
-3. Proporciona información básica: nombre, fotos, precios, descripción, contacto y otros.
-4. Realiza el pago transferencia.
-5. En pocos tiempo, recibirás el enlace a tu sitio web.
+- 🌐 **Sitio Web**: [https://koowexa.github.io/oficial/](https://koowexa.github.io/oficial/)
+- 📺 **YouTube**: [@koowexa](https://youtube.com/@koowexa)
+- 💬 **WhatsApp Canal**: [Unirse al canal](https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w)
+- ✈️ **Telegram**: [@KOOWEXA](https://t.me/KOOWEXA)
+- 🐦 **X (Twitter)**: [@koowexa](https://x.com/koowexa)
 
 ---
 
-## 💡 Preguntas Frecuentes
+## 🖼️ Capturas de Pantalla
 
-**¿Qué pasa después de los 3 meses de hospedaje?**  
-Puedes renovar el hospedaje por una pequeña tarifa o exportar tu sitio.
+### Vista Principal
+![Banner de KOOWEXA](https://koowexa.github.io/oficial/assets/banner.svg)
 
-**¿Puedo actualizar el contenido después?**  
-Sí, ofrecemos planes de mantenimiento o te enseñamos a hacerlo tú mismo.
-
-**¿Necesito tener dominio propio?**  
-No es necesario. Ofrecemos un subdominio gratuito (ej: `tunegocio.koowexa.cu`).
-
-**¿Funciona con Nauta Hogar?**  
-Sí, los sitios están optimizados para funcionar incluso con conexiones lentas.
+### Modal de Solicitud
+![Formulario de contacto](https://koowexa.github.io/oficial/assets/modal-preview.png)  
+*Ejemplo del formulario para solicitar una página web.*
