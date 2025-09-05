@@ -1,4 +1,4 @@
-# 🌐 KOOWEXA — Tu Presencia Digital en Cuba
+# 🌐 KOOWEXA
 
 > **Diseño de sitios web económicos y profesionales para emprendedores en Cuba.**  
 > 🚀 Sencillo • Rápido • Incluye hospedaje • Ideal para conexiones lentas.
@@ -35,14 +35,3 @@ Este repositorio contiene el código fuente del sitio web oficial de KOOWEXA, de
 - 💬 **WhatsApp Canal**: [Unirse al canal](https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w)
 - ✈️ **Telegram**: [@KOOWEXA](https://t.me/KOOWEXA)
 - 🐦 **X (Twitter)**: [@koowexa](https://x.com/koowexa)
-
----
-
-## 🖼️ Capturas de Pantalla
-
-### Vista Principal
-![Banner de KOOWEXA](https://koowexa.github.io/oficial/assets/banner.svg)
-
-### Modal de Solicitud
-![Formulario de contacto](https://koowexa.github.io/oficial/assets/modal-preview.png)  
-*Ejemplo del formulario para solicitar una página web.*
