@@ -1,104 +1,871 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOOWEXA</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="KOOWEXA - Soluciones simples." />
+  <meta name="keywords" content="KOOWEXA, Económico, Cuba, Eficiencia, WhatsApp, Simplicidad" />
+  <meta property="og:title" content="KOOWEXA" />
+  <meta property="og:description" content="Soluciones digitales simples." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koowexa.github.io/oficial/" />
+  <meta property="og:image" content="banner.gif" />
+  <title>KOOWEXA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Variables CSS para consistencia */
+    :root {
+      --primary-dark: #0f1624;
+      --secondary-dark: #1a2238;
+      --accent-blue: #00d8ff;
+      --accent-purple: #7a00e6;
+      --text-light: #e0e0e0;
+      --text-gray: #bdc3c7;
+      --success: #4CAF50;
+      --warning: #FF9800;
+      --error: #f44336;
+      --transition: all 0.3s ease;
+      --border-radius: 16px;
+      --box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
 
-        :root {
-            --primary: #00d2ff;
-            --dark: #0f0f23;
-            --light: #ffffff;
-            --gradient: linear-gradient(135deg, var(--primary), #3a7bd5);
-        }
+    /* Reset y base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark);
-            color: var(--light);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--primary-dark);
+      color: var(--text-light);
+      line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        .container {
-            padding: 2rem;
-            max-width: 600px;
-            width: 90%;
-        }
+    /* --- BANNER TEMPORAL MEJORADO --- */
+    .intro-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e3c72, #0f1624);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      color: white;
+      text-align: center;
+      animation: fadeIn 1s ease-out forwards;
+    }
 
-        .logo {
-            font-size: 4rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
+    .intro-banner.hiding {
+      animation: fadeOut 0.8s ease-in forwards;
+    }
 
-        .status {
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.5rem;
-        }
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.95); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+      }
+    }
 
-        .message {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            opacity: 0.85;
-            margin-bottom: 2rem;
-        }
+    @keyframes fadeOut {
+      from { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+      }
+      to { 
+        opacity: 0; 
+        transform: translateY(-20px) scale(0.95); 
+        visibility: hidden;
+      }
+    }
 
-        .maintenance-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-        }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 1.5rem;
+      animation: slideIn 1s ease-out 0.3s both;
+    }
 
-        .maintenance-icon svg {
-            width: 100%;
-            height: 100%;
-            fill: none;
-            stroke: var(--primary);
-            stroke-width: 2;
-        }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 3rem;
-            }
-            .message {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    .logo-temp {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--accent-blue);
+      animation: pulse 1.5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { 
+        transform: scale(1); 
+        box-shadow: 0 0 10px rgba(0, 200, 255, 0.5); 
+      }
+      100% { 
+        transform: scale(1.05); 
+        box-shadow: 0 0 20px rgba(0, 200, 255, 0.8); 
+      }
+    }
+
+    .intro-banner .koo {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .intro-banner .wexa {
+      font-weight: 700;
+      animation: flicker 1.2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      10% { opacity: 0.3; }
+      20% { opacity: 1; }
+      30% { opacity: 0.5; }
+      40% { opacity: 1; }
+      50% { opacity: 0.2; }
+      60% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    .intro-banner h2 {
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-banner p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .countdown {
+      position: absolute;
+      bottom: 30px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .progress-bar {
+      width: 200px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 100%;
+      background: var(--accent-blue);
+      animation: progress 5s linear forwards;
+    }
+
+    @keyframes progress {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+
+    /* --- HEADER MEJORADO --- */
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      border-bottom: 1px solid #334e68;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: cover;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .koo {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .wexa {
+      font-weight: 700;
+      animation: flicker 1.5s infinite alternate;
+      animation-delay: 0.5s;
+    }
+
+    header p {
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    /* --- BOTÓN DE AYUDA MEJORADO --- */
+    .help-button-inline {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .help-button-inline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+    }
+
+    .help-button-inline:active {
+      transform: translateY(0);
+    }
+
+    /* --- VENTANA EMERGENTE CHATBOT MEJORADA --- */
+    .chat-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .chat-modal.active {
+      opacity: 1;
+    }
+
+    .chat-modal-content {
+      width: 90%;
+      max-width: 400px;
+      background: var(--secondary-dark);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .chat-modal.active .chat-modal-content {
+      transform: translateY(0);
+    }
+
+    .chat-header {
+      background: var(--primary-dark);
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334e68;
+    }
+
+    .chat-header h3 {
+      color: var(--accent-blue);
+      font-size: 1.1rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      display: inline-block;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-light);
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      border-radius: 50%;
+    }
+
+    .close-btn:hover {
+      color: #ff4d4d;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .chat-messages {
+      padding: 16px;
+      min-height: 120px;
+      max-height: 300px;
+      overflow-y: auto;
+      background: var(--primary-dark);
+      border-bottom: 1px solid #334e68;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Personalizar scrollbar */
+    .chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-messages::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+      background: var(--accent-blue);
+      border-radius: 3px;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 18px;
+      line-height: 1.4;
+      font-size: 0.95rem;
+      animation: messageAppear 0.3s ease;
+    }
+
+    @keyframes messageAppear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bot {
+      background: #e5e5ea;
+      color: #000;
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .user {
+      background: #007BFF;
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .typing-indicator {
+      display: none;
+      background: #e5e5ea;
+      color: #000;
+      align-self: flex-start;
+      border-radius: 18px;
+      padding: 10px 14px;
+      border-bottom-left-radius: 4px;
+    }
+
+    .typing-indicator span {
+      height: 8px;
+      width: 8px;
+      background: #888;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 4px;
+      animation: typing 1.3s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      background: #161f30;
+      justify-content: center;
+    }
+
+    .quick-replies button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 7px 11px;
+      border-radius: 15px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .quick-replies button:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    /* --- MAIN MEJORADO --- */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      padding: 1.8rem;
+      background: var(--secondary-dark);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
+    section:hover::before {
+      transform: scaleX(1);
+    }
+
+    h2 {
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 i {
+      font-size: 1.4rem;
+    }
+
+    p {
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0.5rem;
+      margin: 1.2rem 0;
+    }
+
+    li {
+      margin: 0.7rem 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    li:hover {
+      transform: translateX(5px);
+    }
+
+    li i {
+      color: var(--accent-blue);
+      font-size: 0.8rem;
+    }
+
+    /* --- FOOTER MEJORADO --- */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--primary-dark);
+      color: var(--text-gray);
+      border-top: 1px solid #334e68;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-gray);
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+
+    /* --- RESPONSIVE MEJORADO --- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .intro-banner h2 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 1.3rem;
+      }
+      
+      h2 {
+        font-size: 1.4rem;
+      }
+      
+      .chat-modal-content {
+        width: 95%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .intro-banner h2 {
+        font-size: 1.6rem;
+      }
+      
+      .logo-temp {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .help-button-inline {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+      
+      .message {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="logo">KOOWEXA</h1>
-        <div class="status">En Mantenimiento</div>
-        <p class="message">
-            Estamos realizando mejoras para brindarte una experiencia aún más extraordinaria. Pronto regresaremos.
-        </p>
-        <div class="maintenance-icon">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="40" />
-                <path d="M50 30v15l15 10" stroke-linecap="round" />
-            </svg>
-        </div>
+  <!-- Banner de inicio -->
+  <div class="intro-banner" id="introBanner">
+    <div class="logo-container">
+      <div class="logo-temp"></div>
+      <h2><span class="koo">KOO</span><span class="wexa">WEXA</span></h2>
     </div>
+    <p>Soluciones simples.</p>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <header>
+    <h1><span class="koo">KOO</span><span class="wexa">WEXA</span></h1>
+    <p>Soluciones digitales simples.</p>
+    <button class="help-button-inline" id="helpButton">
+      <i class="fas fa-robot"></i> Asistente OWE
+    </button>
+  </header>
+
+  <main>
+    <section>
+      <h2><i class="fas fa-info-circle"></i> Acerca de KOOWEXA</h2>
+      <p>KOOWEXA es una iniciativa enfocada en ofrecer soluciones digitales simples y efectivas.</p>
+      <p>Nuestro objetivo es facilitar el acceso a herramientas que mejoren la productividad y comunicación.</p>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-bolt"></i> Objetivos</h2>
+      <ul>
+        <li><i class="fas fa-chevron-right"></i> Desarrollo autónomo</li>
+        <li><i class="fas fa-chevron-right"></i> Soluciones prácticas</li>
+        <li><i class="fas fa-chevron-right"></i> Asistencialidad</li>
+        <li><i class="fas fa-chevron-right"></i> Simplicidad</li>
+        <li><i class="fas fa-chevron-right"></i> Optimización</li>
+        <li><i class="fas fa-chevron-right"></i> Conectividad</li>
+        <li><i class="fas fa-chevron-right"></i> Utilidad</li>
+        <li><i class="fas fa-chevron-right"></i> Efectividad</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-comments"></i> Contacto</h2>
+      <p>Consultas y dudas a través de WhatsApp</p>
+      <p><strong>+53 50369270</strong></p>
+      <p>O utiliza el (Asistente OWE) para obtener respuestas rápidas.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>KOOWEXA &copy; 2025. Todos los derechos reservados.</p>
+    <p>Dedicación a tiempo completo</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/groups/1276723940400746/?ref=share&mibextid=NSMWBT" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/koowexa" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://t.me/koowexa" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+
+  <!-- Chatbot OWE -->
+  <div class="chat-modal" id="chatModal">
+    <div class="chat-modal-content">
+      <div class="chat-header">
+        <h3><span class="status-indicator"></span> Asistente OWE</h3>
+        <button class="close-btn" id="closeChat">&times;</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+          Soy OWE, tu asistente personal de KOOWEXA. ¿En qué puedo ayudarte hoy?
+        </div>
+      </div>
+      <div class="quick-replies" id="quickReplies">
+        <!-- Las preguntas se generan dinámicamente con JS -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Base de conocimiento mejorada, inteligente y persuasiva
+    const knowledgeBase = {
+      "saludos": [
+        "¡Hola! Soy OWE, tu asistente personal de KOOWEXA. ¿En qué puedo ayudarte hoy?",
+      ],
+      "servicio": [
+        "Sí, puedes obtener una herramienta completa para tu negocio: tienda o servicios, con servidor incluido durante 3 meses, sin costo alguno. Solo necesitas iniciar tu presencia virtual. ¡No pierdas esta oportunidad única!"
+      ],
+      "buscar": [
+        "Claro, puedes encontrar KOOWEXA fácilmente en Google buscando 'KOOWEXA - OFICIAL'."
+      ],
+      "precios": [
+        "La herramienta tiene un costo único de $2000 CUP, pero ¡espera! Durante los primeros 3 meses, el hospedaje y el mantenimiento están totalmente GRATIS. Es decir: tú pagas solo la configuración inicial, y nosotros nos encargamos del resto. Una inversión mínima por un retorno máximo."
+      ],
+      "descuento": [
+        "Claramente, si es primera vez que solicitas el servicio obtienes un bono del 10% de descuento."
+      ],
+      "redes": [
+        "KOOWEXA está presente en WhatsApp, Telegram, Facebook, Twitter, aunque nuestro foco es la simplitud: lo que realmente importa es tu presencia en internet, no las redes sociales."
+      ],
+      "koowexa": [
+        "KOOWEXA es una iniciativa cubana diseñada para que emprendedores y pequeños negocios tengan una presencia digital profesional SIN complicaciones. Ofrecemos herramientas simples, rápidas y optimizadas para conexiones lentas — perfectas para Cuba. Ya sea una tienda online o un catálogo de servicios, lo hacemos accesible, económico y efectivo."
+      ],
+      "despedida": [
+        "Gracias por confiar en KOOWEXA. Recuerda: tu presencia virtual es tu puerta al mercado. ¡No la dejes cerrada! Si necesitas ayuda, vuelve cuando quieras. ¡Eres importante para nosotros!"
+      ],
+      "default": [
+        "¿Quieres saber cómo obtener tu herramienta sin costo? escribe por WhatsApp al numero: (50369270) para que sepas cómo será el plan gratis."
+      ]
+    };
+
+    // Función para encontrar la mejor respuesta
+    function findBestResponse(userMessage) {
+      userMessage = userMessage.toLowerCase();
+      
+      if (userMessage.includes('hola') || userMessage.includes('hi') || userMessage.includes('buenas')) {
+        return getRandomResponse(knowledgeBase.saludos);
+      } else if (userMessage.includes('servicio') || userMessage.includes('qué ofrecen') || userMessage.includes('qué hacen') || userMessage.includes('qué es')) {
+        return getRandomResponse(knowledgeBase.servicio);
+      } else if (userMessage.includes('buscar') || userMessage.includes('google') || userMessage.includes('encontrar') || userMessage.includes('dónde está')) {
+        return getRandomResponse(knowledgeBase.buscar);
+      } else if (userMessage.includes('precio') || userMessage.includes('cuesta') || userMessage.includes('coste') || userMessage.includes('cuánto')) {
+        return getRandomResponse(knowledgeBase.precios);
+      } else if (userMessage.includes('descuento') || userMessage.includes('oferta') || userMessage.includes('barato')) {
+        return getRandomResponse(knowledgeBase.descuento);
+      } else if (userMessage.includes('redes') || userMessage.includes('facebook') || userMessage.includes('telegram') || userMessage.includes('instagram') || userMessage.includes('twitter')) {
+        return getRandomResponse(knowledgeBase.redes);
+      } else if (userMessage.includes('koowexa') || userMessage.includes('qué es') || userMessage.includes('quienes son') || userMessage.includes('de qué trata')) {
+        return getRandomResponse(knowledgeBase.koowexa);
+      } else if (userMessage.includes('adiós') || userMessage.includes('chao') || userMessage.includes('hasta luego') || userMessage.includes('gracias')) {
+        return getRandomResponse(knowledgeBase.despedida);
+      } else {
+        return getRandomResponse(knowledgeBase.default);
+      }
+    }
+
+    // Función para obtener una respuesta aleatoria
+    function getRandomResponse(responses) {
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    // DOM Elements
+    const introBanner = document.getElementById('introBanner');
+    const helpButton = document.getElementById('helpButton');
+    const chatModal = document.getElementById('chatModal');
+    const closeChat = document.getElementById('closeChat');
+    const chatMessages = document.getElementById('chatMessages');
+    const quickReplies = document.getElementById('quickReplies');
+
+    // Ocultar banner después de 5 segundos
+    setTimeout(() => {
+      introBanner.classList.add('hiding');
+      setTimeout(() => {
+        introBanner.style.display = 'none';
+      }, 800);
+    }, 5000);
+
+    // Mostrar/ocultar chat
+    helpButton.addEventListener('click', () => {
+      chatModal.style.display = 'flex';
+      setTimeout(() => {
+        chatModal.classList.add('active');
+      }, 10);
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatModal.classList.remove('active');
+      setTimeout(() => {
+        chatModal.style.display = 'none';
+      }, 300);
+    });
+
+    // Cerrar modal al hacer clic fuera
+    chatModal.addEventListener('click', (e) => {
+      if (e.target === chatModal) {
+        chatModal.classList.remove('active');
+        setTimeout(() => {
+          chatModal.style.display = 'none';
+        }, 300);
+      }
+    });
+
+    // Actualizar botones de respuesta rápida con preguntas persuasivas
+    quickReplies.innerHTML = `
+      <button data-question="¿Puedo obtener un plan gratuito?">Plan Gratis</button>
+      <button data-question="¿Puedo buscar esta página en Google?">Buscar en Google</button>
+      <button data-question="¿Cuánto cuesta tener esta herramienta?">Costo</button>
+      <button data-question="¿Puedo obtener un descuento?">Descuento</button>
+      <button data-question="¿En qué redes sociales se encuentra KOOWEXA?">Redes Sociales</button>
+      <button data-question="¿Qué objetivos tiene y de qué trata KOOWEXA?">Sobre KOOWEXA</button>
+    `;
+
+    quickReplies.addEventListener('click', (e) => {
+      if (e.target.tagName === 'BUTTON') {
+        const question = e.target.getAttribute('data-question');
+        addMessage(question, 'user');
+        setTimeout(() => {
+          respondToMessage(question);
+        }, 600);
+      }
+    });
+
+    // Función para añadir mensaje al chat
+    function addMessage(text, sender) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', sender);
+      messageElement.textContent = text;
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Mostrar indicador de typing
+    function showTypingIndicator() {
+      const typingElement = document.createElement('div');
+      typingElement.classList.add('typing-indicator');
+      typingElement.id = 'typingIndicator';
+      typingElement.innerHTML = '<span></span><span></span><span></span>';
+      chatMessages.appendChild(typingElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Ocultar indicador de typing
+    function hideTypingIndicator() {
+      const typingElement = document.getElementById('typingIndicator');
+      if (typingElement) {
+        typingElement.remove();
+      }
+    }
+
+    // Función para responder al mensaje
+    function respondToMessage(userMessage) {
+      showTypingIndicator();
+      setTimeout(() => {
+        hideTypingIndicator();
+        const response = findBestResponse(userMessage);
+        addMessage(response, 'bot');
+      }, 1200);
+    }
+  </script>
 </body>
 </html>
