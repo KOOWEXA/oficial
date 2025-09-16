@@ -145,11 +145,3 @@ function respondToMessage(userMessage) {
     addMessage(response, 'bot');
   }, 1200);
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const socialLink = document.createElement('a');
-  socialLink.href = 'https://koowexa.github.io/perfil/';
-  socialLink.setAttribute('aria-label', 'Perfil KOOWEXA');
-  socialLink.innerHTML = '<i class="fab fa-telegram"></i>';
-  socialLink.style.display = 'none';
-});

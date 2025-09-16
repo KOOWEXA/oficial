@@ -29,9 +29,14 @@
   <header>
     <h1><span class="koo">KOO</span><span class="wexa">WEXA</span></h1>
     <p>Soluciones digitales simples.</p>
-    <button class="help-button-inline" id="helpButton">
-      <i class="fas fa-robot"></i> Asistente OWE
-    </button>
+    <div class="header-buttons">
+      <a href="https://koowexa.github.io/perfil/" class="profile-button" aria-label="Perfil KOOWEXA">
+        <i class="fas fa-user"></i>
+      </a>
+      <button class="help-button-inline" id="helpButton">
+        <i class="fas fa-robot"></i> Asistente OWE
+      </button>
+    </div>
   </header>
 
   <main>
@@ -42,18 +47,69 @@
 
     <section>
       <h2><i class="fas fa-bolt"></i> Características</h2>
-      <ul>
-        <li><i class="fas fa-chevron-right"></i> <strong>Sencillo:</strong> Fácil de usar, sin necesidad de experiencia técnica.</li>
-        <li><i class="fas fa-chevron-right"></i> <strong>Rápido:</strong> Optimizado para conexiones lentas. Ideal para usuarios en Cuba.</li>
-        <li><i class="fas fa-chevron-right"></i> <strong>Hospedaje:</strong> Servidor incluido durante 3 meses. Sin complicaciones.</li>
-        <li><i class="fas fa-chevron-right"></i> <strong>Variedad:</strong> Elige entre tienda virtual o catálogo de servicios.</li>
-      </ul>
+      <div class="tech-tree">
+        <div class="tree-node">
+          <div class="node-content">
+            <i class="fas fa-star"></i>
+            <span>Simplicidad</span>
+          </div>
+          <div class="tree-branch">
+            <div class="tree-node">
+              <div class="node-content">
+                <i class="fas fa-check"></i>
+                <span>Fácil de usar</span>
+              </div>
+            </div>
+            <div class="tree-node">
+              <div class="node-content">
+                <i class="fas fa-check"></i>
+                <span>Sin experiencia técnica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tree-node">
+          <div class="node-content">
+            <i class="fas fa-star"></i>
+            <span>Optimización</span>
+          </div>
+          <div class="tree-branch">
+            <div class="tree-node">
+              <div class="node-content">
+                <i class="fas fa-check"></i>
+                <span>Para conexiones lentas</span>
+              </div>
+            </div>
+            <div class="tree-node">
+              <div class="node-content">
+                <i class="fas fa-check"></i>
+                <span>Ideal para Cuba</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tree-node">
+          <div class="node-content">
+            <i class="fas fa-star"></i>
+            <span>Hospedaje</span>
+          </div>
+          <div class="tree-branch">
+            <div class="tree-node">
+              <div class="node-content">
+                <i class="fas fa-check"></i>
+                <span>Servidor incluido 3 meses</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
       <h2><i class="fas fa-comments"></i> Contacto</h2>
       <p>¿Quieres tener tu propia plataforma digital sin pagar contactar al:</p>
-      <p><strong>+53 50369270</strong> (WhatsApp)</p>
+      <a href="https://wa.me/5350369270" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>WhatsApp</a>
       <p>O utiliza el <strong>Asistente OWE</strong> para obtener respuestas inmediatas.</p>
     </section>
   </main>
