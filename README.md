@@ -1,37 +1,49 @@
-# 🌐 KOOWEXA
+# KOOWEXA
 
-> **Diseño de sitios web económicos y profesionales para emprendedores en Cuba.**  
-> 🚀 Sencillo • Rápido • Incluye hospedaje • Ideal para conexiones lentas.
-
-[![Vista Previa](https://koowexa.github.io/oficial/assets/banner.svg)](https://koowexa.github.io/oficial/)
+**KOOWEXA** es una solución digital pensada para emprendedores y pequeños negocios en Cuba que desean tener una presencia en línea sin complicaciones técnicas, costos elevados ni dependencia de conexiones de alta velocidad.
 
 ---
 
-## 📌 ¿Qué es KOOWEXA?
+## 🌐 ¿Qué es KOOWEXA?
 
-KOOWEXA es una iniciativa orientada a ayudar a emprendedores en Cuba a crear una **presencia digital profesional** con sitios web económicos, fáciles de gestionar y optimizados para entornos con conectividad limitada.
+KOOWEXA ofrece herramientas simples, rápidas y optimizadas para funcionar eficientemente incluso en entornos con conectividad limitada. Permite a cualquier persona crear su **tienda online** o **catálogo de servicios** en cuestión de horas, sin necesidad de conocimientos previos en programación o diseño web.
 
-Este repositorio contiene el código fuente del sitio web oficial de KOOWEXA, desplegado mediante **GitHub Pages**, y sirve como ejemplo de una página informativa funcional, accesible y centrada en el usuario.
+La plataforma está diseñada específicamente para adaptarse a las condiciones reales de acceso a internet en Cuba, priorizando la ligereza, la usabilidad y la accesibilidad.
 
 ---
 
 ## ✨ Características Principales
 
-- ✅ **Diseño económico**: Sitios desde $1800 CUP (con descuento).
-- 🇨🇺 **Optimizado para Cuba**: Páginas ligeras, rápidas y funcionales incluso en conexiones lentas.
-- 🏠 **Hospedaje incluido**: 3 meses de alojamiento gratuito + subdominio.
-- 🛒 **Tipos de sitios**: Opciones para tiendas online o páginas de servicios.
-- 📱 **Formulario de contacto**: Solicita tu sitio web directamente desde el navegador.
-- 🌙 **Modo oscuro/claro**: Cambia el tema según tu preferencia (guardado en `localStorage`).
-- 📲 **Compartir fácil**: Botón de compartir integrado (Web Share API).
-- 🔔 **Notificaciones opcionales**: Aviso cuando se envía una solicitud.
+- **Sencillo**: Interfaz intuitiva y fácil de usar. No se requiere experiencia técnica.
+- **Rápido**: Optimizado para cargar en segundos, incluso en redes lentas o móviles.
+- **Hospedaje incluido**: 3 meses de alojamiento gratuito en servidores estables.
+- **Variedad de formatos**: Elige entre una tienda virtual o un catálogo de servicios según tus necesidades.
+- **Acceso multiplataforma**: Funciona en cualquier dispositivo con navegador (teléfono, tablet, computadora).
 
 ---
 
-## 🔗 Enlaces Oficiales
+## 📲 ¿Cómo contactar?
 
-- 🌐 **Sitio Web**: [https://koowexa.github.io/oficial/](https://koowexa.github.io/oficial/)
-- 📺 **YouTube**: [@koowexa](https://youtube.com/@koowexa)
-- 💬 **WhatsApp Canal**: [Unirse al canal](https://whatsapp.com/channel/0029VbB6FJk5q08fW25JNN3w)
-- ✈️ **Telegram**: [@KOOWEXA](https://t.me/KOOWEXA)
-- 🐦 **X (Twitter)**: [@koowexa](https://x.com/koowexa)
+KOOWEXA no depende de aplicaciones externas ni requiere registro previo. Para obtener más información o solicitar tu plataforma:
+
+- **Envía un SMS** al número **+53 50369270**  
+- **Visita el perfil oficial**: [https://koowexa.github.io/perfil/](https://koowexa.github.io/perfil/)
+
+Desde allí podrás acceder a todos los canales oficiales y recibir asistencia directa.
+
+---
+
+## 💡 Filosofía
+
+KOOWEXA nace con el objetivo de **democratizar la presencia digital** en Cuba. Creemos que todo emprendedor, sin importar su ubicación, recursos o nivel técnico, merece estar visible en internet. Por eso, eliminamos barreras: no hay pagos mensuales ocultos, no se requiere tarjeta internacional, y todo está pensado para funcionar con lo que ya tienes.
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de uso informativo y promocional. Todo el contenido y las herramientas asociadas a KOOWEXA son propiedad de sus creadores y están destinadas exclusivamente al apoyo de emprendedores en Cuba.
+
+---
+
+> **KOOWEXA – Soluciones digitales simples.**  
+> Porque tu negocio merece estar en internet.
