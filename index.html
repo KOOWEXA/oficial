@@ -3,133 +3,395 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="KOOWEXA - Soluciones simples." />
-  <meta name="keywords" content="KOOWEXA, Económico, Cuba, Eficiencia, WhatsApp, Simplicidad" />
+  <meta name="description" content="KOOWEXA - Soluciones digitales simples para Cuba." />
+  <meta name="keywords" content="KOOWEXA, Cuba, tienda online, catálogo digital, SMS, económico, conexiones lentas" />
   <meta property="og:title" content="KOOWEXA" />
-  <meta property="og:description" content="Soluciones digitales simples." />
+  <meta property="og:description" content="Herramientas simples, rápidas y optimizadas para Cuba." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koowexa.github.io/oficial/" />
   <meta property="og:image" content="https://koowexa.github.io/oficial/logo-k.png" />
   <title>KOOWEXA</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg: #0f1624;
+      --card: #1a2238;
+      --blue: #00d8ff;
+      --text: #e0e0e0;
+      --gray: #bdc3c7;
+      --sms: #4CAF50;
+      --profile: #2196F3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+    }
+
+    .koo { color: var(--blue); font-weight: bold; }
+    .wexa { font-weight: bold; }
+
+    header h1 { font-size: 2.2rem; margin-bottom: 0.4rem; }
+    header p { opacity: 0.9; margin-bottom: 1rem; }
+
+    .help-btn {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.2rem;
+    }
+
+    section {
+      background: var(--card);
+      padding: 1.5rem;
+      margin-bottom: 1.8rem;
+      border-radius: 12px;
+    }
+
+    h2 {
+      color: var(--blue);
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p { margin-bottom: 1rem; color: var(--gray); }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .feature {
+      padding: 10px;
+      background: rgba(0, 216, 255, 0.1);
+      border-left: 3px solid var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-feature {
+      padding-left: 24px;
+      margin-top: 4px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .sms-btn {
+      background: var(--sms);
+      color: white;
+    }
+
+    .profile-btn {
+      background: var(--profile);
+      color: white;
+    }
+
+    /* Chat modal */
+    .chat-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .chat-box {
+      width: 90%;
+      max-width: 420px;
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      padding: 12px 16px;
+      background: var(--bg);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .close-btn {
+      background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer;
+    }
+
+    .messages {
+      padding: 16px;
+      flex: 1;
+      overflow-y: auto;
+      max-height: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .msg {
+      padding: 8px 12px;
+      border-radius: 12px;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+
+    .bot { background: #e5e5ea; color: #000; align-self: flex-start; }
+    .user { background: #007BFF; color: white; align-self: flex-end; }
+
+    .quick-replies {
+      padding: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .quick-replies button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .contact-buttons { flex-direction: column; }
+      header h1 { font-size: 1.8rem; }
+    }
+  </style>
 </head>
 <body>
-  <div class="intro-banner" id="introBanner">
-    <div class="logo-container">
-      <div class="logo-k">K</div>
-      <h2><span class="koo">KOO</span><span class="wexa">WEXA</span></h2>
-    </div>
-    <p>Soluciones simples.</p>
-    <div class="progress-bar">
-      <div class="progress"></div>
-    </div>
-  </div>
 
-  <header>
-    <h1><span class="koo">KOO</span><span class="wexa">WEXA</span></h1>
-    <p>Soluciones digitales simples.</p>
-    <div class="header-buttons">
-      <a href="https://koowexa.github.io/perfil/" class="profile-button" aria-label="Perfil KOOWEXA">
-        <i class="fas fa-user"></i>
+<header>
+  <h1><span class="koo">KOO</span><span class="wexa">WEXA</span></h1>
+  <p>Soluciones digitales simples.</p>
+  <button class="help-btn" id="helpButton">
+    <i class="fas fa-robot"></i> Asistente OWE
+  </button>
+</header>
+
+<main>
+  <section>
+    <h2><i class="fas fa-info-circle"></i> Acerca de KOOWEXA</h2>
+    <p>KOOWEXA ofrece herramientas simples, rápidas y optimizadas para conexiones lentas, perfectas para emprendedores en Cuba. Ya sea una tienda online o un catálogo de servicios, lo hacemos accesible, económico y efectivo.</p>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-bolt"></i> Características</h2>
+    <div class="features">
+      <div>
+        <div class="feature"><i class="fas fa-star"></i> Sencillo</div>
+        <div class="sub-feature"><i class="fas fa-check"></i> Fácil de usar sin experiencia técnica</div>
+      </div>
+      <div>
+        <div class="feature"><i class="fas fa-star"></i> Rápido</div>
+        <div class="sub-feature"><i class="fas fa-check"></i> Optimizado para conexiones lentas</div>
+        <div class="sub-feature"><i class="fas fa-check"></i> Ideal para usuarios en Cuba</div>
+      </div>
+      <div>
+        <div class="feature"><i class="fas fa-star"></i> Hospedaje</div>
+        <div class="sub-feature"><i class="fas fa-check"></i> Servidor incluido gratis por 3 meses</div>
+      </div>
+      <div>
+        <div class="feature"><i class="fas fa-star"></i> Variedad</div>
+        <div class="sub-feature"><i class="fas fa-check"></i> Elige entre tienda online o catálogo de servicios</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-comment"></i> Contacto</h2>
+    <p>¿Quieres tener tu propia plataforma digital? Contáctanos por SMS o visita mi perfil oficial:</p>
+    <div class="contact-buttons">
+      <a href="sms:+5350369270" class="btn sms-btn" aria-label="Enviar SMS al +53 50369270">
+        <i class="fas fa-sms"></i> SMS: +53 50369270
       </a>
-      <button class="help-button-inline" id="helpButton">
-        <i class="fas fa-robot"></i> Asistente OWE
-      </button>
+      <a href="https://koowexa.github.io/perfil/" class="btn profile-btn" aria-label="Perfil oficial de KOOWEXA">
+        <i class="fas fa-user"></i> Perfil Oficial
+      </a>
     </div>
-  </header>
+    <p>También puedes usar el <strong>Asistente OWE</strong> para respuestas inmediatas.</p>
+  </section>
+</main>
 
-  <main>
-    <section>
-      <h2><i class="fas fa-info-circle"></i> Acerca de KOOWEXA</h2>
-      <p>KOOWEXA Ofrece herramientas simples, rápidas y optimizadas para conexiones lentas  perfectas para Cuba. Ya sea una tienda online o un catálogo de servicios.</p>
-    </section>
-
-    <section>
-      <h2><i class="fas fa-bolt"></i> Características</h2>
-      <div class="tech-tree">
-        <div class="tree-node">
-          <div class="node-content">
-            <i class="fas fa-star"></i>
-            <span>Simplicidad</span>
-          </div>
-          <div class="tree-branch">
-            <div class="tree-node">
-              <div class="node-content">
-                <i class="fas fa-check"></i>
-                <span>Fácil de usar</span>
-              </div>
-            </div>
-            <div class="tree-node">
-              <div class="node-content">
-                <i class="fas fa-check"></i>
-                <span>Sin experiencia técnica</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tree-node">
-          <div class="node-content">
-            <i class="fas fa-star"></i>
-            <span>Optimización</span>
-          </div>
-          <div class="tree-branch">
-            <div class="tree-node">
-              <div class="node-content">
-                <i class="fas fa-check"></i>
-                <span>Para conexiones lentas</span>
-              </div>
-            </div>
-            <div class="tree-node">
-              <div class="node-content">
-                <i class="fas fa-check"></i>
-                <span>Ideal para Cuba</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tree-node">
-          <div class="node-content">
-            <i class="fas fa-star"></i>
-            <span>Hospedaje</span>
-          </div>
-          <div class="tree-branch">
-            <div class="tree-node">
-              <div class="node-content">
-                <i class="fas fa-check"></i>
-                <span>Servidor incluido 3 meses</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2><i class="fas fa-comments"></i> Contacto</h2>
-      <p>¿Quieres tener tu propia plataforma digital sin pagar contactar al:</p>
-      <a href="https://wa.me/5350369270" class="whatsapp-button">
-        <i class="fab fa-whatsapp"></i>WhatsApp</a>
-      <p>O utiliza el <strong>Asistente OWE</strong> para obtener respuestas inmediatas.</p>
-    </section>
-  </main>
-
-  <div class="chat-modal" id="chatModal">
-    <div class="chat-modal-content">
-      <div class="chat-header">
-        <h3><span class="status-indicator"></span> Asistente OWE</h3>
-        <button class="close-btn" id="closeChat">&times;</button>
-      </div>
-      <div class="chat-messages" id="chatMessages">
-        <div class="message bot">
-          Soy OWE, tu asistente personal de KOOWEXA. ¿En qué puedo ayudarte hoy?
-        </div>
-      </div>
-      <div class="quick-replies" id="quickReplies">
-      </div>
+<div class="chat-modal" id="chatModal">
+  <div class="chat-box">
+    <div class="chat-header">
+      <h3>Asistente OWE</h3>
+      <button class="close-btn" id="closeChat">&times;</button>
     </div>
+    <div class="messages" id="chatMessages">
+      <div class="msg bot">¡Hola! Soy OWE, tu asistente de KOOWEXA. ¿En qué puedo ayudarte?</div>
+    </div>
+    <div class="quick-replies" id="quickReplies"></div>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<script>
+  const knowledgeBase = {
+    "saludos": [
+      "¡Hola! Soy OWE, tu asistente personal de KOOWEXA. ¿En qué puedo ayudarte hoy?",
+      "¡Bienvenido! Estoy aquí para guiarte en tu primer paso hacia tu presencia digital."
+    ],
+    "servicio": [
+      "Ofrecemos una herramienta completa para que emprendedores en Cuba tengan su propia tienda online o catálogo de servicios. Incluye subdominio personalizado y hospedaje gratuito por 3 meses.",
+      "La solución está diseñada para funcionar perfectamente en conexiones lentas, sin necesidad de conocimientos técnicos."
+    ],
+    "buscar": [
+      "Puedes encontrarnos fácilmente en Google buscando 'KOOWEXA OFICIAL'. También visita nuestro perfil en: https://koowexa.github.io/perfil/"
+    ],
+    "precios": [
+      "El costo único es de **2000 CUP**. Incluye configuración, dominio temporal (.koowexa.site) y hospedaje GRATIS por 3 meses. Sin pagos mensuales ni sorpresas.",
+      "Es una inversión mínima con un retorno máximo: tendrás tu negocio visible 24/7 en internet."
+    ],
+    "descuento": [
+      "¡Sí! Si es tu primera vez solicitando el servicio, obtienes un bono especial de bienvenida. Menciona que vienes del sitio web al contactar por SMS.",
+      "El descuento se aplica automáticamente a nuevos clientes que mencionen 'OWE' en su primer mensaje."
+    ],
+    "redes": [
+      "Puedes encontrarnos en WhatsApp, Telegram, Facebook y Twitter. Pero para una respuesta más rápida, envía un SMS al +53 50369270 o visita nuestro perfil oficial.",
+      "Todos nuestros canales están enlazados desde: https://koowexa.github.io/perfil/"
+    ],
+    "koowexa": [
+      "KOOWEXA es una iniciativa 100% cubana que busca democratizar la presencia digital. Creamos herramientas simples, rápidas y optimizadas para funcionar en las condiciones reales de internet en Cuba.",
+      "Nuestro objetivo: que cualquier emprendedor, sin importar su experiencia técnica, pueda tener su negocio en línea en menos de 24 horas."
+    ],
+    "tienda": [
+      "Sí, ofrecemos una tienda online básica pero funcional: con catálogo de productos, fotos, precios y método de contacto. Ideal para vender desde Cuba sin necesidad de pasarelas de pago complejas.",
+      "También puedes usarla como catálogo informativo si no vendes en línea directamente."
+    ],
+    "hospedaje": [
+      "Incluimos 3 meses de hospedaje GRATIS en servidores estables. Pasado ese tiempo, puedes renovar por un costo simbólico o migrar tu contenido fácilmente.",
+      "No te dejamos colgado: antes de que termine el periodo, te avisamos y te damos opciones económicas."
+    ],
+    "tecnologia": [
+      "Usamos HTML, CSS y JavaScript ligero. Nada de frameworks pesados. Todo está optimizado para cargar rápido incluso en 3G o redes compartidas.",
+      "Nuestros sitios ocupan menos de 500 KB y no usan imágenes pesadas ni videos innecesarios."
+    ],
+    "despedida": [
+      "¡Gracias por confiar en KOOWEXA! No olvides enviar un SMS al +53 50369270 para comenzar.",
+      "Hasta pronto. ¡Tu negocio merece estar en internet!"
+    ],
+    "default": [
+      "¿Quieres tu propia tienda o catálogo digital? Envía un SMS al +53 50369270 con tu nombre y tipo de negocio. ¡Te responderemos en minutos!",
+      "Visita también nuestro perfil oficial para ver todos los canales: https://koowexa.github.io/perfil/"
+    ]
+  };
+
+  function findBestResponse(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes('hola') || msg.includes('buenas') || msg.includes('hi')) return rand(knowledgeBase.saludos);
+    if (msg.includes('servicio') || msg.includes('ofrecen') || msg.includes('qué hacen') || msg.includes('solución')) return rand(knowledgeBase.servicio);
+    if (msg.includes('buscar') || msg.includes('google') || msg.includes('encontrar')) return rand(knowledgeBase.buscar);
+    if (msg.includes('precio') || msg.includes('cuesta') || msg.includes('costo') || msg.includes('cuánto')) return rand(knowledgeBase.precios);
+    if (msg.includes('descuento') || msg.includes('oferta') || msg.includes('promo') || msg.includes('bono')) return rand(knowledgeBase.descuento);
+    if (msg.includes('redes') || msg.includes('facebook') || msg.includes('telegram') || msg.includes('whatsapp') || msg.includes('perfil')) return rand(knowledgeBase.redes);
+    if (msg.includes('koowexa') || msg.includes('quienes son') || msg.includes('de qué trata')) return rand(knowledgeBase.koowexa);
+    if (msg.includes('tienda') || msg.includes('vender') || msg.includes('productos')) return rand(knowledgeBase.tienda);
+    if (msg.includes('hospedaje') || msg.includes('servidor') || msg.includes('alojamiento')) return rand(knowledgeBase.hospedaje);
+    if (msg.includes('tecnología') || msg.includes('rápido') || msg.includes('lento') || msg.includes('conexión')) return rand(knowledgeBase.tecnologia);
+    if (msg.includes('adiós') || msg.includes('chao') || msg.includes('gracias') || msg.includes('vale')) return rand(knowledgeBase.despedida);
+    return rand(knowledgeBase.default);
+  }
+
+  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  // Chat UI
+  const helpBtn = document.getElementById('helpButton');
+  const modal = document.getElementById('chatModal');
+  const closeBtn = document.getElementById('closeChat');
+  const messagesEl = document.getElementById('chatMessages');
+  const quickReplies = document.getElementById('quickReplies');
+
+  helpBtn.onclick = () => modal.style.display = 'flex';
+  closeBtn.onclick = () => modal.style.display = 'none';
+  modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+  function addMsg(text, sender) {
+    const el = document.createElement('div');
+    el.className = `msg ${sender}`;
+    el.textContent = text;
+    messagesEl.appendChild(el);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  quickReplies.innerHTML = `
+    <button data-q="¿Qué servicios ofrecen?">Servicios</button>
+    <button data-q="¿Cuánto cuesta?">Precio</button>
+    <button data-q="¿Incluye hospedaje?">Hospedaje</button>
+    <button data-q="¿Puedo tener una tienda online?">Tienda</button>
+    <button data-q="¿Hay descuento para nuevos?">Descuento</button>
+    <button data-q="¿Dónde veo sus redes?">Redes</button>
+    <button data-q="¿Cómo es la tecnología usada?">Tecnología</button>
+  `;
+
+  quickReplies.onclick = (e) => {
+    if (e.target.tagName === 'BUTTON') {
+      const q = e.target.getAttribute('data-q');
+      addMsg(q, 'user');
+      setTimeout(() => {
+        addMsg(findBestResponse(q), 'bot');
+      }, 600);
+    }
+  };
+</script>
+
 </body>
 </html>
