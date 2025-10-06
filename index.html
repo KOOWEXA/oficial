@@ -211,6 +211,41 @@
       cursor: pointer;
     }
 
+    /* App Prompt */
+    #appPrompt {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #2a5298;
+      color: white;
+      padding: 12px 16px;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    }
+
+    #appPrompt a {
+      display: inline-block;
+      background: #00d8ff;
+      color: #0f1624;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    #appPrompt button {
+      margin-left: 10px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
     @media (max-width: 600px) {
       .contact-buttons { flex-direction: column; }
       header h1 { font-size: 1.8rem; }
@@ -284,7 +319,19 @@
   </div>
 </div>
 
+<!-- Smart App Prompt for Android -->
+<div id="appPrompt">
+  <p>¿Sabías que KOOWEXA tiene app oficial? ¡Descárgala y accede más rápido!</p>
+  <div>
+    <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk">
+      <i class="fas fa-download"></i> Descargar APK
+    </a>
+    <button id="closeAppPrompt">×</button>
+  </div>
+</div>
+
 <script>
+  // === Knowledge Base ===
   const knowledgeBase = {
     "saludos": [
       "¡Hola! Soy OWE, tu asistente personal de KOOWEXA. ¿En qué puedo ayudarte hoy?",
@@ -353,7 +400,7 @@
 
   function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-  // Chat UI
+  // === Chat UI ===
   const helpBtn = document.getElementById('helpButton');
   const modal = document.getElementById('chatModal');
   const closeBtn = document.getElementById('closeChat');
@@ -391,6 +438,57 @@
       }, 600);
     }
   };
+
+  // === Smart App Prompt + Permissions ===
+  function requestPermissions() {
+    // Notificaciones
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
+
+    // Ubicación
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        () => {}, // success (no action needed)
+        () => {}, // error (silent)
+        { timeout: 5000, maximumAge: 300000 }
+      );
+    }
+
+    // Almacenamiento (solo en entornos seguros)
+    if ('storage' in navigator && 'persist' in navigator.storage) {
+      navigator.storage.persist().then(persistent => {
+        // No UI needed; just ensure storage isn't cleared
+      });
+    }
+  }
+
+  function showAppPrompt() {
+    const now = Date.now();
+    const lastShown = localStorage.getItem('koowexa_app_prompt_last');
+    const oneDay = 24 * 60 * 60 * 1000;
+
+    if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
+      const appPrompt = document.getElementById('appPrompt');
+      appPrompt.style.display = 'block';
+      localStorage.setItem('koowexa_app_prompt_last', now.toString());
+    }
+  }
+
+  // Ejecutar permisos al cargar
+  window.addEventListener('load', () => {
+    requestPermissions();
+
+    // Mostrar prompt solo en Android, después de 3s
+    if (/Android/i.test(navigator.userAgent)) {
+      setTimeout(showAppPrompt, 3000);
+    }
+  });
+
+  // Cerrar prompt
+  document.getElementById('closeAppPrompt').addEventListener('click', () => {
+    document.getElementById('appPrompt').style.display = 'none';
+  });
 </script>
 
 </body>
