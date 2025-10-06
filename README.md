@@ -1,4 +1,4 @@
-# KOOWEXA – Plataforma Digital para Emprendedores en Cuba
+# KOOWEXA
 
 KOOWEXA es una solución digital ligera, rápida y optimizada para entornos con conectividad limitada, diseñada especialmente para emprendedores en Cuba que desean una presencia en línea sin complejidades técnicas ni costos recurrentes.
 
