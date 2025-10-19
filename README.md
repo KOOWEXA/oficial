@@ -27,34 +27,15 @@ KOOWEXA permite a pequeños negocios y emprendedores crear su propia **tienda on
 
 ---
 
-## 📦 ¿Qué Incluye?
-
-Al adquirir el servicio (costo único), recibirás:
-
-- Subdominio personalizado (ej. `tunegocio.koowexa.site`)
-- Configuración inicial de tu tienda o catálogo
-- 3 meses de hospedaje gratuito en servidores estables
-- Soporte técnico básico vía canales oficiales
+## Al adquirir el servicio (costo único), recibirás una factura.
 
 > **Nota**: KOOWEXA no maneja pasarelas de pago ni transacciones en línea. Está orientado a la visibilidad y contacto directo con clientes.
-
----
-
-## 📲 Canales Oficiales
-
-Para más información, soporte o solicitud del servicio, visita nuestro **perfil oficial**:
-
-🔗 [https://koowexa.github.io/perfil/](https://koowexa.github.io/perfil/)
-
-Desde allí tendrás acceso directo a todos los canales de contacto autorizados.
 
 ---
 
 ## 💡 Filosofía
 
 KOOWEXA nace como una iniciativa 100% cubana con el objetivo de **democratizar la presencia digital**. Creemos que cualquier emprendedor, sin importar su experiencia técnica o recursos, merece estar visible en internet.
-
-Nuestra tecnología es deliberadamente ligera: usamos HTML, CSS y JavaScript puro, sin frameworks pesados, para garantizar compatibilidad y velocidad en condiciones reales de conectividad en Cuba.
 
 ---
 
