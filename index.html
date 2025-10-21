@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="KOOWEXA - Soluciones digitales simples para Cuba." />
-  <meta name="keywords" content="KOOWEXA, Cuba, tienda online, catálogo digital, SMS, económico, conexiones lentas" />
+  <meta name="description" content="KOOWEXA - Soluciones digitales simples y rápidas para Cuba." />
+  <meta name="keywords" content="KOOWEXA, Cuba, tienda online, catálogo digital" />
   <meta property="og:title" content="KOOWEXA" />
-  <meta property="og:description" content="Herramientas simples, rápidas y optimizadas para Cuba." />
+  <meta property="og:description" content="Herramientas simples, rápidas y optimizadas para conexiones lentas." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koowexa.github.io/oficial/" />
-  <meta property="og:image" content="https://koowexa.github.io/oficial/logo-k.png" />
-  <link rel="icon" type="image/png" href="logo.png">
+  <meta property="og:image" content="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png" />
+  <link rel="icon" type="image/png" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png" />
   <title>KOOWEXA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
       --bg: #0f1624;
@@ -31,24 +31,68 @@
     }
 
     body {
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
     header {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 2rem 1rem;
       background: linear-gradient(135deg, #1e3c72, #2a5298);
       color: white;
+      text-align: center;
     }
 
-    .koo { color: var(--blue); font-weight: bold; }
-    .wexa { font-weight: bold; }
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 0.8rem;
+    }
 
-    header h1 { font-size: 2.2rem; margin-bottom: 0.4rem; }
-    header p { opacity: 0.9; margin-bottom: 1rem; }
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      background: white;
+    }
+
+    .koo {
+      color: var(--blue);
+      font-weight: bold;
+    }
+
+    .wexa {
+      font-weight: bold;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      animation: blinkGlow 3s infinite alternate;
+    }
+
+    @keyframes blinkGlow {
+      0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(0, 216, 255, 0.7);
+      }
+      50% {
+        opacity: 0.9;
+        text-shadow: 0 0 20px rgba(0, 216, 255, 1);
+      }
+    }
+
+    header p {
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
 
     .help-btn {
       background: #007BFF;
@@ -85,7 +129,10 @@
       gap: 8px;
     }
 
-    p { margin-bottom: 1rem; color: var(--gray); }
+    p {
+      margin-bottom: 1rem;
+      color: var(--gray);
+    }
 
     .features {
       display: flex;
@@ -128,7 +175,9 @@
       transition: opacity 0.2s;
     }
 
-    .btn:hover { opacity: 0.9; }
+    .btn:hover {
+      opacity: 0.9;
+    }
 
     .sms-btn {
       background: var(--sms);
@@ -140,13 +189,14 @@
       color: white;
     }
 
-    /* Chat modal */
     .chat-modal {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
       justify-content: center;
       align-items: center;
       z-index: 1000;
@@ -172,7 +222,11 @@
     }
 
     .close-btn {
-      background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
     }
 
     .messages {
@@ -192,8 +246,26 @@
       line-height: 1.4;
     }
 
-    .bot { background: #e5e5ea; color: #000; align-self: flex-start; }
-    .user { background: #007BFF; color: white; align-self: flex-end; }
+    .bot {
+      background: #e5e5ea;
+      color: #000;
+      align-self: flex-start;
+    }
+
+    .user {
+      background: #007BFF;
+      color: white;
+      align-self: flex-end;
+    }
+
+    .typing {
+      align-self: flex-start;
+      background: #e5e5ea;
+      padding: 10px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #666;
+    }
 
     .quick-replies {
       padding: 12px;
@@ -212,7 +284,6 @@
       cursor: pointer;
     }
 
-    /* App Prompt */
     #appPrompt {
       display: none;
       position: fixed;
@@ -224,7 +295,7 @@
       padding: 12px 16px;
       text-align: center;
       z-index: 999;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
     }
 
     #appPrompt a {
@@ -248,15 +319,28 @@
     }
 
     @media (max-width: 600px) {
-      .contact-buttons { flex-direction: column; }
-      header h1 { font-size: 1.8rem; }
+      .contact-buttons {
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1><span class="koo">KOO</span><span class="wexa">WEXA</span></h1>
+  <div class="logo-title">
+    <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png" alt="Logo de KOOWEXA" class="logo" />
+    <h1><span class="koo">KOO</span><span class="wexa">WEXA</span></h1>
+  </div>
   <p>Soluciones digitales simples.</p>
   <button class="help-btn" id="helpButton">
     <i class="fas fa-robot"></i> Asistente OWE
@@ -320,11 +404,10 @@
   </div>
 </div>
 
-<!-- Smart App Prompt for Android -->
 <div id="appPrompt">
   <p>¿Sabías que KOOWEXA tiene app oficial? ¡Descárgala y accede más rápido!</p>
   <div>
-    <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk">
+    <a id="downloadLink" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk">
       <i class="fas fa-download"></i> Descargar APK
     </a>
     <button id="closeAppPrompt">×</button>
@@ -332,76 +415,76 @@
 </div>
 
 <script>
-  // === Knowledge Base ===
   const knowledgeBase = {
-    "saludos": [
+    saludos: [
       "¡Hola! Soy OWE, tu asistente personal de KOOWEXA. ¿En qué puedo ayudarte hoy?",
       "¡Bienvenido! Estoy aquí para guiarte en tu primer paso hacia tu presencia digital."
     ],
-    "servicio": [
+    servicio: [
       "Ofrecemos una herramienta completa para que emprendedores en Cuba tengan su propia tienda online o catálogo de servicios. Incluye subdominio personalizado y hospedaje gratuito por 3 meses.",
       "La solución está diseñada para funcionar perfectamente en conexiones lentas, sin necesidad de conocimientos técnicos."
     ],
-    "buscar": [
+    buscar: [
       "Puedes encontrarnos fácilmente en Google buscando 'KOOWEXA OFICIAL'. También visita nuestro perfil en: https://koowexa.github.io/perfil/"
     ],
-    "precios": [
+    precios: [
       "El costo único es de **2000 CUP**. Incluye configuración, dominio temporal (.koowexa.site) y hospedaje GRATIS por 3 meses. Sin pagos mensuales ni sorpresas.",
       "Es una inversión mínima con un retorno máximo: tendrás tu negocio visible 24/7 en internet."
     ],
-    "descuento": [
+    descuento: [
       "¡Sí! Si es tu primera vez solicitando el servicio, obtienes un bono especial de bienvenida. Menciona que vienes del sitio web al contactar por SMS.",
       "El descuento se aplica automáticamente a nuevos clientes que mencionen 'OWE' en su primer mensaje."
     ],
-    "redes": [
+    redes: [
       "Puedes encontrarnos en WhatsApp, Telegram, Facebook y Twitter. Pero para una respuesta más rápida, envía un SMS al +53 50369270 o visita nuestro perfil oficial.",
       "Todos nuestros canales están enlazados desde: https://koowexa.github.io/perfil/"
     ],
-    "koowexa": [
+    koowexa: [
       "KOOWEXA es una iniciativa 100% cubana que busca democratizar la presencia digital. Creamos herramientas simples, rápidas y optimizadas para funcionar en las condiciones reales de internet en Cuba.",
       "Nuestro objetivo: que cualquier emprendedor, sin importar su experiencia técnica, pueda tener su negocio en línea en menos de 24 horas."
     ],
-    "tienda": [
+    tienda: [
       "Sí, ofrecemos una tienda online básica pero funcional: con catálogo de productos, fotos, precios y método de contacto. Ideal para vender desde Cuba sin necesidad de pasarelas de pago complejas.",
       "También puedes usarla como catálogo informativo si no vendes en línea directamente."
     ],
-    "hospedaje": [
+    hospedaje: [
       "Incluimos 3 meses de hospedaje GRATIS en servidores estables. Pasado ese tiempo, puedes renovar por un costo simbólico o migrar tu contenido fácilmente.",
       "No te dejamos colgado: antes de que termine el periodo, te avisamos y te damos opciones económicas."
     ],
-    "tecnologia": [
+    tecnologia: [
       "Usamos HTML, CSS y JavaScript ligero. Nada de frameworks pesados. Todo está optimizado para cargar rápido incluso en 3G o redes compartidas.",
       "Nuestros sitios ocupan menos de 500 KB y no usan imágenes pesadas ni videos innecesarios."
     ],
-    "despedida": [
+    despedida: [
       "¡Gracias por confiar en KOOWEXA! No olvides enviar un SMS al +53 50369270 para comenzar.",
       "Hasta pronto. ¡Tu negocio merece estar en internet!"
     ],
-    "default": [
+    default: [
       "¿Quieres tu propia tienda o catálogo digital? Envía un SMS al +53 50369270 con tu nombre y tipo de negocio. ¡Te responderemos en minutos!",
       "Visita también nuestro perfil oficial para ver todos los canales: https://koowexa.github.io/perfil/"
     ]
   };
 
   function findBestResponse(msg) {
-    msg = msg.toLowerCase();
-    if (msg.includes('hola') || msg.includes('buenas') || msg.includes('hi')) return rand(knowledgeBase.saludos);
-    if (msg.includes('servicio') || msg.includes('ofrecen') || msg.includes('qué hacen') || msg.includes('solución')) return rand(knowledgeBase.servicio);
-    if (msg.includes('buscar') || msg.includes('google') || msg.includes('encontrar')) return rand(knowledgeBase.buscar);
-    if (msg.includes('precio') || msg.includes('cuesta') || msg.includes('costo') || msg.includes('cuánto')) return rand(knowledgeBase.precios);
-    if (msg.includes('descuento') || msg.includes('oferta') || msg.includes('promo') || msg.includes('bono')) return rand(knowledgeBase.descuento);
-    if (msg.includes('redes') || msg.includes('facebook') || msg.includes('telegram') || msg.includes('whatsapp') || msg.includes('perfil')) return rand(knowledgeBase.redes);
-    if (msg.includes('koowexa') || msg.includes('quienes son') || msg.includes('de qué trata')) return rand(knowledgeBase.koowexa);
-    if (msg.includes('tienda') || msg.includes('vender') || msg.includes('productos')) return rand(knowledgeBase.tienda);
-    if (msg.includes('hospedaje') || msg.includes('servidor') || msg.includes('alojamiento')) return rand(knowledgeBase.hospedaje);
-    if (msg.includes('tecnología') || msg.includes('rápido') || msg.includes('lento') || msg.includes('conexión')) return rand(knowledgeBase.tecnologia);
-    if (msg.includes('adiós') || msg.includes('chao') || msg.includes('gracias') || msg.includes('vale')) return rand(knowledgeBase.despedida);
+    const lower = msg.toLowerCase();
+    if (/hola|buenas|hi|hey|saludos/.test(lower)) return rand(knowledgeBase.saludos);
+    if (/servicio|ofrecen|qué hacen|solución|plataforma/.test(lower)) return rand(knowledgeBase.servicio);
+    if (/buscar|google|encontrar|dónde/.test(lower)) return rand(knowledgeBase.buscar);
+    if (/precio|cuesta|costo|cuánto|inversión/.test(lower)) return rand(knowledgeBase.precios);
+    if (/descuento|oferta|promo|bono|primera vez/.test(lower)) return rand(knowledgeBase.descuento);
+    if (/redes|facebook|telegram|whatsapp|twitter|perfil|canales/.test(lower)) return rand(knowledgeBase.redes);
+    if (/koowexa|quiénes son|de qué trata|empresa|iniciativa/.test(lower)) return rand(knowledgeBase.koowexa);
+    if (/tienda|vender|productos|catálogo|online/.test(lower)) return rand(knowledgeBase.tienda);
+    if (/hospedaje|servidor|alojamiento|dominio/.test(lower)) return rand(knowledgeBase.hospedaje);
+    if (/tecnología|rápido|lento|conexión|3g|carga/.test(lower)) return rand(knowledgeBase.tecnologia);
+    if (/adiós|chao|gracias|vale|ok/.test(lower)) return rand(knowledgeBase.despedida);
     return rand(knowledgeBase.default);
   }
 
-  function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function rand(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
 
-  // === Chat UI ===
   const helpBtn = document.getElementById('helpButton');
   const modal = document.getElementById('chatModal');
   const closeBtn = document.getElementById('closeChat');
@@ -415,9 +498,22 @@
   function addMsg(text, sender) {
     const el = document.createElement('div');
     el.className = `msg ${sender}`;
-    el.textContent = text;
+    el.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     messagesEl.appendChild(el);
     messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function showTyping() {
+    const typingEl = document.createElement('div');
+    typingEl.className = 'typing';
+    typingEl.textContent = 'OWE está escribiendo...';
+    messagesEl.appendChild(typingEl);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return typingEl;
+  }
+
+  function hideTyping(el) {
+    if (el && el.parentNode) el.parentNode.removeChild(el);
   }
 
   quickReplies.innerHTML = `
@@ -434,59 +530,47 @@
     if (e.target.tagName === 'BUTTON') {
       const q = e.target.getAttribute('data-q');
       addMsg(q, 'user');
+      const typingIndicator = showTyping();
       setTimeout(() => {
+        hideTyping(typingIndicator);
         addMsg(findBestResponse(q), 'bot');
-      }, 600);
+      }, 800 + Math.random() * 400);
     }
   };
 
-  // === Smart App Prompt + Permissions ===
   function requestPermissions() {
-    // Notificaciones
     if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission();
+      Notification.requestPermission().catch(() => {});
     }
-
-    // Ubicación
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        () => {}, // success (no action needed)
-        () => {}, // error (silent)
-        { timeout: 5000, maximumAge: 300000 }
-      );
+      navigator.geolocation.getCurrentPosition(() => {}, () => {}, { timeout: 5000, maximumAge: 300000 });
     }
-
-    // Almacenamiento (solo en entornos seguros)
     if ('storage' in navigator && 'persist' in navigator.storage) {
-      navigator.storage.persist().then(persistent => {
-        // No UI needed; just ensure storage isn't cleared
-      });
+      navigator.storage.persist().catch(() => {});
     }
   }
 
   function showAppPrompt() {
     const now = Date.now();
-    const lastShown = localStorage.getItem('koowexa_app_prompt_last');
-    const oneDay = 24 * 60 * 60 * 1000;
-
-    if (!lastShown || (now - parseInt(lastShown)) > oneDay) {
-      const appPrompt = document.getElementById('appPrompt');
-      appPrompt.style.display = 'block';
+    const last = localStorage.getItem('koowexa_app_prompt_last');
+    const week = 7 * 24 * 60 * 60 * 1000;
+    if (!last || (now - parseInt(last, 10)) > week) {
+      document.getElementById('appPrompt').style.display = 'block';
       localStorage.setItem('koowexa_app_prompt_last', now.toString());
     }
   }
 
-  // Ejecutar permisos al cargar
   window.addEventListener('load', () => {
     requestPermissions();
-
-    // Mostrar prompt solo en Android, después de 3s
     if (/Android/i.test(navigator.userAgent)) {
       setTimeout(showAppPrompt, 3000);
+      const link = document.getElementById('downloadLink');
+      const apkUrl = link.href;
+      const preload = new Image();
+      preload.src = apkUrl;
     }
   });
 
-  // Cerrar prompt
   document.getElementById('closeAppPrompt').addEventListener('click', () => {
     document.getElementById('appPrompt').style.display = 'none';
   });
