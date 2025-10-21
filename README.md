@@ -17,18 +17,18 @@ KOOWEXA permite a pequeños negocios y emprendedores crear su propia **tienda on
 
 ## 🚀 Características
 
-- ✅ **Fácil de usar**: Interfaz intuitiva y minimalista.
-- ⚡ **Rápida**: Carga en menos de 3 segundos incluso en conexiones limitadas.
-- 📱 **Móvil-first**: Diseñada prioritariamente para teléfonos inteligentes.
+- ✅ **Fácil de usar**: Interfaz intuitiva.
+- ⚡ **Rápida**: Carga en menos de 5 segundos incluso en conexiones limitadas.
+- 📱 **Adaptada**: Diseñada prioritariamente para teléfonos.
 - 🛒 **Tienda o catálogo**: Elige el formato que mejor se adapte a tu negocio.
-- 🌍 **Hospedaje incluido**: Incluye alojamiento gratuito durante los primeros 3 meses.
+- 🌍 **Hospedaje**: Incluye alojamiento gratuito durante los primeros 3 meses.
 - 🤖 **Asistente OWE**: Responde preguntas frecuentes de forma inmediata.
-- 📲 **Integración SMS/WhatsApp**: Contacto directo mediante mensajes de texto.
+- 📲 **Integración SMS**: Contacto directo mediante mensajes de texto.
 
 ---
 
 ## 💡 Filosofía
 
-KOOWEXA nace como una iniciativa 100% cubana con el objetivo de **democratizar la presencia digital**. Creemos que cualquier emprendedor, sin importar su experiencia técnica o recursos, merece estar visible en internet.
+KOOWEXA nace como una iniciativa 100% cubana con el objetivo de que cualquier emprendedor, sin importar su experiencia o recursos, merece estar visible en internet.
 
 ---
