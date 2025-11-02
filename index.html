@@ -18,348 +18,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png">
   <link rel="mask-icon" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png" color="#00d8ff">
 
-  <!-- PWA Manifest (embebido como data URI) -->
-  <link rel="manifest" href="data:application/manifest+json,{
-    %22name%22:%22KOOWEXA%22,
-    %22short_name%22:%22KOOWEXA%22,
-    %22start_url%22:%22https://koowexa.github.io/oficial/%22,
-    %22display%22:%22standalone%22,
-    %22background_color%22:%22%230f1624%22,
-    %22theme_color%22:%22%2300d8ff%22,
-    %22icons%22:[{
-      %22src%22:%22https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png%22,
-      %22sizes%22:%22192x192%22,
-      %22type%22:%22image/png%22
-    },{
-      %22src%22:%22https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png%22,
-      %22sizes%22:%22512x512%22,
-      %22type%22:%22image/png%22
-    }]
-  }">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css">
 
   <title>KOOWEXA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <style>
-    :root {
-      --bg: #0f1624;
-      --card: #1a2238;
-      --blue: #00d8ff;
-      --text: #e0e0e0;
-      --gray: #bdc3c7;
-      --sms: #4CAF50;
-      --profile: #2196F3;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: white;
-      text-align: center;
-    }
-
-    .logo-title {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 0.8rem;
-    }
-
-    .logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid white;
-      background: white;
-    }
-
-    .koo {
-      color: var(--blue);
-      font-weight: bold;
-    }
-
-    .wexa {
-      font-weight: bold;
-    }
-
-    header h1 {
-      font-size: 2.2rem;
-      margin: 0;
-      animation: blinkGlow 3s infinite alternate;
-    }
-
-    @keyframes blinkGlow {
-      0%, 100% {
-        opacity: 1;
-        text-shadow: 0 0 8px rgba(0, 216, 255, 0.7);
-      }
-      50% {
-        opacity: 0.9;
-        text-shadow: 0 0 20px rgba(0, 216, 255, 1);
-      }
-    }
-
-    header p {
-      opacity: 0.9;
-      margin-bottom: 1rem;
-    }
-
-    .help-btn {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1.2rem;
-    }
-
-    section {
-      background: var(--card);
-      padding: 1.5rem;
-      margin-bottom: 1.8rem;
-      border-radius: 12px;
-    }
-
-    h2 {
-      color: var(--blue);
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      color: var(--gray);
-    }
-
-    .features {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .feature {
-      padding: 10px;
-      background: rgba(0, 216, 255, 0.1);
-      border-left: 3px solid var(--blue);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .sub-feature {
-      padding-left: 24px;
-      margin-top: 4px;
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    .contact-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 12px 0;
-    }
-
-    .btn {
-      padding: 10px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    .sms-btn {
-      background: var(--sms);
-      color: white;
-    }
-
-    .profile-btn {
-      background: var(--profile);
-      color: white;
-    }
-
-    .chat-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .chat-box {
-      width: 90%;
-      max-width: 420px;
-      background: var(--card);
-      border-radius: 12px;
-      overflow: hidden;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-header {
-      padding: 12px 16px;
-      background: var(--bg);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .close-btn {
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    .messages {
-      padding: 16px;
-      flex: 1;
-      overflow-y: auto;
-      max-height: 260px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .msg {
-      padding: 8px 12px;
-      border-radius: 12px;
-      max-width: 85%;
-      line-height: 1.4;
-    }
-
-    .bot {
-      background: #e5e5ea;
-      color: #000;
-      align-self: flex-start;
-    }
-
-    .user {
-      background: #007BFF;
-      color: white;
-      align-self: flex-end;
-    }
-
-    .typing {
-      align-self: flex-start;
-      background: #e5e5ea;
-      padding: 10px;
-      border-radius: 12px;
-      font-style: italic;
-      color: #666;
-    }
-
-    .quick-replies {
-      padding: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .quick-replies button {
-      background: #007BFF;
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 15px;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-
-    #appPrompt {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #2a5298;
-      color: white;
-      padding: 12px 16px;
-      text-align: center;
-      z-index: 999;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    #appPrompt a {
-      display: inline-block;
-      background: #00d8ff;
-      color: #0f1624;
-      padding: 6px 14px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-
-    #appPrompt button {
-      margin-left: 10px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-size: 1.2rem;
-    }
-
-    @media (max-width: 600px) {
-      .contact-buttons {
-        flex-direction: column;
-      }
-
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      .logo {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -375,35 +41,115 @@
 </header>
 
 <main>
-  <section>
-    <h2><i class="fas fa-info-circle"></i> Acerca de KOOWEXA</h2>
-    <p>KOOWEXA ofrece herramientas simples, rápidas y optimizadas para conexiones lentas, perfectas para emprendedores en Cuba. Ya sea una tienda online o un catálogo de servicios, lo hacemos accesible, económico y efectivo.</p>
-  </section>
-
-  <section>
-    <h2><i class="fas fa-bolt"></i> Características</h2>
-    <div class="features">
-      <div>
-        <div class="feature"><i class="fas fa-star"></i> Sencillo</div>
-        <div class="sub-feature"><i class="fas fa-check"></i> Fácil de usar sin experiencia técnica</div>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Transforma tu negocio con KOOWEXA</h2>
+      <p>La plataforma digital más avanzada para emprendedores cubanos</p>
+      <div class="hero-buttons">
+        <button class="cta-btn primary" id="startNowBtn">Comenzar Ahora</button>
+        <button class="cta-btn secondary" id="learnMoreBtn">Conocer Más</button>
       </div>
-      <div>
-        <div class="feature"><i class="fas fa-star"></i> Rápido</div>
-        <div class="sub-feature"><i class="fas fa-check"></i> Optimizado para conexiones lentas</div>
-        <div class="sub-feature"><i class="fas fa-check"></i> Ideal para usuarios en Cuba</div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card1">
+        <i class="fas fa-store"></i>
+        <span>Tienda Online</span>
       </div>
-      <div>
-        <div class="feature"><i class="fas fa-star"></i> Hospedaje</div>
-        <div class="sub-feature"><i class="fas fa-check"></i> Servidor incluido gratis por 3 meses</div>
+      <div class="floating-card card2">
+        <i class="fas fa-mobile-alt"></i>
+        <span>Optimizado Móvil</span>
       </div>
-      <div>
-        <div class="feature"><i class="fas fa-star"></i> Variedad</div>
-        <div class="sub-feature"><i class="fas fa-check"></i> Elige entre tienda online o catálogo de servicios</div>
+      <div class="floating-card card3">
+        <i class="fas fa-bolt"></i>
+        <span>Rápido</span>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="about-section">
+    <h2><i class="fas fa-info-circle"></i> Acerca de KOOWEXA</h2>
+    <p>KOOWEXA ofrece herramientas simples, rápidas y optimizadas para conexiones lentas, perfectas para emprendedores en Cuba. Ya sea una tienda online o un catálogo de servicios, lo hacemos accesible, económico y efectivo.</p>
+  </section>
+
+  <section class="features-section">
+    <h2><i class="fas fa-bolt"></i> Características</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Sencillo</h3>
+        <p>Fácil de usar sin experiencia técnica</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-tachometer-alt"></i>
+        </div>
+        <h3>Rápido</h3>
+        <p>Optimizado para conexiones lentas</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3>Hospedaje</h3>
+        <p>Servidor incluido gratis por 3 meses</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <h3>Variedad</h3>
+        <p>Elige entre tienda online o catálogo de servicios</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-section">
+    <div class="premium-badge">
+      <i class="fas fa-crown"></i>
+      <span>Premium Deluxe</span>
+    </div>
+    <h2>Nueva Versión Premium Deluxe</h2>
+    <p>Experimenta la máxima calidad con nuestra nueva versión premium, diseñada para ofrecerte una experiencia excepcional.</p>
+    
+    <div class="premium-features">
+      <div class="premium-feature">
+        <i class="fas fa-palette"></i>
+        <div>
+          <h4>Diseño Exclusivo</h4>
+          <p>Interfaz renovada con elementos visuales premium</p>
+        </div>
+      </div>
+      <div class="premium-feature">
+        <i class="fas fa-rocket"></i>
+        <div>
+          <h4>Rendimiento Mejorado</h4>
+          <p>Carga hasta un 40% más rápida</p>
+        </div>
+      </div>
+      <div class="premium-feature">
+        <i class="fas fa-shield-alt"></i>
+        <div>
+          <h4>Seguridad Avanzada</h4>
+          <p>Protección mejorada para tus datos</p>
+        </div>
+      </div>
+      <div class="premium-feature">
+        <i class="fas fa-magic"></i>
+        <div>
+          <h4>Funciones Inteligentes</h4>
+          <p>Asistente IA mejorado y personalización avanzada</p>
+        </div>
+      </div>
+    </div>
+    
+    <button class="premium-btn" id="premiumBtn">
+      <i class="fas fa-gem"></i> Activar Premium Deluxe
+    </button>
+  </section>
+
+  <section class="contact-section">
     <h2><i class="fas fa-comment"></i> Contacto</h2>
     <p>¿Quieres tener tu propia plataforma digital? Contáctanos por SMS o visita mi perfil oficial:</p>
     <div class="contact-buttons">
@@ -427,6 +173,10 @@
     <div class="messages" id="chatMessages">
       <div class="msg bot">¡Hola! Soy OWE, tu asistente de KOOWEXA. ¿En qué puedo ayudarte?</div>
     </div>
+    <div class="chat-input-container">
+      <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." />
+      <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+    </div>
     <div class="quick-replies" id="quickReplies"></div>
   </div>
 </div>
@@ -441,179 +191,16 @@
   </div>
 </div>
 
-<script>
-  const knowledgeBase = {
-    saludos: [
-      "¡Hola! Soy OWE, tu asistente de KOOWEXA. ¿En qué puedo ayudarte hoy?",
-      "¡Bienvenido! Estoy aquí para guiarte en tu primer paso hacia tu presencia digital."
-    ],
-    servicio: [
-      "Ofrecemos una herramienta completa y simple para que usted tenga su propia tienda online o catálogo de servicios."
-    ],
-    buscar: [
-      "Puedes encontrarnos fácilmente en Google buscando 'KOOWEXA OFICIAL'. También visita nuestro perfil"
-    ],
-    precios: [
-      "El costo único es de **2000 CUP**. Incluye configuración, dominio temporal y hospedaje GRATIS por 3 meses.",
-      "Es una inversión mínima con un retorno máximo: tendrás tu negocio visible 24/7 en internet."
-    ],
-    descuento: [
-      "¡Sí! Si es tu primera vez solicitando el servicio, obtienes un bono especial de bienvenida. Menciona que vienes del sitio web al contactar por SMS.",
-      "El descuento se aplica automáticamente a nuevos clientes que mencionen 'OWE' en su primer mensaje."
-    ],
-    redes: [
-      "Puedes encontrarnos en WhatsApp, Telegram, Facebook y Twitter. Pero para una respuesta más rápida, envía un SMS al +53 50369270 o visita nuestro perfil oficial."
-    ],
-    koowexa: [
-      "KOOWEXA es una iniciativa 100% cubana que busca democratizar la presencia digital. Creamos herramientas simples, rápidas y optimizadas para funcionar en las condiciones reales de internet en Cuba."
-    ],
-    tienda: [
-      "Sí, ofrecemos una tienda online básica pero funcional: con catálogo de productos, fotos, precios y método de contacto. Ideal para vender desde Cuba sin necesidad de pasarelas de pago complejas."
-    ],
-    hospedaje: [
-      "Incluimos 3 meses de hospedaje GRATIS en servidores estables. Pasado ese tiempo, puedes renovar por un costo minimo."
-    ],
-    tecnologia: [
-      "Se utiliza codificacion optimizada para cargar rápido incluso en 2G o redes compartidas."
-    ],
-    despedida: [
-      "¡Gracias por confiar en KOOWEXA! No olvides enviar un SMS al +53 50369270 para comenzar."
-    ],
-    default: [
-      "¿Quieres tu propia tienda o catálogo digital? Envía un SMS al +53 50369270 con tu nombre y tipo de negocio. ¡Te responderemos en minutos!",
-      "Visita también nuestro perfil oficial para ver todos los canales: https://koowexa.github.io/perfil/"
-    ]
-  };
+<div class="notification" id="notification">
+  <div class="notification-content">
+    <span id="notificationText"></span>
+    <button id="closeNotification">&times;</button>
+  </div>
+</div>
 
-  function findBestResponse(msg) {
-    const lower = msg.toLowerCase();
-    if (/hola|buenas|hi|hey|saludos/.test(lower)) return rand(knowledgeBase.saludos);
-    if (/servicio|ofrecen|qué hacen|solución|plataforma/.test(lower)) return rand(knowledgeBase.servicio);
-    if (/buscar|google|encontrar|dónde/.test(lower)) return rand(knowledgeBase.buscar);
-    if (/precio|cuesta|costo|cuánto|inversión/.test(lower)) return rand(knowledgeBase.precios);
-    if (/descuento|oferta|promo|bono|primera vez/.test(lower)) return rand(knowledgeBase.descuento);
-    if (/redes|facebook|telegram|whatsapp|twitter|perfil|canales/.test(lower)) return rand(knowledgeBase.redes);
-    if (/koowexa|quiénes son|de qué trata|empresa|iniciativa/.test(lower)) return rand(knowledgeBase.koowexa);
-    if (/tienda|vender|productos|catálogo|online/.test(lower)) return rand(knowledgeBase.tienda);
-    if (/hospedaje|servidor|alojamiento|dominio/.test(lower)) return rand(knowledgeBase.hospedaje);
-    if (/tecnología|rápido|lento|conexión|3g|carga/.test(lower)) return rand(knowledgeBase.tecnologia);
-    if (/adiós|chao|gracias|vale|ok/.test(lower)) return rand(knowledgeBase.despedida);
-    return rand(knowledgeBase.default);
-  }
-
-  function rand(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
-
-  const helpBtn = document.getElementById('helpButton');
-  const modal = document.getElementById('chatModal');
-  const closeBtn = document.getElementById('closeChat');
-  const messagesEl = document.getElementById('chatMessages');
-  const quickReplies = document.getElementById('quickReplies');
-
-  helpBtn.onclick = () => modal.style.display = 'flex';
-  closeBtn.onclick = () => modal.style.display = 'none';
-  modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
-
-  function addMsg(text, sender) {
-    const el = document.createElement('div');
-    el.className = `msg ${sender}`;
-    el.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    messagesEl.appendChild(el);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
-  function showTyping() {
-    const typingEl = document.createElement('div');
-    typingEl.className = 'typing';
-    typingEl.textContent = 'OWE está escribiendo...';
-    messagesEl.appendChild(typingEl);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-    return typingEl;
-  }
-
-  function hideTyping(el) {
-    if (el && el.parentNode) el.parentNode.removeChild(el);
-  }
-
-  quickReplies.innerHTML = `
-    <button data-q="¿Qué servicios ofrecen?">Servicios</button>
-    <button data-q="¿Cuánto cuesta?">Precio</button>
-    <button data-q="¿Incluye hospedaje?">Hospedaje</button>
-    <button data-q="¿Puedo tener una tienda online?">Tienda</button>
-    <button data-q="¿Hay descuento para nuevos?">Descuento</button>
-    <button data-q="¿Dónde veo sus redes?">Redes</button>
-    <button data-q="¿Cómo es la tecnología usada?">Tecnología</button>
-  `;
-
-  quickReplies.onclick = (e) => {
-    if (e.target.tagName === 'BUTTON') {
-      const q = e.target.getAttribute('data-q');
-      addMsg(q, 'user');
-      const typingIndicator = showTyping();
-      setTimeout(() => {
-        hideTyping(typingIndicator);
-        addMsg(findBestResponse(q), 'bot');
-      }, 800 + Math.random() * 400);
-    }
-  };
-
-  function requestPermissions() {
-    if ('Notification' in window && Notification.permission === 'default') {
-      Notification.requestPermission().catch(() => {});
-    }
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(() => {}, () => {}, { timeout: 5000, maximumAge: 300000 });
-    }
-    if ('storage' in navigator && 'persist' in navigator.storage) {
-      navigator.storage.persist().catch(() => {});
-    }
-  }
-
-  function showAppPrompt() {
-    const now = Date.now();
-    const last = localStorage.getItem('koowexa_app_prompt_last');
-    const week = 7 * 24 * 60 * 60 * 1000;
-    if (!last || (now - parseInt(last, 10)) > week) {
-      document.getElementById('appPrompt').style.display = 'block';
-      localStorage.setItem('koowexa_app_prompt_last', now.toString());
-    }
-  }
-
-  // Service Worker dinámico
-  if ('serviceWorker' in navigator) {
-    const swContent = `
-      const CACHE_NAME = 'koowexa-v1';
-      const urlsToCache = [
-        'https://koowexa.github.io/oficial/',
-        'https://github.com/KOOWEXA/oficial/raw/refs/heads/main/logo.png'
-      ];
-      self.addEventListener('install', event => {
-        event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache)));
-      });
-      self.addEventListener('fetch', event => {
-        event.respondWith(
-          caches.match(event.request).then(response => response || fetch(event.request))
-        );
-      });
-    `;
-    const blob = new Blob([swContent], { type: 'application/javascript' });
-    const swURL = URL.createObjectURL(blob);
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register(swURL).catch(console.warn);
-      requestPermissions();
-      if (/Android/i.test(navigator.userAgent)) {
-        setTimeout(showAppPrompt, 3000);
-        const preload = new Image();
-        preload.src = 'https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk';
-      }
-    });
-  }
-
-  document.getElementById('closeAppPrompt').addEventListener('click', () => {
-    document.getElementById('appPrompt').style.display = 'none';
-  });
-</script>
+<!-- Scripts -->
+<script src="script.js"></script>
+<script src="pwa.js"></script>
 
 </body>
 </html>
