@@ -30,7 +30,7 @@
   }
   </script>
   
-  <title>KOOWEXA OFICIAL - Plataforma Digital para Emprendedores Cubanos</title>
+  <title>KOOWEXA OFICIAL</title>
   
   <link rel="icon" type="image/jpeg" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg">
   <link rel="canonical" href="https://koowexa.github.io/oficial/" />
@@ -38,13 +38,15 @@
   
   <style>
     :root {
-      --primary: #FFD700;
-      --primary-dark: #B8860B;
-      --dark: #0a0f1c;
-      --card: #1a2238;
-      --text: #ffffff;
-      --text-secondary: #bdc3c7;
-      --success: #4CAF50;
+      --gold: #FFD700;
+      --gold-dark: #B8860B;
+      --tech-blue: #0066CC;
+      --blue-dark: #004499;
+      --night-black: #0A0A0A;
+      --black-light: #1A1A1A;
+      --text: #FFFFFF;
+      --text-secondary: #CCCCCC;
+      --success: #00CC66;
     }
 
     * {
@@ -55,7 +57,7 @@
 
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--dark);
+      background: var(--night-black);
       color: var(--text);
       line-height: 1.5;
       min-height: 100vh;
@@ -69,10 +71,11 @@
 
     /* Header */
     .header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      background: linear-gradient(135deg, var(--night-black), var(--blue-dark));
       padding: 1.5rem 0;
       text-align: center;
       position: relative;
+      border-bottom: 3px solid var(--gold);
     }
 
     .logo-container {
@@ -88,19 +91,23 @@
       height: 60px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--dark);
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     }
 
     .title {
       font-size: 2.2rem;
       font-weight: bold;
-      color: var(--dark);
+      background: linear-gradient(135deg, var(--gold), var(--tech-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .subtitle {
       font-size: 1rem;
-      color: var(--dark);
-      opacity: 0.9;
+      color: var(--text-secondary);
+      font-weight: 500;
     }
 
     /* Main Content */
@@ -115,8 +122,12 @@
 
     .hero-title {
       font-size: 1.8rem;
-      color: var(--primary);
+      background: linear-gradient(135deg, var(--gold), var(--tech-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 0.8rem;
+      font-weight: 700;
     }
 
     .hero-text {
@@ -135,39 +146,50 @@
     }
 
     .btn {
-      padding: 10px 20px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 20px;
+      border-radius: 8px;
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       text-align: center;
     }
 
     .btn-primary {
-      background: var(--primary);
-      color: var(--dark);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--night-black);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     }
 
     .btn-secondary {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
+      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
     }
 
     .btn-success {
-      background: var(--success);
+      background: linear-gradient(135deg, var(--success), #00994C);
       color: white;
+      box-shadow: 0 4px 15px rgba(0, 204, 102, 0.3);
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-secondary:hover {
+      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+    }
+
+    .btn-success:hover {
+      box-shadow: 0 6px 20px rgba(0, 204, 102, 0.4);
     }
 
     /* Features */
@@ -179,53 +201,67 @@
     }
 
     .feature-card {
-      background: var(--card);
+      background: linear-gradient(135deg, var(--black-light), var(--night-black));
       padding: 1.5rem;
       border-radius: 12px;
       text-align: center;
-      border: 1px solid rgba(255, 215, 0, 0.1);
+      border: 1px solid var(--tech-blue);
+      box-shadow: 0 4px 20px rgba(0, 102, 204, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
     }
 
     .feature-icon {
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 215, 0, 0.1);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 0.8rem;
+      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
     }
 
     .feature-icon i {
       font-size: 1.5rem;
-      color: var(--primary);
+      color: var(--gold);
     }
 
     .feature-title {
-      font-size: 1.1rem;
-      color: var(--primary);
+      font-size: 1.2rem;
+      color: var(--gold);
       margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
     .feature-text {
       font-size: 0.9rem;
       color: var(--text-secondary);
+      line-height: 1.4;
     }
 
     /* Contact */
     .contact {
       text-align: center;
-      background: var(--card);
+      background: linear-gradient(135deg, var(--black-light), var(--night-black));
       padding: 2rem 1.5rem;
       border-radius: 12px;
       margin: 2rem 0;
+      border: 1px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
     }
 
     .contact-title {
       font-size: 1.5rem;
-      color: var(--primary);
+      color: var(--gold);
       margin-bottom: 0.8rem;
+      font-weight: 600;
     }
 
     .contact-text {
@@ -235,21 +271,23 @@
     }
 
     .email-btn {
-      background: var(--primary);
-      color: var(--dark);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--night-black);
       padding: 12px 30px;
       font-size: 1rem;
       font-weight: bold;
-      border-radius: 20px;
+      border-radius: 8px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     }
 
     .email-btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
     }
 
     /* Chat */
@@ -257,35 +295,36 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      color: var(--dark);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--night-black);
       border: none;
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       cursor: pointer;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
       z-index: 1000;
-      transition: transform 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     .chat-btn:hover {
       transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
     }
 
     .chat-modal {
       display: none;
       position: fixed;
-      bottom: 80px;
+      bottom: 90px;
       right: 20px;
-      width: 320px;
+      width: 350px;
       max-width: calc(100vw - 40px);
-      background: var(--card);
+      background: linear-gradient(135deg, var(--black-light), var(--night-black));
       border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
       z-index: 1001;
-      border: 1px solid rgba(255, 215, 0, 0.2);
+      border: 2px solid var(--tech-blue);
       animation: slideUp 0.3s ease;
     }
 
@@ -301,10 +340,10 @@
     }
 
     .chat-header {
-      background: var(--primary);
-      color: var(--dark);
-      padding: 0.8rem 1rem;
-      border-radius: 12px 12px 0 0;
+      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
+      color: white;
+      padding: 1rem;
+      border-radius: 10px 10px 0 0;
       font-weight: bold;
       display: flex;
       justify-content: space-between;
@@ -314,9 +353,14 @@
     .chat-close {
       background: none;
       border: none;
-      color: var(--dark);
-      font-size: 1.2rem;
+      color: white;
+      font-size: 1.3rem;
       cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .chat-close:hover {
+      color: var(--gold);
     }
 
     .chat-messages {
@@ -325,59 +369,73 @@
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .message {
-      padding: 8px 12px;
+      padding: 10px 15px;
       border-radius: 12px;
       max-width: 85%;
       word-wrap: break-word;
       font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     .message.bot {
-      background: rgba(255, 215, 0, 0.1);
+      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
+      color: white;
       align-self: flex-start;
       border-bottom-left-radius: 5px;
     }
 
     .message.user {
-      background: var(--primary);
-      color: var(--dark);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--night-black);
       align-self: flex-end;
       border-bottom-right-radius: 5px;
+      font-weight: 500;
     }
 
     .chat-input {
       display: flex;
-      padding: 0.8rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      gap: 8px;
+      padding: 1rem;
+      border-top: 1px solid var(--tech-blue);
+      gap: 10px;
     }
 
     .chat-input input {
       flex: 1;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border: 1px solid var(--tech-blue);
+      border-radius: 8px;
+      background: var(--night-black);
       color: var(--text);
       outline: none;
       font-size: 0.9rem;
     }
 
+    .chat-input input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
     .chat-input button {
-      background: var(--primary);
-      color: var(--dark);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--night-black);
       border: none;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .chat-input button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
     }
 
     /* Footer */
@@ -385,8 +443,9 @@
       text-align: center;
       padding: 1.5rem 0;
       color: var(--text-secondary);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--tech-blue);
       font-size: 0.9rem;
+      background: var(--night-black);
     }
 
     /* Responsive */
@@ -402,7 +461,7 @@
       .chat-modal {
         width: calc(100vw - 40px);
         right: 20px;
-        bottom: 80px;
+        bottom: 90px;
       }
       
       .cta-buttons {
@@ -439,7 +498,12 @@
       }
       
       .feature-card {
-        padding: 1rem;
+        padding: 1.2rem;
+      }
+      
+      .btn {
+        padding: 10px 15px;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -452,7 +516,7 @@
         <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" alt="KOOWEXA Logo" class="logo" itemprop="logo">
         <h1 class="title" itemprop="name">KOOWEXA</h1>
       </div>
-      <p class="subtitle" itemprop="description">Plataforma Digital para Emprendedores Cubanos</p>
+      <p class="subtitle" itemprop="description">Plataforma Digital Profesional para Emprendedores Cubanos</p>
     </div>
   </header>
 
@@ -460,20 +524,17 @@
   <main class="main container">
     <!-- Hero Section -->
     <section class="hero">
-      <h2 class="hero-title">Tu Negocio en Línea, Simple y Efectivo</h2>
-      <p class="hero-text">Creamos herramientas digitales optimizadas para las condiciones reales de internet en Cuba</p>
+      <h2 class="hero-title">Transforma tu Negocio con Tecnología</h2>
+      <p class="hero-text">Soluciones digitales optimizadas para el mercado cubano.</p>
       <div class="cta-buttons">
         <button class="btn btn-primary" id="startBtn">
           <i class="fas fa-rocket"></i> Comenzar Ahora
         </button>
-        <button class="btn btn-secondary" id="learnBtn">
-          <i class="fas fa-info-circle"></i> Más Info
-        </button>
         <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/README.md" class="btn btn-secondary" target="_blank">
-          <i class="fas fa-book"></i> Ver Documentación
+          <i class="fas fa-book"></i> Documentación
         </a>
         <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk" class="btn btn-success" download>
-          <i class="fas fa-download"></i> Descargar APK
+          <i class="fas fa-download"></i> Descargar App
         </a>
       </div>
     </section>
@@ -485,30 +546,30 @@
           <i class="fas fa-store"></i>
         </div>
         <h3 class="feature-title">Tienda Online</h3>
-        <p class="feature-text">Catálogo de productos, fotos, precios y contacto directo con clientes</p>
+        <p class="feature-text">Catálogo profesional con diseño elegante y funcional</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">
           <i class="fas fa-bolt"></i>
         </div>
-        <h3 class="feature-title">Rápido y Optimizado</h3>
-        <p class="feature-text">Funciona perfectamente en conexiones 2G y redes compartidas</p>
+        <h3 class="feature-title">Tecnología Avanzada</h3>
+        <p class="feature-text">Optimizado para la velocidad y rendimiento en cualquier conexión</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">
           <i class="fas fa-server"></i>
         </div>
-        <h3 class="feature-title">Hospedaje Incluido</h3>
-        <p class="feature-text">3 meses gratis de hosting en servidores estables</p>
+        <h3 class="feature-title">Hospedaje Profesional</h3>
+        <p class="feature-text">Servidores disponibles 3 meses gratis</p>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" itemscope itemtype="https://schema.org/ContactPoint">
-      <h2 class="contact-title">¿Listo para Comenzar?</h2>
-      <p class="contact-text">Contáctanos directamente y recibe atención personalizada</p>
+      <h2 class="contact-title">¿Listo para seguir?</h2>
+      <p class="contact-text">Contáctanos y lleva tu negocio a la era digital con estilo</p>
       <a href="mailto:koowexa@gmail.com" class="email-btn" itemprop="email">
         <i class="fas fa-envelope"></i> koowexa@gmail.com
       </a>
@@ -526,7 +587,7 @@
       <button class="chat-close" id="chatClose">&times;</button>
     </div>
     <div class="chat-messages" id="chatMessages">
-      <div class="message bot">¡Hola! Soy OWE, tu asistente. ¿En qué puedo ayudarte hoy?</div>
+      <div class="message bot">¡Hola! Soy OWE, tu asistente premium. ¿En qué puedo ayudarte hoy?</div>
     </div>
     <div class="chat-input">
       <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." aria-label="Mensaje para el asistente">
@@ -537,7 +598,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 KOOWEXA OFICIAL - Todos los derechos reservados.</p>
+      <p>&copy; 2025 KOOWEXA - OFICIAL</p>
     </div>
   </footer>
 
@@ -552,17 +613,16 @@
         this.sendMessage = document.getElementById('sendMessage');
         this.chatClose = document.getElementById('chatClose');
         this.startBtn = document.getElementById('startBtn');
-        this.learnBtn = document.getElementById('learnBtn');
         
         this.responses = {
-          'hola': '¡Hola! Soy OWE, tu asistente de KOOWEXA. ¿En qué puedo ayudarte?',
-          'precio': 'El costo único es de 2000 CUP. Incluye configuración completa y 3 meses de hospedaje gratis.',
-          'servicio': 'Ofrecemos tiendas online y catálogos digitales optimizados para conexiones en Cuba.',
-          'contacto': 'Escríbenos a: koowexa@gmail.com - Te responderemos rápidamente.',
-          'tiempo': 'Tu plataforma estará lista en 3-5 días hábiles después del pago.',
+          'hola': '¡Hola! Soy OWE, tu asistente premium de KOOWEXA. ¿En qué puedo ayudarte hoy?',
+          'precio': 'El costo único es de 2000 CUP. Incluye configuración premium y 3 meses de hospedaje profesional.',
+          'servicio': 'Ofrecemos tiendas online premium y catálogos digitales con tecnología avanzada para Cuba.',
+          'contacto': 'Escríbenos a: koowexa@gmail.com - Atención personalizada y profesional.',
+          'tiempo': 'Tu plataforma premium estará lista en 3-5 días hábiles después del pago.',
           'documentacion': 'Puedes ver la documentación completa en: https://github.com/KOOWEXA/oficial/raw/refs/heads/main/README.md',
-          'app': 'Descarga nuestra app desde: https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk',
-          'default': 'Para más información, contáctanos directamente a: koowexa@gmail.com'
+          'app': 'Descarga nuestra app premium desde: https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk',
+          'default': 'Para información detallada sobre nuestros servicios premium, contáctanos a: koowexa@gmail.com'
         };
 
         this.init();
@@ -577,12 +637,7 @@
         });
 
         this.startBtn.addEventListener('click', () => {
-          window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA&body=Hola, estoy interesado en sus servicios.';
-        });
-
-        this.learnBtn.addEventListener('click', () => {
-          this.openChat();
-          this.addMessage('¿Qué te gustaría saber sobre nuestros servicios?', 'bot');
+          window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA Premium&body=Hola, estoy interesado en sus servicios premium.';
         });
 
         // Close chat when clicking outside
@@ -591,9 +646,6 @@
             this.closeChat();
           }
         });
-
-        // Track chat interactions for analytics
-        this.trackEvent('chat_loaded');
       }
 
       toggleChat() {
@@ -607,12 +659,10 @@
       openChat() {
         this.chatModal.style.display = 'block';
         this.chatInput.focus();
-        this.trackEvent('chat_opened');
       }
 
       closeChat() {
         this.chatModal.style.display = 'none';
-        this.trackEvent('chat_closed');
       }
 
       sendMessageHandler() {
@@ -621,13 +671,11 @@
 
         this.addMessage(message, 'user');
         this.chatInput.value = '';
-        this.trackEvent('message_sent', { message_length: message.length });
 
         // Simulate typing delay
         setTimeout(() => {
           const response = this.getBotResponse(message);
           this.addMessage(response, 'bot');
-          this.trackEvent('bot_responded');
         }, 800);
       }
 
@@ -652,36 +700,12 @@
         
         return this.responses.default;
       }
-
-      trackEvent(eventName, data = {}) {
-        // Simple analytics tracking
-        if (typeof gtag !== 'undefined') {
-          gtag('event', eventName, data);
-        }
-        console.log(`Event: ${eventName}`, data);
-      }
     }
 
     // Initialize chat when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
       new ChatAssistant();
     });
-
-    // Service Worker Registration for PWA (optional)
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => console.log('SW registered'))
-        .catch(error => console.log('SW registration failed'));
-    }
-  </script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
   </script>
 </body>
 </html>
