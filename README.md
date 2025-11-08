@@ -2,8 +2,6 @@
 
 > KOOWEXA es una solución digital ligera, rápida y optimizada para entornos con conectividad limitada, diseñada especialmente para emprendedores en Cuba que desean una presencia en línea sin complejidades técnicas ni costos recurrentes.
 
----
-
 ## 🌐 General
 
 KOOWEXA permite a pequeños negocios y emprendedores crear su propia **tienda online** o **catálogo de servicios** en cuestión de minutos. La plataforma está construida con un enfoque en:
