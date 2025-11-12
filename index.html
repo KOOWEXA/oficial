@@ -21,6 +21,9 @@
     "logo": "https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg",
     "email": "koowexa@gmail.com",
     "areaServed": "CU",
+    "sameAs": [
+      "https://github.com/KOOWEXA"
+    ],
     "offers": {
       "@type": "Offer",
       "name": "Tienda Online",
@@ -30,7 +33,7 @@
   }
   </script>
   
-  <title>KOOWEXA OFICIAL</title>
+  <title>KOOWEXA OFICIAL - Plataforma Digital para Emprendedores Cubanos</title>
   
   <link rel="icon" type="image/jpeg" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg">
   <link rel="canonical" href="https://koowexa.github.io/oficial/" />
@@ -438,6 +441,86 @@
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
     }
 
+    /* Documentation Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1100;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, var(--black-light), var(--night-black));
+      margin: 2% auto;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 800px;
+      width: 90%;
+      border: 2px solid var(--gold);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
+      position: relative;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--gold);
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .modal-body {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .modal-body h3 {
+      color: var(--gold);
+      margin: 1.5rem 0 0.8rem;
+    }
+
+    .modal-body ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-body li {
+      margin-bottom: 0.5rem;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -477,6 +560,11 @@
         width: 50px;
         height: 50px;
       }
+      
+      .modal-content {
+        padding: 1.5rem;
+        margin: 5% auto;
+      }
     }
 
     @media (max-width: 480px) {
@@ -505,6 +593,11 @@
         padding: 10px 15px;
         font-size: 0.85rem;
       }
+      
+      .modal-content {
+        padding: 1rem;
+        margin: 10% auto;
+      }
     }
   </style>
 </head>
@@ -530,9 +623,9 @@
         <button class="btn btn-primary" id="startBtn">
           <i class="fas fa-rocket"></i> Comenzar Ahora
         </button>
-        <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/README.md" class="btn btn-secondary" target="_blank">
+        <button class="btn btn-secondary" id="docsBtn">
           <i class="fas fa-book"></i> Documentación
-        </a>
+        </button>
         <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOO.apk" class="btn btn-success" download>
           <i class="fas fa-download"></i> Descargar App
         </a>
@@ -576,6 +669,46 @@
     </section>
   </main>
 
+  <!-- Documentation Modal -->
+  <div class="modal" id="docsModal">
+    <div class="modal-content">
+      <button class="modal-close" id="docsClose">&times;</button>
+      <h2 class="modal-title">Documentación KOOWEXA</h2>
+      <div class="modal-body">
+        <h3>¿Qué es KOOWEXA?</h3>
+        <p>KOOWEXA es una plataforma digital diseñada específicamente para emprendedores cubanos que buscan establecer su presencia en línea con tiendas virtuales y catálogos digitales optimizados.</p>
+        
+        <h3>Características Principales</h3>
+        <ul>
+          <li>Diseño responsive que funciona en cualquier dispositivo</li>
+          <li>Optimización para conexiones de internet variables en Cuba</li>
+          <li>Interfaz intuitiva y fácil de gestionar</li>
+          <li>Integración con métodos de pago locales</li>
+          <li>Hospedaje profesional incluido por 3 meses</li>
+        </ul>
+        
+        <h3>¿Cómo comenzar?</h3>
+        <p>Para iniciar con KOOWEXA, simplemente:</p>
+        <ol>
+          <li>Contáctanos a través de nuestro correo: koowexa@gmail.com</li>
+          <li>Especifica tus necesidades y productos/servicios</li>
+          <li>Realiza el pago único de 2000 CUP</li>
+          <li>Recibe tu plataforma en 3-5 días hábiles</li>
+        </ol>
+        
+        <h3>Requisitos</h3>
+        <ul>
+          <li>No se requieren conocimientos técnicos avanzados</li>
+          <li>Disponibilidad de imágenes de productos (recomendado)</li>
+          <li>Información clara sobre tu negocio</li>
+        </ul>
+        
+        <h3>Soporte</h3>
+        <p>Ofrecemos soporte continuo para resolver cualquier duda o problema que puedas tener con tu plataforma. Puedes contactarnos en cualquier momento a través de nuestro correo electrónico o mediante el asistente virtual incluido en el sitio.</p>
+      </div>
+    </div>
+  </div>
+
   <!-- Chat Assistant -->
   <button class="chat-btn" id="chatToggle" aria-label="Abrir chat de asistente">
     <i class="fas fa-robot"></i>
@@ -613,6 +746,9 @@
         this.sendMessage = document.getElementById('sendMessage');
         this.chatClose = document.getElementById('chatClose');
         this.startBtn = document.getElementById('startBtn');
+        this.docsBtn = document.getElementById('docsBtn');
+        this.docsModal = document.getElementById('docsModal');
+        this.docsClose = document.getElementById('docsClose');
         
         this.responses = {
           'hola': '¡Hola! Soy OWE, tu asistente premium de KOOWEXA. ¿En qué puedo ayudarte hoy?',
@@ -620,7 +756,7 @@
           'servicio': 'Ofrecemos tiendas online premium y catálogos digitales con tecnología avanzada para Cuba.',
           'contacto': 'Escríbenos a: koowexa@gmail.com - Atención personalizada y profesional.',
           'tiempo': 'Tu plataforma premium estará lista en 3-5 días hábiles después del pago.',
-          'documentacion': 'Puedes ver la documentación completa en: https://github.com/KOOWEXA/oficial/raw/refs/heads/main/README.md',
+          'documentacion': 'Puedes ver la documentación completa haciendo clic en el botón "Documentación" o preguntándome cualquier duda específica.',
           'app': 'Descarga nuestra app premium desde: https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk',
           'default': 'Para información detallada sobre nuestros servicios premium, contáctanos a: koowexa@gmail.com'
         };
@@ -640,10 +776,22 @@
           window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA Premium&body=Hola, estoy interesado en sus servicios premium.';
         });
 
-        // Close chat when clicking outside
+        this.docsBtn.addEventListener('click', () => {
+          this.docsModal.style.display = 'block';
+        });
+
+        this.docsClose.addEventListener('click', () => {
+          this.docsModal.style.display = 'none';
+        });
+
+        // Close modals when clicking outside
         document.addEventListener('click', (e) => {
           if (!this.chatModal.contains(e.target) && e.target !== this.chatToggle) {
             this.closeChat();
+          }
+          
+          if (e.target === this.docsModal) {
+            this.docsModal.style.display = 'none';
           }
         });
       }
