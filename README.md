@@ -36,6 +36,4 @@
 
 [![Cuban Tech](https://img.shields.io/badge/Made%20in-Cuba-%23CF142B?style=flat-square&logo=heart&logoColor=white)](#)
 
-[![Innovation](https://img.shields.io/badge/Innovation-Digital%20Solution-%23007bff?style=flat-square&logo=lightbulb&logoColor=white)](#)
-
 </div>
