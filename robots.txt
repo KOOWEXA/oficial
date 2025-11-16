@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /tmp/
+
+Sitemap: https://koowexa.github.io/oficial/sitemap.xml
+
+# Googlebot específico
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bingbot específico
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
