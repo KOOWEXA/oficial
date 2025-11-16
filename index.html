@@ -275,6 +275,18 @@
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
+    .btn-poster {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      color: var(--white);
+      border: 1px solid #8b5cf6;
+    }
+
+    .btn-poster:hover {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
     .btn:focus {
       outline: 2px solid var(--text-light);
       outline-offset: 2px;
@@ -500,6 +512,108 @@
       transform: translateY(-2px);
     }
 
+    /* Estilos específicos para el modal de imagen */
+    .image-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .image-modal-close:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.1);
+    }
+
+    .image-container {
+      max-width: 100%;
+      max-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .responsive-image {
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .image-caption {
+      margin-top: 15px;
+      color: var(--text-secondary);
+      text-align: center;
+      font-size: 0.9rem;
+      max-width: 80%;
+    }
+
+    .image-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .image-control-btn {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .image-control-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .image-control-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .image-control-btn:disabled:hover {
+      transform: none;
+    }
+
     .footer {
       background: var(--dark-blue);
       padding: 2rem 0;
@@ -598,6 +712,34 @@
         padding: 1.5rem;
         margin: 10% auto;
       }
+      
+      .image-modal-content {
+        max-width: 95%;
+        max-height: 95%;
+      }
+      
+      .image-container {
+        max-height: 70vh;
+      }
+      
+      .responsive-image {
+        max-height: 70vh;
+      }
+    }
+
+    @media (max-width: 768px) and (orientation: landscape) {
+      .image-modal-content {
+        max-width: 95%;
+        max-height: 95%;
+      }
+      
+      .image-container {
+        max-height: 75vh;
+      }
+      
+      .responsive-image {
+        max-height: 75vh;
+      }
     }
   </style>
 </head>
@@ -631,6 +773,9 @@
         <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOO.apk" class="btn btn-success" download>
           <i class="fas fa-download" aria-hidden="true"></i> Descargar App
         </a>
+        <button class="btn btn-poster" id="posterBtn">
+          <i class="fas fa-image" aria-hidden="true"></i> Ver Póster
+        </button>
         <button class="btn btn-share" id="shareBtn">
           <i class="fas fa-share-alt" aria-hidden="true"></i> Compartir
         </button>
@@ -665,6 +810,7 @@
     </section>
   </main>
 
+  <!-- Modal para servicios -->
   <div class="modal" id="docsModal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="docsClose" aria-label="Cerrar modal">&times;</button>
@@ -700,6 +846,7 @@
     </div>
   </div>
 
+  <!-- Modal para compartir -->
   <div class="modal" id="shareModal" role="dialog" aria-labelledby="shareModalTitle" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="shareClose" aria-label="Cerrar modal">&times;</button>
@@ -727,6 +874,35 @@
             <i class="fas fa-link"></i> Copiar enlace
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para imagen del póster -->
+  <div class="modal" id="posterModal" role="dialog" aria-labelledby="posterModalTitle" aria-modal="true">
+    <div class="modal-content image-modal-content">
+      <button class="image-modal-close" id="posterClose" aria-label="Cerrar modal">&times;</button>
+      <h2 class="modal-title" id="posterModalTitle">Póster oficial</h2>
+      <div class="image-container">
+        <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/P%C3%B3ster.jpeg" 
+             alt="Póster promocional de KOOWEXA" 
+             class="responsive-image"
+             id="posterImage">
+      </div>
+      <p class="image-caption">KOOWEXA - Plataforma Digital cubanos</p>
+      <div class="image-controls">
+        <button class="image-control-btn" id="zoomInBtn" aria-label="Acercar imagen">
+          <i class="fas fa-search-plus"></i>
+        </button>
+        <button class="image-control-btn" id="zoomOutBtn" aria-label="Alejar imagen">
+          <i class="fas fa-search-minus"></i>
+        </button>
+        <button class="image-control-btn" id="resetZoomBtn" aria-label="Restablecer zoom">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <button class="image-control-btn" id="downloadImageBtn" aria-label="Descargar imagen">
+          <i class="fas fa-download"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -969,6 +1145,141 @@
       }
     };
 
+    // API para el modal de imagen
+    const ImageModalAPI = {
+      currentScale: 1,
+      minScale: 0.5,
+      maxScale: 3,
+      scaleStep: 0.25,
+      isDragging: false,
+      startX: 0,
+      startY: 0,
+      translateX: 0,
+      translateY: 0,
+      
+      init() {
+        this.imageElement = document.getElementById('posterImage');
+        this.zoomInBtn = document.getElementById('zoomInBtn');
+        this.zoomOutBtn = document.getElementById('zoomOutBtn');
+        this.resetZoomBtn = document.getElementById('resetZoomBtn');
+        this.downloadImageBtn = document.getElementById('downloadImageBtn');
+        
+        this.setupEventListeners();
+        this.updateZoomButtons();
+      },
+      
+      setupEventListeners() {
+        // Botones de zoom
+        this.zoomInBtn.addEventListener('click', () => this.zoomIn());
+        this.zoomOutBtn.addEventListener('click', () => this.zoomOut());
+        this.resetZoomBtn.addEventListener('click', () => this.resetZoom());
+        this.downloadImageBtn.addEventListener('click', () => this.downloadImage());
+        
+        // Eventos táctiles y de ratón para arrastrar
+        this.imageElement.addEventListener('mousedown', this.startDrag.bind(this));
+        this.imageElement.addEventListener('touchstart', this.startDrag.bind(this));
+        
+        document.addEventListener('mousemove', this.drag.bind(this));
+        document.addEventListener('touchmove', this.drag.bind(this));
+        
+        document.addEventListener('mouseup', this.endDrag.bind(this));
+        document.addEventListener('touchend', this.endDrag.bind(this));
+        
+        // Zoom con rueda del ratón
+        this.imageElement.addEventListener('wheel', this.handleWheel.bind(this));
+        
+        // Reiniciar al cerrar el modal
+        document.getElementById('posterClose').addEventListener('click', () => {
+          this.resetZoom();
+        });
+      },
+      
+      zoomIn() {
+        if (this.currentScale < this.maxScale) {
+          this.currentScale += this.scaleStep;
+          this.applyTransform();
+          this.updateZoomButtons();
+        }
+      },
+      
+      zoomOut() {
+        if (this.currentScale > this.minScale) {
+          this.currentScale -= this.scaleStep;
+          this.applyTransform();
+          this.updateZoomButtons();
+        }
+      },
+      
+      resetZoom() {
+        this.currentScale = 1;
+        this.translateX = 0;
+        this.translateY = 0;
+        this.applyTransform();
+        this.updateZoomButtons();
+      },
+      
+      applyTransform() {
+        this.imageElement.style.transform = `scale(${this.currentScale}) translate(${this.translateX}px, ${this.translateY}px)`;
+      },
+      
+      updateZoomButtons() {
+        this.zoomInBtn.disabled = this.currentScale >= this.maxScale;
+        this.zoomOutBtn.disabled = this.currentScale <= this.minScale;
+      },
+      
+      startDrag(e) {
+        if (this.currentScale <= 1) return;
+        
+        this.isDragging = true;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        
+        this.startX = clientX - this.translateX;
+        this.startY = clientY - this.translateY;
+        
+        this.imageElement.style.cursor = 'grabbing';
+      },
+      
+      drag(e) {
+        if (!this.isDragging) return;
+        
+        e.preventDefault();
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        
+        this.translateX = clientX - this.startX;
+        this.translateY = clientY - this.startY;
+        
+        this.applyTransform();
+      },
+      
+      endDrag() {
+        this.isDragging = false;
+        this.imageElement.style.cursor = this.currentScale > 1 ? 'grab' : 'default';
+      },
+      
+      handleWheel(e) {
+        e.preventDefault();
+        
+        if (e.deltaY < 0) {
+          this.zoomIn();
+        } else {
+          this.zoomOut();
+        }
+      },
+      
+      downloadImage() {
+        const link = document.createElement('a');
+        link.href = this.imageElement.src;
+        link.download = 'KOOWEXA-Poster.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        AnalyticsAPI.trackEvent('Image', 'Download', 'Poster');
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', function() {
       // Inicializar APIs
       AppState.init();
@@ -976,10 +1287,13 @@
       
       const startBtn = document.getElementById('startBtn');
       const docsBtn = document.getElementById('docsBtn');
+      const posterBtn = document.getElementById('posterBtn');
       const shareBtn = document.getElementById('shareBtn');
       const docsModal = document.getElementById('docsModal');
+      const posterModal = document.getElementById('posterModal');
       const shareModal = document.getElementById('shareModal');
       const docsClose = document.getElementById('docsClose');
+      const posterClose = document.getElementById('posterClose');
       const shareClose = document.getElementById('shareClose');
       
       // Botón para comenzar
@@ -998,6 +1312,21 @@
       docsClose.addEventListener('click', function() {
         docsModal.style.display = 'none';
         docsBtn.focus();
+      });
+      
+      // Modal para imagen del póster
+      posterBtn.addEventListener('click', function() {
+        AnalyticsAPI.trackEvent('Content', 'View', 'Poster');
+        posterModal.style.display = 'block';
+        posterClose.focus();
+        
+        // Inicializar el modal de imagen
+        ImageModalAPI.init();
+      });
+      
+      posterClose.addEventListener('click', function() {
+        posterModal.style.display = 'none';
+        posterBtn.focus();
       });
       
       // Modal para compartir
@@ -1049,12 +1378,14 @@
       });
       
       // Cerrar modales al hacer clic fuera
-      [docsModal, shareModal].forEach(modal => {
+      [docsModal, posterModal, shareModal].forEach(modal => {
         modal.addEventListener('click', function(e) {
           if (e.target === modal) {
             modal.style.display = 'none';
             if (modal === docsModal) {
               docsBtn.focus();
+            } else if (modal === posterModal) {
+              posterBtn.focus();
             } else {
               shareBtn.focus();
             }
@@ -1068,6 +1399,9 @@
           if (docsModal.style.display === 'block') {
             docsModal.style.display = 'none';
             docsBtn.focus();
+          } else if (posterModal.style.display === 'block') {
+            posterModal.style.display = 'none';
+            posterBtn.focus();
           } else if (shareModal.style.display === 'block') {
             shareModal.style.display = 'none';
             shareBtn.focus();
