@@ -38,8 +38,4 @@
 
 [![Innovation](https://img.shields.io/badge/Innovation-Digital%20Solution-%23007bff?style=flat-square&logo=lightbulb&logoColor=white)](#)
 
-## Necesitas Ayuda:
-
-[![Gmail](https://img.shields.io/badge/Gmail-support%40koowexa.com-red?style=for-the-badge&logo=gmail&logoColor=white)](#)
-
 </div>
