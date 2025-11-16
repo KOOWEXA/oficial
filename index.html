@@ -3,27 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="KOOWEXA - Tiendas online y catálogos digitales optimizados para Cuba. Soluciones rápidas y efectivas para emprendedores." />
-  <meta name="keywords" content="KOOWEXA, tienda online Cuba, catálogo digital, emprendedores cubanos, comercio electrónico, plataforma digital" />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Soluciones: rápidas, efectivas, automatizadas" />
+  <meta name="keywords" content="KOOWEXA, emprendedores cubanos, comercio electrónico, plataforma oficial, Cuba" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
   <meta name="bingbot" content="index, follow" />
   <meta name="author" content="KOOWEXA" />
+  <meta name="theme-color" content="#1a365d" />
+  <link rel="canonical" href="https://koowexa.github.io/oficial/" />
   
-  <!-- Schema.org markup for Google -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="KOOWEXA" />
+  <meta property="og:description" content="Soluciones: rápidas, efectivas, automatizadas" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koowexa.github.io/oficial/" />
+  <meta property="og:image" content="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" />
+  <meta property="og:site_name" content="KOOWEXA" />
+  <meta property="og:locale" content="es_ES" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="KOOWEXA" />
+  <meta name="twitter:description" content="Soluciones: rápidas, efectivas, automatizadas" />
+  <meta name="twitter:image" content="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" />
+  
+  <!-- Schema.org markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "KOOWEXA",
-    "description": "Plataforma digital para emprendedores cubanos",
+    "description": "Soluciones: rápidas, efectivas, automatizadas",
     "url": "https://koowexa.github.io/oficial/",
     "logo": "https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg",
     "email": "koowexa@gmail.com",
     "areaServed": "CU",
     "sameAs": [
-      "https://github.com/KOOWEXA"
+      "https://github.com/KOOWEXA",
+      "https://x.com/koowexa",
+      "https://youtube.com/@koowexa",
+      "https://www.facebook.com/profile.php?id=61581684622578"
     ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CU"
+    },
     "offers": {
       "@type": "Offer",
       "name": "Tienda Online",
@@ -33,23 +57,22 @@
   }
   </script>
   
-  <title>KOOWEXA OFICIAL - Plataforma Digital para Emprendedores Cubanos</title>
+  <title>KOOWEXA</title>
   
   <link rel="icon" type="image/jpeg" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg">
-  <link rel="canonical" href="https://koowexa.github.io/oficial/" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     :root {
-      --gold: #FFD700;
-      --gold-dark: #B8860B;
-      --tech-blue: #0066CC;
-      --blue-dark: #004499;
-      --night-black: #0A0A0A;
-      --black-light: #1A1A1A;
-      --text: #FFFFFF;
-      --text-secondary: #CCCCCC;
-      --success: #00CC66;
+      --gold: #e6b400;
+      --gold-dark: #a57c00;
+      --tech-blue: #2d5a9a;
+      --blue-dark: #1a365d;
+      --night-black: #0f172a;
+      --black-light: #1e293b;
+      --text: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --success: #059669;
     }
 
     * {
@@ -58,49 +81,68 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: var(--night-black);
       color: var(--text);
-      line-height: 1.5;
+      line-height: 1.6;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .container {
-      max-width: 1000px;
+      width: 100%;
+      max-width: 480px;
       margin: 0 auto;
       padding: 0 15px;
     }
 
-    /* Header */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--tech-blue);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 10000;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
     .header {
       background: linear-gradient(135deg, var(--night-black), var(--blue-dark));
-      padding: 1.5rem 0;
+      padding: 1.2rem 0;
       text-align: center;
-      position: relative;
-      border-bottom: 3px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
     }
 
     .logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       margin-bottom: 0.5rem;
     }
 
     .logo {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--gold);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      border: 2px solid var(--gold);
     }
 
     .title {
-      font-size: 2.2rem;
-      font-weight: bold;
+      font-size: 1.8rem;
+      font-weight: 700;
       background: linear-gradient(135deg, var(--gold), var(--tech-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -108,23 +150,23 @@
     }
 
     .subtitle {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--text-secondary);
       font-weight: 500;
     }
 
-    /* Main Content */
     .main {
-      padding: 2rem 0;
+      padding: 1.5rem 0;
+      flex: 1;
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-title {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       background: linear-gradient(135deg, var(--gold), var(--tech-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -134,25 +176,23 @@
     }
 
     .hero-text {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--text-secondary);
-      max-width: 500px;
       margin: 0 auto 1.5rem;
     }
 
     .cta-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 0.8rem;
-      max-width: 500px;
       margin: 0 auto;
     }
 
     .btn {
-      padding: 12px 20px;
+      padding: 14px 20px;
       border: none;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -167,117 +207,104 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
       color: var(--night-black);
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     }
 
     .btn-secondary {
       background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
       color: white;
-      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
     }
 
     .btn-success {
-      background: linear-gradient(135deg, var(--success), #00994C);
+      background: linear-gradient(135deg, var(--success), #047857);
       color: white;
-      box-shadow: 0 4px 15px rgba(0, 204, 102, 0.3);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    .btn-share {
+      background: linear-gradient(135deg, #6b46c1, #553c9a);
+      color: white;
     }
 
-    .btn-secondary:hover {
-      box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+    .btn:focus {
+      outline: 2px solid var(--text);
+      outline-offset: 2px;
     }
 
-    .btn-success:hover {
-      box-shadow: 0 6px 20px rgba(0, 204, 102, 0.4);
-    }
-
-    /* Features */
     .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
-      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
     }
 
     .feature-card {
       background: linear-gradient(135deg, var(--black-light), var(--night-black));
-      padding: 1.5rem;
-      border-radius: 12px;
+      padding: 1.2rem;
+      border-radius: 10px;
       text-align: center;
       border: 1px solid var(--tech-blue);
-      box-shadow: 0 4px 20px rgba(0, 102, 204, 0.2);
       transition: all 0.3s ease;
     }
 
-    .feature-card:hover {
-      transform: translateY(-5px);
+    .feature-card:focus-within {
       border-color: var(--gold);
-      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
     }
 
     .feature-icon {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 0.8rem;
-      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.4);
     }
 
     .feature-icon i {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: var(--gold);
     }
 
     .feature-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: var(--gold);
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
 
     .feature-text {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-secondary);
       line-height: 1.4;
     }
 
-    /* Contact */
     .contact {
       text-align: center;
       background: linear-gradient(135deg, var(--black-light), var(--night-black));
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
       border: 1px solid var(--gold);
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
     }
 
     .contact-title {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: var(--gold);
       margin-bottom: 0.8rem;
       font-weight: 600;
     }
 
     .contact-text {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .email-btn {
       background: linear-gradient(135deg, var(--gold), var(--gold-dark));
       color: var(--night-black);
-      padding: 12px 30px;
-      font-size: 1rem;
+      padding: 12px 25px;
+      font-size: 0.95rem;
       font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
@@ -285,163 +312,13 @@
       align-items: center;
       gap: 8px;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     }
 
-    .email-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    .email-btn:focus {
+      outline: 2px solid var(--text);
+      outline-offset: 2px;
     }
 
-    /* Chat */
-    .chat-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--night-black);
-      border: none;
-      border-radius: 50%;
-      font-size: 1.3rem;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    .chat-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
-    }
-
-    .chat-modal {
-      display: none;
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 350px;
-      max-width: calc(100vw - 40px);
-      background: linear-gradient(135deg, var(--black-light), var(--night-black));
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
-      z-index: 1001;
-      border: 2px solid var(--tech-blue);
-      animation: slideUp 0.3s ease;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .chat-header {
-      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
-      color: white;
-      padding: 1rem;
-      border-radius: 10px 10px 0 0;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .chat-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .chat-close:hover {
-      color: var(--gold);
-    }
-
-    .chat-messages {
-      height: 250px;
-      padding: 1rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .message {
-      padding: 10px 15px;
-      border-radius: 12px;
-      max-width: 85%;
-      word-wrap: break-word;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    .message.bot {
-      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
-      color: white;
-      align-self: flex-start;
-      border-bottom-left-radius: 5px;
-    }
-
-    .message.user {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--night-black);
-      align-self: flex-end;
-      border-bottom-right-radius: 5px;
-      font-weight: 500;
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 1rem;
-      border-top: 1px solid var(--tech-blue);
-      gap: 10px;
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 10px 15px;
-      border: 1px solid var(--tech-blue);
-      border-radius: 8px;
-      background: var(--night-black);
-      color: var(--text);
-      outline: none;
-      font-size: 0.9rem;
-    }
-
-    .chat-input input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    }
-
-    .chat-input button {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--night-black);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .chat-input button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-    }
-
-    /* Documentation Modal */
     .modal {
       display: none;
       position: fixed;
@@ -449,56 +326,48 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 1100;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
       overflow-y: auto;
-      padding: 20px;
+      padding: 15px;
     }
 
     .modal-content {
       background: linear-gradient(135deg, var(--black-light), var(--night-black));
-      margin: 2% auto;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 800px;
-      width: 90%;
+      margin: 5% auto;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 450px;
       border: 2px solid var(--gold);
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.3);
       position: relative;
-      animation: modalSlideIn 0.3s ease;
-    }
-
-    @keyframes modalSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     .modal-close {
       position: absolute;
-      top: 15px;
+      top: 10px;
       right: 15px;
       background: none;
       border: none;
       color: var(--text);
       font-size: 1.5rem;
       cursor: pointer;
-      transition: color 0.3s ease;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .modal-close:hover {
-      color: var(--gold);
+    .modal-close:focus {
+      outline: 2px solid var(--text);
+      border-radius: 4px;
     }
 
     .modal-title {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       color: var(--gold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       text-align: center;
     }
 
@@ -509,11 +378,12 @@
 
     .modal-body h3 {
       color: var(--gold);
-      margin: 1.5rem 0 0.8rem;
+      margin: 1.2rem 0 0.7rem;
+      font-size: 1.1rem;
     }
 
-    .modal-body ul {
-      margin-left: 1.5rem;
+    .modal-body ul, .modal-body ol {
+      margin-left: 1.2rem;
       margin-bottom: 1rem;
     }
 
@@ -521,50 +391,76 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 1.5rem 0;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--tech-blue);
-      font-size: 0.9rem;
-      background: var(--night-black);
+    .share-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+      justify-content: center;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .title {
-        font-size: 1.8rem;
-      }
-      
-      .hero-title {
-        font-size: 1.5rem;
-      }
-      
-      .chat-modal {
-        width: calc(100vw - 40px);
-        right: 20px;
-        bottom: 90px;
-      }
-      
-      .cta-buttons {
-        grid-template-columns: 1fr;
-      }
-      
-      .logo-container {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .logo {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .modal-content {
-        padding: 1.5rem;
-        margin: 5% auto;
-      }
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: var(--black-light);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .share-btn:hover {
+      background: var(--tech-blue);
+    }
+
+    .footer {
+      background: var(--blue-dark);
+      padding: 1.5rem 0;
+      text-align: center;
+      border-top: 1px solid var(--tech-blue);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--black-light);
+      border-radius: 50%;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:focus {
+      outline: 2px solid var(--text);
+      outline-offset: 2px;
+    }
+
+    .social-link:hover {
+      background: var(--tech-blue);
+      transform: translateY(-2px);
     }
 
     @media (max-width: 480px) {
@@ -576,284 +472,543 @@
         padding: 1rem 0;
       }
       
-      .main {
-        padding: 1.5rem 0;
+      .logo-container {
+        flex-direction: column;
+        gap: 8px;
       }
       
-      .features {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+      .logo {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .title {
+        font-size: 1.6rem;
+      }
+      
+      .main {
+        padding: 1.2rem 0;
+      }
+      
+      .hero-title {
+        font-size: 1.3rem;
       }
       
       .feature-card {
-        padding: 1.2rem;
+        padding: 1rem;
       }
       
       .btn {
-        padding: 10px 15px;
-        font-size: 0.85rem;
+        padding: 12px 16px;
+        font-size: 0.9rem;
       }
       
       .modal-content {
-        padding: 1rem;
+        padding: 1.2rem;
         margin: 10% auto;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
   <header class="header" itemscope itemtype="https://schema.org/Organization">
     <div class="container">
       <div class="logo-container">
-        <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" alt="KOOWEXA Logo" class="logo" itemprop="logo">
+        <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" alt="KOOWEXA Logo" class="logo" itemprop="logo" width="50" height="50">
         <h1 class="title" itemprop="name">KOOWEXA</h1>
       </div>
-      <p class="subtitle" itemprop="description">Plataforma Digital Profesional para Emprendedores Cubanos</p>
+      <p class="subtitle" itemprop="description">Plataforma Oficial</p>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main container">
-    <!-- Hero Section -->
+  <main id="main-content" class="main container">
     <section class="hero">
-      <h2 class="hero-title">Transforma tu Negocio con Tecnología</h2>
-      <p class="hero-text">Soluciones digitales optimizadas para el mercado cubano.</p>
+      <h2 class="hero-title">Transforma tu Negocio</h2>
+      <p class="hero-text">Soluciones digitales optimizadas para ti</p>
       <div class="cta-buttons">
         <button class="btn btn-primary" id="startBtn">
-          <i class="fas fa-rocket"></i> Comenzar Ahora
+          <i class="fas fa-rocket" aria-hidden="true"></i> Comenzar Ahora
         </button>
         <button class="btn btn-secondary" id="docsBtn">
-          <i class="fas fa-book"></i> Documentación
+          <i class="fas fa-book" aria-hidden="true"></i> Documentación
         </button>
         <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOO.apk" class="btn btn-success" download>
-          <i class="fas fa-download"></i> Descargar App
+          <i class="fas fa-download" aria-hidden="true"></i> Descargar App
         </a>
+        <button class="btn btn-share" id="shareBtn">
+          <i class="fas fa-share-alt" aria-hidden="true"></i> Compartir
+        </button>
       </div>
     </section>
 
-    <!-- Features -->
     <section class="features">
       <div class="feature-card">
         <div class="feature-icon">
-          <i class="fas fa-store"></i>
+          <i class="fas fa-store" aria-hidden="true"></i>
         </div>
-        <h3 class="feature-title">Tienda Online</h3>
-        <p class="feature-text">Catálogo profesional con diseño elegante y funcional</p>
+        <h3 class="feature-title">HERRAMIENTAS DIGITALES</h3>
+        <p class="feature-text">tiendas o servicios simplificados</p>
       </div>
       
       <div class="feature-card">
         <div class="feature-icon">
-          <i class="fas fa-bolt"></i>
+          <i class="fas fa-server" aria-hidden="true"></i>
         </div>
-        <h3 class="feature-title">Tecnología Avanzada</h3>
-        <p class="feature-text">Optimizado para la velocidad y rendimiento en cualquier conexión</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-server"></i>
-        </div>
-        <h3 class="feature-title">Hospedaje Profesional</h3>
-        <p class="feature-text">Servidores disponibles 3 meses gratis</p>
+        <h3 class="feature-title">HOSPEDAJE WEB</h3>
+        <p class="feature-text">Servidores disponibles para tu herramienta digital en KooPages</p>
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" itemscope itemtype="https://schema.org/ContactPoint">
       <h2 class="contact-title">¿Listo para seguir?</h2>
       <p class="contact-text">Contáctanos y lleva tu negocio a la era digital con estilo</p>
       <a href="mailto:koowexa@gmail.com" class="email-btn" itemprop="email">
-        <i class="fas fa-envelope"></i> koowexa@gmail.com
+        <i class="fas fa-envelope" aria-hidden="true"></i> koowexa@gmail.com
       </a>
     </section>
   </main>
 
-  <!-- Documentation Modal -->
-  <div class="modal" id="docsModal">
+  <div class="modal" id="docsModal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-content">
-      <button class="modal-close" id="docsClose">&times;</button>
-      <h2 class="modal-title">Documentación KOOWEXA</h2>
+      <button class="modal-close" id="docsClose" aria-label="Cerrar modal">&times;</button>
+      <h2 class="modal-title" id="modalTitle">Documentación KOOWEXA</h2>
       <div class="modal-body">
         <h3>¿Qué es KOOWEXA?</h3>
-        <p>KOOWEXA es una plataforma digital diseñada específicamente para emprendedores cubanos que buscan establecer su presencia en línea con tiendas virtuales y catálogos digitales optimizados.</p>
+        <p>KOOWEXA es una plataforma digital, diseñada específicamente para negocios cubanos o emprendedores, que desean establecer su presencia en internet, con una página web o herramienta digital</p>
         
-        <h3>Características Principales</h3>
+        <h3>Principales elementos</h3>
         <ul>
-          <li>Diseño responsive que funciona en cualquier dispositivo</li>
-          <li>Optimización para conexiones de internet variables en Cuba</li>
-          <li>Interfaz intuitiva y fácil de gestionar</li>
-          <li>Integración con métodos de pago locales</li>
-          <li>Hospedaje profesional incluido por 3 meses</li>
+          <li>Nuestras herramientas digitales son optimizadas y simplificadas para conexiones lentas</li>
+          <li>Entre los servicios que ofrecemos usted puede elegir tener, una tienda online o un servicio local</li>
+          <li>KOOWEXA no proporciona propaganda ni promoción a su herramienta digital, pero sí proporciona patrocinio</li>
         </ul>
         
-        <h3>¿Cómo comenzar?</h3>
-        <p>Para iniciar con KOOWEXA, simplemente:</p>
+        <h3>Garantia y condicion</h3>
         <ol>
-          <li>Contáctanos a través de nuestro correo: koowexa@gmail.com</li>
-          <li>Especifica tus necesidades y productos/servicios</li>
-          <li>Realiza el pago único de 2000 CUP</li>
-          <li>Recibe tu plataforma en 3-5 días hábiles</li>
+          <li>El plazo para su rembolso es por 1 mes apartir de la entrega de su factura</li>
+          <li>Si usted pide el rembolso antes de que culmine su mes de prueva, se le da el 50% por el trabajo realizado por el diseño y creacion de su herramienta digital</li>
+          <li>una vez culminado el plazo de los tres meses ofrecidos, usted debe pagar mensualmente entre 600 y 800 CUP, según la complejidad de su herramienta digital</li>
         </ol>
         
-        <h3>Requisitos</h3>
+        <h3>Costo y tiempo</h3>
         <ul>
-          <li>No se requieren conocimientos técnicos avanzados</li>
-          <li>Disponibilidad de imágenes de productos (recomendado)</li>
-          <li>Información clara sobre tu negocio</li>
+          <li>Ofrecemos la prestacion de nuestro servicio de herramienta digital por $2000 CUP en una 0lazo de 1 mes</li>
+          <li>Si usted solicita nuestro servicio por primera vez, se le ofrece tres meses de disponibilidad web</li>
         </ul>
         
         <h3>Soporte</h3>
-        <p>Ofrecemos soporte continuo para resolver cualquier duda o problema que puedas tener con tu plataforma. Puedes contactarnos en cualquier momento a través de nuestro correo electrónico o mediante el asistente virtual incluido en el sitio.</p>
+        <p>Ofrecemos soporte para resolver cualquier duda o problema que puedas tener con tu plataforma.</p>
       </div>
     </div>
   </div>
 
-  <!-- Chat Assistant -->
-  <button class="chat-btn" id="chatToggle" aria-label="Abrir chat de asistente">
-    <i class="fas fa-robot"></i>
-  </button>
-
-  <div class="chat-modal" id="chatModal">
-    <div class="chat-header">
-      <span><i class="fas fa-robot"></i> Asistente OWE</span>
-      <button class="chat-close" id="chatClose">&times;</button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="message bot">¡Hola! Soy OWE, tu asistente premium. ¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." aria-label="Mensaje para el asistente">
-      <button id="sendMessage" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+  <div class="modal" id="shareModal" role="dialog" aria-labelledby="shareModalTitle" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" id="shareClose" aria-label="Cerrar modal">&times;</button>
+      <h2 class="modal-title" id="shareModalTitle">Compartir KOOWEXA</h2>
+      <div class="modal-body">
+        <p>¡Ayúdanos a difundir KOOWEXA! Comparte nuestra plataforma con emprendedores y negocios cubanos que buscan soluciones digitales efectivas.</p>
+        
+        <div class="share-options">
+          <a href="#" class="share-btn" id="shareWhatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="#" class="share-btn" id="shareTelegram">
+            <i class="fab fa-telegram"></i> Telegram
+          </a>
+          <a href="#" class="share-btn" id="shareFacebook">
+            <i class="fab fa-facebook"></i> Facebook
+          </a>
+          <a href="#" class="share-btn" id="shareTwitter">
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+          <a href="#" class="share-btn" id="shareEmail">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+          <button class="share-btn" id="copyLink">
+            <i class="fas fa-link"></i> Copiar enlace
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 KOOWEXA - OFICIAL</p>
+      <div class="footer-content">
+        <p class="footer-text">&copy; 2025 KOOWEXA - OFICIAL</p>
+        <div class="social-links">
+          <a href="https://github.com/KOOWEXA" class="social-link" aria-label="Visitar GitHub de KOOWEXA">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://x.com/koowexa?t=5FqBmzBZGFxoMvqLVVPPKQ&s=09" class="social-link" aria-label="Visitar Twitter/X de KOOWEXA">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="https://youtube.com/@koowexa?si=Iot3nQZvrmu5tdyV" class="social-link" aria-label="Visitar YouTube de KOOWEXA">
+            <i class="fab fa-youtube" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61581684622578" class="social-link" aria-label="Visitar Facebook de KOOWEXA">
+            <i class="fab fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:koowexa@gmail.com" class="social-link" aria-label="Enviar email a KOOWEXA">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Enhanced Chat functionality
-    class ChatAssistant {
-      constructor() {
-        this.chatToggle = document.getElementById('chatToggle');
-        this.chatModal = document.getElementById('chatModal');
-        this.chatMessages = document.getElementById('chatMessages');
-        this.chatInput = document.getElementById('chatInput');
-        this.sendMessage = document.getElementById('sendMessage');
-        this.chatClose = document.getElementById('chatClose');
-        this.startBtn = document.getElementById('startBtn');
-        this.docsBtn = document.getElementById('docsBtn');
-        this.docsModal = document.getElementById('docsModal');
-        this.docsClose = document.getElementById('docsClose');
-        
-        this.responses = {
-          'hola': '¡Hola! Soy OWE, tu asistente premium de KOOWEXA. ¿En qué puedo ayudarte hoy?',
-          'precio': 'El costo único es de 2000 CUP. Incluye configuración premium y 3 meses de hospedaje profesional.',
-          'servicio': 'Ofrecemos tiendas online premium y catálogos digitales con tecnología avanzada para Cuba.',
-          'contacto': 'Escríbenos a: koowexa@gmail.com - Atención personalizada y profesional.',
-          'tiempo': 'Tu plataforma premium estará lista en 3-5 días hábiles después del pago.',
-          'documentacion': 'Puedes ver la documentación completa haciendo clic en el botón "Documentación" o preguntándome cualquier duda específica.',
-          'app': 'Descarga nuestra app premium desde: https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.apk',
-          'default': 'Para información detallada sobre nuestros servicios premium, contáctanos a: koowexa@gmail.com'
-        };
-
-        this.init();
-      }
-
+    // API para gestión de estado de la aplicación
+    const AppState = {
+      currentUser: null,
+      isOnline: navigator.onLine,
+      lastVisit: localStorage.getItem('lastVisit') || null,
+      
       init() {
-        this.chatToggle.addEventListener('click', () => this.toggleChat());
-        this.chatClose.addEventListener('click', () => this.closeChat());
-        this.sendMessage.addEventListener('click', () => this.sendMessageHandler());
-        this.chatInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') this.sendMessageHandler();
+        this.updateLastVisit();
+        this.setupOnlineListener();
+      },
+      
+      updateLastVisit() {
+        const now = new Date().toISOString();
+        localStorage.setItem('lastVisit', now);
+        this.lastVisit = now;
+      },
+      
+      setupOnlineListener() {
+        window.addEventListener('online', () => {
+          this.isOnline = true;
+          this.showNotification('Conexión restaurada', 'success');
         });
-
-        this.startBtn.addEventListener('click', () => {
-          window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA Premium&body=Hola, estoy interesado en sus servicios premium.';
+        
+        window.addEventListener('offline', () => {
+          this.isOnline = false;
+          this.showNotification('Sin conexión a internet', 'warning');
         });
-
-        this.docsBtn.addEventListener('click', () => {
-          this.docsModal.style.display = 'block';
-        });
-
-        this.docsClose.addEventListener('click', () => {
-          this.docsModal.style.display = 'none';
-        });
-
-        // Close modals when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!this.chatModal.contains(e.target) && e.target !== this.chatToggle) {
-            this.closeChat();
-          }
-          
-          if (e.target === this.docsModal) {
-            this.docsModal.style.display = 'none';
-          }
-        });
-      }
-
-      toggleChat() {
-        if (this.chatModal.style.display === 'block') {
-          this.closeChat();
+      },
+      
+      showNotification(message, type = 'info') {
+        // Crear notificación temporal
+        const notification = document.createElement('div');
+        notification.textContent = message;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 12px 20px;
+          border-radius: 6px;
+          color: white;
+          z-index: 10000;
+          font-weight: 600;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          transition: all 0.3s ease;
+          max-width: 300px;
+        `;
+        
+        // Colores según tipo
+        if (type === 'success') {
+          notification.style.background = 'var(--success)';
+        } else if (type === 'warning') {
+          notification.style.background = '#d97706';
         } else {
-          this.openChat();
+          notification.style.background = 'var(--tech-blue)';
         }
-      }
-
-      openChat() {
-        this.chatModal.style.display = 'block';
-        this.chatInput.focus();
-      }
-
-      closeChat() {
-        this.chatModal.style.display = 'none';
-      }
-
-      sendMessageHandler() {
-        const message = this.chatInput.value.trim();
-        if (!message) return;
-
-        this.addMessage(message, 'user');
-        this.chatInput.value = '';
-
-        // Simulate typing delay
+        
+        document.body.appendChild(notification);
+        
+        // Remover después de 4 segundos
         setTimeout(() => {
-          const response = this.getBotResponse(message);
-          this.addMessage(response, 'bot');
-        }, 800);
+          notification.style.opacity = '0';
+          setTimeout(() => {
+            if (notification.parentNode) {
+              notification.parentNode.removeChild(notification);
+            }
+          }, 300);
+        }, 4000);
       }
+    };
 
-      addMessage(text, sender) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${sender}`;
-        messageDiv.textContent = text;
-        this.chatMessages.appendChild(messageDiv);
-        this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
-      }
-
-      getBotResponse(message) {
-        const lowerMessage = message.toLowerCase();
+    // API para compartir contenido
+    const ShareAPI = {
+      platform: {
+        whatsapp: {
+          name: 'WhatsApp',
+          url: 'https://api.whatsapp.com/send?text='
+        },
+        telegram: {
+          name: 'Telegram',
+          url: 'https://t.me/share/url?url='
+        },
+        facebook: {
+          name: 'Facebook',
+          url: 'https://www.facebook.com/sharer/sharer.php?u='
+        },
+        twitter: {
+          name: 'Twitter',
+          url: 'https://twitter.com/intent/tweet?text='
+        },
+        email: {
+          name: 'Email',
+          url: 'mailto:?subject='
+        }
+      },
+      
+      getShareMessage() {
+        return `¡Descubre KOOWEXA! La plataforma digital para emprendedores cubanos. Soluciones rápidas, efectivas y automatizadas para tu negocio. ${window.location.href}`;
+      },
+      
+      share(platform) {
+        const message = encodeURIComponent(this.getShareMessage());
+        const url = encodeURIComponent(window.location.href);
         
-        if (lowerMessage.includes('hola') || lowerMessage.includes('buenas')) return this.responses.hola;
-        if (lowerMessage.includes('precio') || lowerMessage.includes('cuesta') || lowerMessage.includes('costo')) return this.responses.precio;
-        if (lowerMessage.includes('servicio') || lowerMessage.includes('ofrecen')) return this.responses.servicio;
-        if (lowerMessage.includes('contacto') || lowerMessage.includes('email') || lowerMessage.includes('correo')) return this.responses.contacto;
-        if (lowerMessage.includes('tiempo') || lowerMessage.includes('días') || lowerMessage.includes('rápido')) return this.responses.tiempo;
-        if (lowerMessage.includes('documentación') || lowerMessage.includes('documentacion') || lowerMessage.includes('leer')) return this.responses.documentacion;
-        if (lowerMessage.includes('app') || lowerMessage.includes('descargar') || lowerMessage.includes('aplicación')) return this.responses.app;
+        let shareUrl = '';
         
-        return this.responses.default;
+        switch(platform) {
+          case 'whatsapp':
+            shareUrl = `${this.platform.whatsapp.url}${message}`;
+            break;
+          case 'telegram':
+            shareUrl = `${this.platform.telegram.url}${url}&text=${message}`;
+            break;
+          case 'facebook':
+            shareUrl = `${this.platform.facebook.url}${url}`;
+            break;
+          case 'twitter':
+            shareUrl = `${this.platform.twitter.url}${message}`;
+            break;
+          case 'email':
+            shareUrl = `${this.platform.email.url}KOOWEXA - Plataforma Digital&body=${message}`;
+            break;
+        }
+        
+        if (shareUrl) {
+          window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+      },
+      
+      copyToClipboard() {
+        const text = this.getShareMessage();
+        
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(() => {
+            AppState.showNotification('Enlace copiado al portapapeles', 'success');
+          }).catch(err => {
+            this.fallbackCopyToClipboard(text);
+          });
+        } else {
+          this.fallbackCopyToClipboard(text);
+        }
+      },
+      
+      fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+          const successful = document.execCommand('copy');
+          if (successful) {
+            AppState.showNotification('Enlace copiado al portapapeles', 'success');
+          } else {
+            AppState.showNotification('Error al copiar el enlace', 'warning');
+          }
+        } catch (err) {
+          AppState.showNotification('Error al copiar el enlace', 'warning');
+        }
+        
+        document.body.removeChild(textArea);
       }
-    }
+    };
 
-    // Initialize chat when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      new ChatAssistant();
+    // API para Analytics básico
+    const AnalyticsAPI = {
+      trackEvent(category, action, label) {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', action, {
+            'event_category': category,
+            'event_label': label
+          });
+        }
+        
+        // Guardar en localStorage para análisis posterior
+        const event = {
+          category,
+          action,
+          label,
+          timestamp: new Date().toISOString()
+        };
+        
+        let events = JSON.parse(localStorage.getItem('analyticsEvents') || '[]');
+        events.push(event);
+        localStorage.setItem('analyticsEvents', JSON.stringify(events));
+      },
+      
+      trackPageView(page) {
+        this.trackEvent('Navigation', 'Page View', page);
+      }
+    };
+
+    // API para gestión de contactos
+    const ContactAPI = {
+      saveContact(email, name = '') {
+        const contact = {
+          email,
+          name,
+          timestamp: new Date().toISOString()
+        };
+        
+        let contacts = JSON.parse(localStorage.getItem('potentialContacts') || '[]');
+        contacts.push(contact);
+        localStorage.setItem('potentialContacts', JSON.stringify(contacts));
+        
+        AnalyticsAPI.trackEvent('Contact', 'Email Saved', email);
+      },
+      
+      getContacts() {
+        return JSON.parse(localStorage.getItem('potentialContacts') || '[]');
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar APIs
+      AppState.init();
+      AnalyticsAPI.trackPageView('Home');
+      
+      const startBtn = document.getElementById('startBtn');
+      const docsBtn = document.getElementById('docsBtn');
+      const shareBtn = document.getElementById('shareBtn');
+      const docsModal = document.getElementById('docsModal');
+      const shareModal = document.getElementById('shareModal');
+      const docsClose = document.getElementById('docsClose');
+      const shareClose = document.getElementById('shareClose');
+      
+      // Botón para comenzar
+      startBtn.addEventListener('click', function() {
+        AnalyticsAPI.trackEvent('CTA', 'Click', 'Start Now');
+        window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA&body=Hola, estoy interesado en sus servicios.';
+      });
+      
+      // Modal de documentación
+      docsBtn.addEventListener('click', function() {
+        AnalyticsAPI.trackEvent('Content', 'View', 'Documentation');
+        docsModal.style.display = 'block';
+        docsClose.focus();
+      });
+      
+      docsClose.addEventListener('click', function() {
+        docsModal.style.display = 'none';
+        docsBtn.focus();
+      });
+      
+      // Modal para compartir
+      shareBtn.addEventListener('click', function() {
+        AnalyticsAPI.trackEvent('Social', 'Open', 'Share Modal');
+        shareModal.style.display = 'block';
+        shareClose.focus();
+      });
+      
+      shareClose.addEventListener('click', function() {
+        shareModal.style.display = 'none';
+        shareBtn.focus();
+      });
+      
+      // Configurar botones de compartir
+      document.getElementById('shareWhatsapp').addEventListener('click', function(e) {
+        e.preventDefault();
+        AnalyticsAPI.trackEvent('Social', 'Share', 'WhatsApp');
+        ShareAPI.share('whatsapp');
+      });
+      
+      document.getElementById('shareTelegram').addEventListener('click', function(e) {
+        e.preventDefault();
+        AnalyticsAPI.trackEvent('Social', 'Share', 'Telegram');
+        ShareAPI.share('telegram');
+      });
+      
+      document.getElementById('shareFacebook').addEventListener('click', function(e) {
+        e.preventDefault();
+        AnalyticsAPI.trackEvent('Social', 'Share', 'Facebook');
+        ShareAPI.share('facebook');
+      });
+      
+      document.getElementById('shareTwitter').addEventListener('click', function(e) {
+        e.preventDefault();
+        AnalyticsAPI.trackEvent('Social', 'Share', 'Twitter');
+        ShareAPI.share('twitter');
+      });
+      
+      document.getElementById('shareEmail').addEventListener('click', function(e) {
+        e.preventDefault();
+        AnalyticsAPI.trackEvent('Social', 'Share', 'Email');
+        ShareAPI.share('email');
+      });
+      
+      document.getElementById('copyLink').addEventListener('click', function() {
+        AnalyticsAPI.trackEvent('Social', 'Share', 'Copy Link');
+        ShareAPI.copyToClipboard();
+      });
+      
+      // Cerrar modales al hacer clic fuera
+      [docsModal, shareModal].forEach(modal => {
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.style.display = 'none';
+            if (modal === docsModal) {
+              docsBtn.focus();
+            } else {
+              shareBtn.focus();
+            }
+          }
+        });
+      });
+      
+      // Cerrar modales con tecla Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          if (docsModal.style.display === 'block') {
+            docsModal.style.display = 'none';
+            docsBtn.focus();
+          } else if (shareModal.style.display === 'block') {
+            shareModal.style.display = 'none';
+            shareBtn.focus();
+          }
+        }
+      });
+      
+      // Mejorar accesibilidad de botones
+      const buttons = document.querySelectorAll('button, .btn, .social-link, .email-btn');
+      buttons.forEach(button => {
+        button.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+      
+      // Guardar contacto cuando se hace clic en el email
+      document.querySelector('.email-btn').addEventListener('click', function() {
+        ContactAPI.saveContact('koowexa@gmail.com');
+      });
     });
+    
+    // Service Worker para funcionalidad offline
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('ServiceWorker registrado con éxito: ', registration.scope);
+        }, function(err) {
+          console.log('Error al registrar ServiceWorker: ', err);
+        });
+      });
+    }
   </script>
 </body>
 </html>
