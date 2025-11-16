@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Soluciones: rápidas, efectivas, automatizadas" />
-  <meta name="keywords" content="KOOWEXA, emprendedores cubanos, comercio electrónico, plataforma oficial, Cuba" />
+  <meta name="description" content="KOOWEXA: Soluciones digitales profesionales para emprendedores cubanos. Tiendas online, hospedaje web y herramientas digitales optimizadas." />
+  <meta name="keywords" content="KOOWEXA, emprendedores cubanos, comercio electrónico, plataforma oficial, Cuba, tienda online, hospedaje web" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
   <meta name="bingbot" content="index, follow" />
   <meta name="author" content="KOOWEXA" />
-  <meta name="theme-color" content="#1a365d" />
+  <meta name="theme-color" content="#1e3a5f" />
   <link rel="canonical" href="https://koowexa.github.io/oficial/" />
   
   <!-- Open Graph -->
-  <meta property="og:title" content="KOOWEXA" />
-  <meta property="og:description" content="Soluciones: rápidas, efectivas, automatizadas" />
+  <meta property="og:title" content="KOOWEXA - Plataforma Digital para Emprendedores Cubanos" />
+  <meta property="og:description" content="Soluciones digitales profesionales: tiendas online, hospedaje web y herramientas optimizadas para conexiones lentas." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://koowexa.github.io/oficial/" />
   <meta property="og:image" content="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" />
@@ -23,8 +23,8 @@
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="KOOWEXA" />
-  <meta name="twitter:description" content="Soluciones: rápidas, efectivas, automatizadas" />
+  <meta name="twitter:title" content="KOOWEXA - Plataforma Digital para Emprendedores Cubanos" />
+  <meta name="twitter:description" content="Soluciones digitales profesionales: tiendas online, hospedaje web y herramientas optimizadas para conexiones lentas." />
   <meta name="twitter:image" content="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" />
   
   <!-- Schema.org markup -->
@@ -33,7 +33,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "KOOWEXA",
-    "description": "Soluciones: rápidas, efectivas, automatizadas",
+    "description": "Plataforma digital profesional para emprendedores cubanos",
     "url": "https://koowexa.github.io/oficial/",
     "logo": "https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg",
     "email": "koowexa@gmail.com",
@@ -57,22 +57,23 @@
   }
   </script>
   
-  <title>KOOWEXA</title>
+  <title>KOOWEXA - Plataforma Digital Profesional para Emprendedores Cubanos</title>
   
   <link rel="icon" type="image/jpeg" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
     :root {
-      --gold: #e6b400;
-      --gold-dark: #a57c00;
-      --tech-blue: #2d5a9a;
-      --blue-dark: #1a365d;
-      --night-black: #0f172a;
-      --black-light: #1e293b;
-      --text: #f8fafc;
-      --text-secondary: #cbd5e1;
+      --primary-blue: #1e3a5f;
+      --secondary-blue: #2d5a9a;
+      --accent-blue: #3b82f6;
+      --dark-blue: #0f172a;
+      --metal-gray: #6b7280;
+      --light-gray: #9ca3af;
+      --text-light: #f8fafc;
+      --text-secondary: #e2e8f0;
       --success: #059669;
+      --white: #ffffff;
     }
 
     * {
@@ -87,8 +88,8 @@
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--night-black);
-      color: var(--text);
+      background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+      color: var(--text-light);
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
@@ -106,11 +107,12 @@
       position: absolute;
       top: -40px;
       left: 0;
-      background: var(--tech-blue);
+      background: var(--secondary-blue);
       color: white;
       padding: 8px;
       text-decoration: none;
       z-index: 10000;
+      border-radius: 4px;
     }
 
     .skip-link:focus {
@@ -118,81 +120,104 @@
     }
 
     .header {
-      background: linear-gradient(135deg, var(--night-black), var(--blue-dark));
-      padding: 1.2rem 0;
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+      padding: 1.5rem 0;
       text-align: center;
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 3px solid var(--accent-blue);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .logo-container {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 0.5rem;
+      gap: 15px;
+      margin-bottom: 0.8rem;
     }
 
     .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
       object-fit: cover;
-      border: 2px solid var(--gold);
+      border: 3px solid var(--accent-blue);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .title-container {
+      text-align: left;
     }
 
     .title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--gold), var(--tech-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-light);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
     }
 
     .subtitle {
+      font-size: 1rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
       font-size: 0.9rem;
       color: var(--text-secondary);
+      max-width: 400px;
+      margin: 0 auto;
       font-weight: 500;
     }
 
     .main {
-      padding: 1.5rem 0;
+      padding: 2rem 0;
       flex: 1;
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .hero-title {
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, var(--gold), var(--tech-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.8rem;
+      font-size: 1.8rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
       font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .hero-highlight {
+      color: var(--accent-blue);
+      font-weight: 800;
     }
 
     .hero-text {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
+      max-width: 400px;
     }
 
     .cta-buttons {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
       margin: 0 auto;
     }
 
     .btn {
-      padding: 14px 20px;
+      padding: 16px 24px;
       border: none;
       border-radius: 8px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -200,122 +225,171 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--night-black);
+      background: var(--accent-blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn-secondary {
-      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
-      color: white;
+      background: var(--metal-gray);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: #4b5563;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn-success {
-      background: linear-gradient(135deg, var(--success), #047857);
-      color: white;
+      background: var(--success);
+      color: var(--white);
+    }
+
+    .btn-success:hover {
+      background: #047857;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn-share {
-      background: linear-gradient(135deg, #6b46c1, #553c9a);
-      color: white;
+      background: var(--primary-blue);
+      color: var(--white);
+      border: 1px solid var(--accent-blue);
+    }
+
+    .btn-share:hover {
+      background: var(--secondary-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .btn:focus {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--text-light);
       outline-offset: 2px;
     }
 
     .features {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin: 1.5rem 0;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
     }
 
     .feature-card {
-      background: linear-gradient(135deg, var(--black-light), var(--night-black));
-      padding: 1.2rem;
-      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(30, 58, 95, 0.7), rgba(15, 23, 42, 0.7));
+      padding: 1.8rem;
+      border-radius: 12px;
       text-align: center;
-      border: 1px solid var(--tech-blue);
+      border: 1px solid var(--metal-gray);
       transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-blue);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     }
 
     .feature-card:focus-within {
-      border-color: var(--gold);
+      border-color: var(--accent-blue);
     }
 
     .feature-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--tech-blue), var(--blue-dark));
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 0.8rem;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .feature-icon i {
-      font-size: 1.3rem;
-      color: var(--gold);
+      font-size: 1.8rem;
+      color: var(--accent-blue);
     }
 
     .feature-title {
-      font-size: 1.1rem;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.8rem;
+      font-weight: 700;
     }
 
     .feature-text {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--text-secondary);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .contact {
       text-align: center;
-      background: linear-gradient(135deg, var(--black-light), var(--night-black));
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, rgba(30, 58, 95, 0.8), rgba(15, 23, 42, 0.8));
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2.5rem 0;
+      border: 1px solid var(--accent-blue);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .contact-title {
-      font-size: 1.3rem;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
 
     .contact-text {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .email-btn {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--night-black);
-      padding: 12px 25px;
-      font-size: 0.95rem;
+      background: linear-gradient(135deg, var(--accent-blue), var(--secondary-blue));
+      color: var(--white);
+      padding: 14px 28px;
+      font-size: 1rem;
       font-weight: bold;
       border-radius: 8px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .email-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     .email-btn:focus {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--text-light);
       outline-offset: 2px;
     }
 
@@ -333,42 +407,50 @@
     }
 
     .modal-content {
-      background: linear-gradient(135deg, var(--black-light), var(--night-black));
+      background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
       margin: 5% auto;
-      padding: 1.5rem;
-      border-radius: 10px;
+      padding: 2rem;
+      border-radius: 12px;
       width: 100%;
       max-width: 450px;
-      border: 2px solid var(--gold);
+      border: 2px solid var(--accent-blue);
       position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
     .modal-close {
       position: absolute;
-      top: 10px;
-      right: 15px;
+      top: 15px;
+      right: 20px;
       background: none;
       border: none;
-      color: var(--text);
-      font-size: 1.5rem;
+      color: var(--text-light);
+      font-size: 1.8rem;
       cursor: pointer;
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .modal-close:focus {
-      outline: 2px solid var(--text);
-      border-radius: 4px;
+      outline: 2px solid var(--text-light);
+      outline-offset: 2px;
     }
 
     .modal-title {
-      font-size: 1.5rem;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
+      font-size: 1.6rem;
+      color: var(--accent-blue);
+      margin-bottom: 1.5rem;
       text-align: center;
+      font-weight: 700;
     }
 
     .modal-body {
@@ -377,90 +459,94 @@
     }
 
     .modal-body h3 {
-      color: var(--gold);
-      margin: 1.2rem 0 0.7rem;
-      font-size: 1.1rem;
+      color: var(--accent-blue);
+      margin: 1.5rem 0 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
     }
 
     .modal-body ul, .modal-body ol {
-      margin-left: 1.2rem;
-      margin-bottom: 1rem;
+      margin-left: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .modal-body li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
     .share-options {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 20px;
       justify-content: center;
     }
 
     .share-btn {
       display: flex;
       align-items: center;
-      gap: 5px;
-      padding: 8px 12px;
+      gap: 8px;
+      padding: 10px 15px;
       border-radius: 6px;
-      background: var(--black-light);
-      color: var(--text);
+      background: var(--metal-gray);
+      color: var(--text-light);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       transition: all 0.3s ease;
     }
 
     .share-btn:hover {
-      background: var(--tech-blue);
+      background: var(--accent-blue);
+      transform: translateY(-2px);
     }
 
     .footer {
-      background: var(--blue-dark);
-      padding: 1.5rem 0;
+      background: var(--dark-blue);
+      padding: 2rem 0;
       text-align: center;
-      border-top: 1px solid var(--tech-blue);
+      border-top: 1px solid var(--metal-gray);
     }
 
     .footer-content {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
 
     .footer-text {
       color: var(--text-secondary);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
 
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
     .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: var(--black-light);
+      width: 45px;
+      height: 45px;
+      background: var(--metal-gray);
       border-radius: 50%;
-      color: var(--text);
+      color: var(--text-light);
       text-decoration: none;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .social-link:focus {
-      outline: 2px solid var(--text);
+      outline: 2px solid var(--text-light);
       outline-offset: 2px;
     }
 
     .social-link:hover {
-      background: var(--tech-blue);
-      transform: translateY(-2px);
+      background: var(--accent-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
 
     @media (max-width: 480px) {
@@ -469,42 +555,47 @@
       }
       
       .header {
-        padding: 1rem 0;
+        padding: 1.2rem 0;
       }
       
       .logo-container {
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
       }
       
       .logo {
-        width: 45px;
-        height: 45px;
+        width: 65px;
+        height: 65px;
       }
       
       .title {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      
+      .title-container {
+        text-align: center;
       }
       
       .main {
-        padding: 1.2rem 0;
+        padding: 1.5rem 0;
       }
       
       .hero-title {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
       
       .feature-card {
-        padding: 1rem;
+        padding: 1.5rem;
       }
       
       .btn {
-        padding: 12px 16px;
-        font-size: 0.9rem;
+        padding: 14px 20px;
+        font-size: 0.95rem;
       }
       
       .modal-content {
-        padding: 1.2rem;
+        padding: 1.5rem;
         margin: 10% auto;
       }
     }
@@ -516,23 +607,26 @@
   <header class="header" itemscope itemtype="https://schema.org/Organization">
     <div class="container">
       <div class="logo-container">
-        <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" alt="KOOWEXA Logo" class="logo" itemprop="logo" width="50" height="50">
-        <h1 class="title" itemprop="name">KOOWEXA</h1>
+        <img src="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg" alt="KOOWEXA - Plataforma Digital para Emprendedores Cubanos" class="logo" itemprop="logo" width="70" height="70">
+        <div class="title-container">
+          <h1 class="title" itemprop="name">KOOWEXA</h1>
+          <p class="subtitle" itemprop="description">PLATAFORMA DIGITAL</p>
+        </div>
       </div>
-      <p class="subtitle" itemprop="description">Plataforma Oficial</p>
+      <p class="tagline">Soluciones digitales profesionales para emprendedores cubanos</p>
     </div>
   </header>
 
   <main id="main-content" class="main container">
     <section class="hero">
-      <h2 class="hero-title">Transforma tu Negocio</h2>
-      <p class="hero-text">Soluciones digitales optimizadas para ti</p>
+      <h2 class="hero-title">Impulsa tu negocio con <span class="hero-highlight">soluciones digitales profesionales</span></h2>
+      <p class="hero-text">Diseñamos herramientas digitales optimizadas para conexiones lentas, ideales para el contexto cubano.</p>
       <div class="cta-buttons">
         <button class="btn btn-primary" id="startBtn">
           <i class="fas fa-rocket" aria-hidden="true"></i> Comenzar Ahora
         </button>
         <button class="btn btn-secondary" id="docsBtn">
-          <i class="fas fa-book" aria-hidden="true"></i> Documentación
+          <i class="fas fa-book" aria-hidden="true"></i> Ver Servicios
         </button>
         <a href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOO.apk" class="btn btn-success" download>
           <i class="fas fa-download" aria-hidden="true"></i> Descargar App
@@ -543,13 +637,14 @@
       </div>
     </section>
 
+    <h2 class="section-title">Nuestros Servicios</h2>
     <section class="features">
       <div class="feature-card">
         <div class="feature-icon">
           <i class="fas fa-store" aria-hidden="true"></i>
         </div>
         <h3 class="feature-title">HERRAMIENTAS DIGITALES</h3>
-        <p class="feature-text">tiendas o servicios simplificados</p>
+        <p class="feature-text">Desarrollamos tiendas online y servicios digitales simplificados, optimizados para funcionar incluso con conexiones lentas.</p>
       </div>
       
       <div class="feature-card">
@@ -557,14 +652,14 @@
           <i class="fas fa-server" aria-hidden="true"></i>
         </div>
         <h3 class="feature-title">HOSPEDAJE WEB</h3>
-        <p class="feature-text">Servidores disponibles para tu herramienta digital en KooPages</p>
+        <p class="feature-text">Servidores disponibles para tu herramienta digital en KooPages, garantizando disponibilidad y rendimiento.</p>
       </div>
     </section>
 
     <section class="contact" itemscope itemtype="https://schema.org/ContactPoint">
-      <h2 class="contact-title">¿Listo para seguir?</h2>
-      <p class="contact-text">Contáctanos y lleva tu negocio a la era digital con estilo</p>
-      <a href="mailto:koowexa@gmail.com" class="email-btn" itemprop="email">
+      <h2 class="contact-title">¿Listo para digitalizar tu negocio?</h2>
+      <p class="contact-text">Contáctanos hoy mismo y lleva tu emprendimiento al siguiente nivel con soluciones diseñadas específicamente para Cuba.</p>
+      <a href="mailto:koowexa@gmail.com?subject=Consulta KOOWEXA&body=Hola, estoy interesado en sus servicios digitales." class="email-btn" itemprop="email">
         <i class="fas fa-envelope" aria-hidden="true"></i> koowexa@gmail.com
       </a>
     </section>
@@ -573,33 +668,34 @@
   <div class="modal" id="docsModal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="docsClose" aria-label="Cerrar modal">&times;</button>
-      <h2 class="modal-title" id="modalTitle">Documentación KOOWEXA</h2>
+      <h2 class="modal-title" id="modalTitle">Servicios KOOWEXA</h2>
       <div class="modal-body">
         <h3>¿Qué es KOOWEXA?</h3>
-        <p>KOOWEXA es una plataforma digital, diseñada específicamente para negocios cubanos o emprendedores, que desean establecer su presencia en internet, con una página web o herramienta digital</p>
+        <p>KOOWEXA es una plataforma digital profesional, diseñada específicamente para negocios cubanos y emprendedores que desean establecer su presencia en internet con herramientas optimizadas para ti.</p>
         
-        <h3>Principales elementos</h3>
+        <h3>Nuestros Servicios</h3>
         <ul>
-          <li>Nuestras herramientas digitales son optimizadas y simplificadas para conexiones lentas</li>
-          <li>Entre los servicios que ofrecemos usted puede elegir tener, una tienda online o un servicio local</li>
-          <li>KOOWEXA no proporciona propaganda ni promoción a su herramienta digital, pero sí proporciona patrocinio</li>
+          <li><strong>Herramientas Digitales Optimizadas:</strong> Desarrollamos tiendas online y servicios simplificados que funcionan eficientemente incluso con conexiones lentas.</li>
+          <li><strong>Hospedaje Web Especializado:</strong> Servidores disponibles para tu herramienta digital en KooPages, garantizando disponibilidad y rendimiento.</li>
+          <li><strong>Soluciones Personalizadas:</strong> Adaptamos cada proyecto a las necesidades específicas de tu negocio.</li>
         </ul>
         
-        <h3>Garantia y condicion</h3>
+        <h3>Ventajas Competitivas</h3>
         <ol>
-          <li>El plazo para su rembolso es por 1 mes apartir de la entrega de su factura</li>
-          <li>Si usted pide el rembolso antes de que culmine su mes de prueva, se le da el 50% por el trabajo realizado por el diseño y creacion de su herramienta digital</li>
-          <li>una vez culminado el plazo de los tres meses ofrecidos, usted debe pagar mensualmente entre 600 y 800 CUP, según la complejidad de su herramienta digital</li>
+          <li><strong>Optimización para Cuba:</strong> Nuestras soluciones están diseñadas considerando las particularidades de la conectividad en Cuba.</li>
+          <li><strong>Precios Accesibles:</strong> Ofrecemos servicios de calidad a precios adaptados a la realidad económica cubana.</li>
+          <li><strong>Soporte Local:</strong> Entendemos las necesidades específicas de los negocios cubanos.</li>
         </ol>
         
-        <h3>Costo y tiempo</h3>
+        <h3>Inversión y Tiempos</h3>
         <ul>
-          <li>Ofrecemos la prestacion de nuestro servicio de herramienta digital por $2000 CUP en una 0lazo de 1 mes</li>
-          <li>Si usted solicita nuestro servicio por primera vez, se le ofrece tres meses de disponibilidad web</li>
+          <li>Desarrollo de herramienta digital: $2000 CUP con plazo de entrega 48 horas.</li>
+          <li>Para nuevos clientes: 3 meses de disponibilidad de su negocio en la web.</li>
+          <li>Mantenimiento mensual posterior: Entre 600 y 1000 CUP según complejidad.</li>
         </ul>
         
-        <h3>Soporte</h3>
-        <p>Ofrecemos soporte para resolver cualquier duda o problema que puedas tener con tu plataforma.</p>
+        <h3>Garantía y Condiciones</h3>
+        <p>Ofrecemos un período de prueba de 1 mes con posibilidad de reembolso del 50% si decides no continuar con el servicio. Nuestro compromiso es tu satisfacción con el resultado del trabajo final.</p>
       </div>
     </div>
   </div>
@@ -609,7 +705,7 @@
       <button class="modal-close" id="shareClose" aria-label="Cerrar modal">&times;</button>
       <h2 class="modal-title" id="shareModalTitle">Compartir KOOWEXA</h2>
       <div class="modal-body">
-        <p>¡Ayúdanos a difundir KOOWEXA! Comparte nuestra plataforma con emprendedores y negocios cubanos que buscan soluciones digitales efectivas.</p>
+        <p>¡Ayúdanos a difundir KOOWEXA! Comparte nuestra plataforma con emprendedores y negocios cubanos que buscan soluciones digitales profesionales y accesibles.</p>
         
         <div class="share-options">
           <a href="#" class="share-btn" id="shareWhatsapp">
@@ -638,7 +734,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p class="footer-text">&copy; 2025 KOOWEXA - OFICIAL</p>
+        <p class="footer-text">&copy; 2025 KOOWEXA - Plataforma Digital</p>
         <div class="social-links">
           <a href="https://x.com/koowexa?t=5FqBmzBZGFxoMvqLVVPPKQ&s=09" class="social-link" aria-label="Visitar Twitter/X de KOOWEXA">
             <i class="fab fa-twitter" aria-hidden="true"></i>
@@ -711,7 +807,7 @@
         } else if (type === 'warning') {
           notification.style.background = '#d97706';
         } else {
-          notification.style.background = 'var(--tech-blue)';
+          notification.style.background = 'var(--accent-blue)';
         }
         
         document.body.appendChild(notification);
@@ -754,7 +850,7 @@
       },
       
       getShareMessage() {
-        return `¡Descubre KOOWEXA! La plataforma digital para emprendedores cubanos. Soluciones rápidas, efectivas y automatizadas para tu negocio. ${window.location.href}`;
+        return `¡Descubre KOOWEXA! La plataforma digital profesional para emprendedores cubanos. Soluciones optimizadas para conexiones lentas: tiendas online, hospedaje web y herramientas digitales. ${window.location.href}`;
       },
       
       share(platform) {
@@ -777,7 +873,7 @@
             shareUrl = `${this.platform.twitter.url}${message}`;
             break;
           case 'email':
-            shareUrl = `${this.platform.email.url}KOOWEXA - Plataforma Digital&body=${message}`;
+            shareUrl = `${this.platform.email.url}KOOWEXA - Plataforma Digital para Emprendedores Cubanos&body=${message}`;
             break;
         }
         
@@ -889,12 +985,12 @@
       // Botón para comenzar
       startBtn.addEventListener('click', function() {
         AnalyticsAPI.trackEvent('CTA', 'Click', 'Start Now');
-        window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA&body=Hola, estoy interesado en sus servicios.';
+        window.location.href = 'mailto:koowexa@gmail.com?subject=Quiero comenzar con KOOWEXA&body=Hola, estoy interesado en sus servicios digitales para emprendedores.';
       });
       
-      // Modal de documentación
+      // Modal de servicios
       docsBtn.addEventListener('click', function() {
-        AnalyticsAPI.trackEvent('Content', 'View', 'Documentation');
+        AnalyticsAPI.trackEvent('Content', 'View', 'Services');
         docsModal.style.display = 'block';
         docsClose.focus();
       });
