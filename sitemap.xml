@@ -1,34 +1,15 @@
-[file name]: sitemap.xml
-[file content begin]
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-    
-    <!-- ========== PÁGINA PRINCIPAL ÚNICA ========== -->
-    <!-- KOOWEXA es un sitio one-page con todo el contenido en la página principal -->
-    
-    <url>
-        <loc>https://koowexa.github.io/oficial/</loc>
-        <lastmod>2025-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="es" href="https://koowexa.github.io/oficial/"/>
-        
-        <!-- Imágenes de la página principal -->
-        <image:image>
-            <image:loc>https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg</image:loc>
-            <image:title>KOOWEXA Logo - Plataforma Oficial</image:title>
-            <image:caption>Soluciones digitales para emprendedores cubanos</image:caption>
-        </image:image>
-        
-        <!-- Aplicación descargable -->
-        <image:image>
-            <image:loc>https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOO.apk</image:loc>
-            <image:title>KOOWEXA App - Descarga la aplicación</image:title>
-            <image:caption>Aplicación móvil de KOOWEXA para emprendedores</image:caption>
-        </image:image>
-    </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://koowexa.github.io/oficial/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://koowexa.github.io/oficial/planes.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
-[file content end]
