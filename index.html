@@ -58,7 +58,7 @@
   
   <link rel="icon" type="image/jpeg" href="https://github.com/KOOWEXA/oficial/raw/refs/heads/main/KOOWEXA.jpeg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-lite.css">
 </head>
 <body>
   <header class="header" itemscope itemtype="https://schema.org/Organization">
@@ -109,9 +109,9 @@
       <button class="menu-btn menu-btn-share" id="shareBtn">
         <i class="fas fa-share-alt" aria-hidden="true"></i> Compartir
       </button>
-      <a href="planes.html" class="menu-btn menu-btn-plans">
+      <button class="menu-btn menu-btn-plans" id="plansBtn">
         <i class="fas fa-list-alt" aria-hidden="true"></i> Planes
-      </a>
+      </button>
     </div>
   </div>
 
@@ -119,33 +119,18 @@
     <div class="modal-content">
       <button class="modal-close" id="docsClose" aria-label="Cerrar modal">&times;</button>
       <h2 class="modal-title" id="modalTitle">Servicios KOOWEXA</h2>
-      <div class="modal-body">
-        <h3>¿Qué es KOOWEXA?</h3>
-        <p>KOOWEXA es una plataforma digital profesional, diseñada específicamente para negocios cubanos y emprendedores que desean establecer su presencia en internet con herramientas optimizadas para ti.</p>
-        
-        <h3>Nuestros Servicios</h3>
-        <ul>
-          <li>Herramientas Digitales Optimizadas: Desarrollamos tiendas online y servicios simplificados que funcionan eficientemente incluso con conexiones lentas.</li>
-          <li>Hospedaje Web Especializado: Servidores disponibles para tu negocio online este en KOOPAGES, garantizando disponibilidad y vision.</li>
-          <li>Soluciones Personalizadas: Adaptamos cada proyecto a las necesidades específicas de tu negocio.</li>
-        </ul>
-        
-        <h3>Ventajas Competitivas</h3>
-        <ol>
-          <li>Optimización para Cuba: Nuestras soluciones están diseñadas considerando las particularidades de la conectividad en Cuba.</li>
-          <li>Precios Accesibles: Ofrecemos servicios de calidad a precios adaptados a la realidad económica cubana.</li>
-          <li>Soporte Local: Entendemos las necesidades específicas de los negocios cubanos.</li>
-        </ol>
-        
-        <h3>Inversión y Tiempos</h3>
-        <ul>
-          <li>Desarrollo de herramienta digital: $2000 CUP con plazo de entrega 48 horas.</li>
-          <li>Para nuevos clientes: 3 meses de disponibilidad de su negocio en la web.</li>
-          <li>Mantenimiento mensual posterior: Entre 600 y 1000 CUP según complejidad.</li>
-        </ul>
-        
-        <h3>Garantía y Condiciones</h3>
-        <p>Ofrecemos un período de prueba de 1 mes con posibilidad de reembolso del 50% si decides no continuar con el servicio. Nuestro compromiso es tu satisfacción con el resultado del trabajo final.</p>
+      <div class="modal-body" id="servicesContent">
+        <!-- El contenido se cargará dinámicamente desde servicios.js -->
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="plansModal" role="dialog" aria-labelledby="plansModalTitle" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" id="plansClose" aria-label="Cerrar modal">&times;</button>
+      <h2 class="modal-title" id="plansModalTitle">Planes KOOWEXA</h2>
+      <div class="modal-body" id="plansContent">
+        <!-- El contenido se cargará dinámicamente desde planes.js -->
       </div>
     </div>
   </div>
@@ -154,29 +139,8 @@
     <div class="modal-content">
       <button class="modal-close" id="shareClose" aria-label="Cerrar modal">&times;</button>
       <h2 class="modal-title" id="shareModalTitle">Compartir KOOWEXA</h2>
-      <div class="modal-body">
-        <p>¡Ayúdanos a difundir KOOWEXA! Comparte nuestra plataforma con emprendedores y negocios cubanos que buscan soluciones digitales profesionales y accesibles.</p>
-        
-        <div class="share-options">
-          <a href="#" class="share-btn" id="shareWhatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-          <a href="#" class="share-btn" id="shareTelegram">
-            <i class="fab fa-telegram"></i> Telegram
-          </a>
-          <a href="#" class="share-btn" id="shareFacebook">
-            <i class="fab fa-facebook"></i> Facebook
-          </a>
-          <a href="#" class="share-btn" id="shareTwitter">
-            <i class="fab fa-twitter"></i> Twitter
-          </a>
-          <a href="#" class="share-btn" id="shareEmail">
-            <i class="fas fa-envelope"></i> Email
-          </a>
-          <button class="share-btn" id="copyLink">
-            <i class="fas fa-link"></i> Copiar enlace
-          </button>
-        </div>
+      <div class="modal-body" id="shareContent">
+        <!-- El contenido se cargará dinámicamente desde share.js -->
       </div>
     </div>
   </div>
@@ -212,7 +176,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <p class="footer-text">&copy; 2025 KOOWEXA - Plataforma Digital</p>
+        <p class="footer-text">&copy; 2025 KOOWEXA - WEBSITE</p>
         <div class="social-links">
           <a href="https://x.com/koowexa?t=5FqBmzBZGFxoMvqLVVPPKQ&s=09" class="social-link" aria-label="Visitar Twitter/X de KOOWEXA">
             <i class="fab fa-twitter" aria-hidden="true"></i>
@@ -232,5 +196,13 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="apis.js"></script>
+  <script src="servicios.js"></script>
+  <script src="planes.js"></script>
+  <script src="comenzar.js"></script>
+  <script src="poster.js"></script>
+  <script src="bot.js"></script>
+  <script src="share.js"></script>
+  <script src="download.js"></script>
 </body>
 </html>
