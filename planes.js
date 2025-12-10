@@ -24,20 +24,51 @@ class KOOWEXAPlans {
     getPlansHTML() {
         return `
             <div class="plans-container">
+                <!-- PLAN GRATUITO -->
+                <div class="plan-card free">
+                    <div class="plan-header">
+                        <div class="plan-badge free-badge">CON LIMITACIONES</div>
+                        <h3>PLAN GRATUITO</h3>
+                        <p>Presencia online esencial</p>
+                        <div class="price free-price">$0-CUP/mes</div>
+                    </div>
+                    
+                    <ul class="features">
+                        <li>TITULO DEL NEGOCIO</li>
+                        <li>LOGO DEL NEGOCIO</li>
+                        <li>ESLOGAN DEL NEGOCIO</li>
+                        <li>DISEÑO ECONÓMICO</li>
+                        <li>PRODUCTOS (5) / SERVICIOS (3)</li>
+                        <li>CONTACTO VÍA WHATSAPP</li>
+                        <li>UBICACIÓN</li>
+                        <li>HORARIOS</li>
+                        <li>ANUNCIOS DE KOOWEXA EN LA PÁGINA</li>
+                        <li>MARCA DE AGUA KOOWEXA</li>
+                    </ul>
+                    
+                    <button class="plan-btn free-btn" data-plan="gratuito">
+                        Comenzar Gratis
+                    </button>
+                </div>
+                
+                <!-- TIENDA ONLINE -->
                 <div class="plan-card">
                     <div class="plan-header">
-                        <div class="plan-badge">POPULAR</div>
+                        <div class="plan-badge">MUY EFECTIVO</div>
                         <h3>TIENDA ONLINE</h3>
-                        <p>Plataforma digital integrada</p>
+                        <p>Plataforma de comercio</p>
                         <div class="price">$2000-CUP/mes</div>
                     </div>
                     
                     <ul class="features">
-                        <li>Nombre y logo</li>
-                        <li>Info del negocio</li>
-                        <li>Interfaz optimizada</li>
-                        <li>50 productos max</li>
-                        <li>Gestión de contenido</li>
+                        <li>TITULO DEL NEGOCIO</li>
+                        <li>LOGO DEL NEGOCIO</li>
+                        <li>ESLOGAN DEL NEGOCIO</li>
+                        <li>DISEÑO MODERNO</li>
+                        <li>PRODUCTOS CON LIMITE (MAX 50)</li>
+                        <li>GESTION DE PRODUCTOS POR WHATSAPP</li>
+                        <li>UBICACION</li>
+                        <li>HORARIOS</li>
                     </ul>
                     
                     <button class="plan-btn" data-plan="tienda-online">
@@ -45,20 +76,23 @@ class KOOWEXAPlans {
                     </button>
                 </div>
                 
+                <!-- SERVICIO LOCAL -->
                 <div class="plan-card">
                     <div class="plan-header">
-                        <div class="plan-badge">SUGERIDO</div>
+                        <div class="plan-badge">RECOMENDADO</div>
                         <h3>SERVICIO LOCAL</h3>
                         <p>Visibilidad en tu zona</p>
                         <div class="price">$2000-CUP/mes</div>
                     </div>
                     
                     <ul class="features">
-                        <li>Nombre y logo</li>
-                        <li>Presentación</li>
-                        <li>Plataforma optimizada</li>
-                        <li>Ofertas y precios</li>
-                        <li>Reservas y citas</li>
+                        <li>TITULO DEL NEGOCIO</li>
+                        <li>LOGO DEL NEGOCIO</li>
+                        <li>ESLOGAN DEL NEGOCIO</li>
+                        <li>DISEÑO MODERNO</li>
+                        <li>GESTION DE RESERVA POR WHATSAPP</li>
+                        <li>UBICACION</li>
+                        <li>HORARIOS</li>
                     </ul>
                     
                     <button class="plan-btn secondary" data-plan="servicio-local">
@@ -72,7 +106,7 @@ class KOOWEXAPlans {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                     gap: 1rem;
-                    max-width: 700px;
+                    max-width: 900px;
                     margin: 0 auto;
                     padding: 0.5rem;
                 }
@@ -88,9 +122,31 @@ class KOOWEXAPlans {
                     height: fit-content;
                 }
                 
+                .plan-card.free {
+                    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+                    border: 1px solid rgba(59, 130, 246, 0.3);
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                .plan-card.free::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+                }
+                
                 .plan-card:hover {
                     transform: translateY(-2px);
                     border-color: rgba(59, 130, 246, 0.3);
+                }
+                
+                .plan-card.free:hover {
+                    border-color: #3b82f6;
+                    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
                 }
                 
                 .plan-header {
@@ -110,6 +166,11 @@ class KOOWEXAPlans {
                     border-radius: 12px;
                     font-size: 0.7rem;
                     font-weight: 600;
+                }
+                
+                .plan-badge.free-badge {
+                    background: linear-gradient(90deg, #10b981, #34d399);
+                    color: #064e3b;
                 }
                 
                 .plan-header h3 {
@@ -132,6 +193,11 @@ class KOOWEXAPlans {
                     color: white;
                 }
                 
+                .free-price {
+                    color: #34d399;
+                    font-weight: 800;
+                }
+                
                 .features {
                     list-style: none;
                     padding: 0;
@@ -145,6 +211,17 @@ class KOOWEXAPlans {
                     font-size: 0.8rem;
                     border-bottom: 1px solid rgba(255,255,255,0.05);
                     text-align: center;
+                    position: relative;
+                }
+                
+                .plan-card.free .features li {
+                    color: #cbd5e1;
+                }
+                
+                .plan-card.free .features li:nth-child(9),
+                .plan-card.free .features li:nth-child(10) {
+                    color: #94a3b8;
+                    font-style: italic;
                 }
                 
                 .features li:last-child {
@@ -164,6 +241,12 @@ class KOOWEXAPlans {
                     color: white;
                 }
                 
+                .plan-btn.free-btn {
+                    background: linear-gradient(90deg, #10b981, #34d399);
+                    color: white;
+                    font-weight: 700;
+                }
+                
                 .plan-btn.secondary {
                     background: rgba(255,255,255,0.1);
                     color: white;
@@ -173,6 +256,12 @@ class KOOWEXAPlans {
                 .plan-btn:hover {
                     background: #2563eb;
                     transform: translateY(-1px);
+                }
+                
+                .plan-btn.free-btn:hover {
+                    background: linear-gradient(90deg, #0da271, #2bb884);
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
                 }
                 
                 .plan-btn.secondary:hover {
@@ -234,14 +323,23 @@ class KOOWEXAPlans {
 
     selectPlan(planType) {
         const planNames = {
+            'gratuito': 'Presencia Básica (Gratuito)',
             'tienda-online': 'Tienda Online',
             'servicio-local': 'Servicio Local'
         };
         
         const planName = planNames[planType] || 'Plan Seleccionado';
         const email = 'koowexa@gmail.com';
-        const subject = `Solicitud de ${planName} - KOOWEXA`;
-        const body = `Hola, estoy interesado en el plan ${planName} de KOOWEXA. Por favor contacte conmigo lo antes posible.`;
+        
+        let subject, body;
+        
+        if (planType === 'gratuito') {
+            subject = `Solicitud de Plan Gratuito - KOOWEXA`;
+            body = `Hola, estoy interesado en comenzar con el Plan Gratuito (Presencia Básica) de KOOWEXA. Por favor contáctenme para activar mi perfil online.`;
+        } else {
+            subject = `Solicitud de ${planName} - KOOWEXA`;
+            body = `Hola, estoy interesado en el plan ${planName} de KOOWEXA. Por favor contácteme lo antes posible.`;
+        }
         
         const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.open(mailtoLink, '_blank');
@@ -252,7 +350,8 @@ class KOOWEXAPlans {
     trackConversion(planType) {
         try {
             if (window.KOOWEXA_API?.getAPI('analytics')) {
-                window.KOOWEXA_API.getAPI('analytics').trackConversion('plan_selection', 2000, planType);
+                const price = planType === 'gratuito' ? 0 : 2000;
+                window.KOOWEXA_API.getAPI('analytics').trackConversion('plan_selection', price, planType);
             }
         } catch (error) {
             console.log('Error en tracking:', error);
