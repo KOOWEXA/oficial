@@ -137,42 +137,9 @@
         <i class="fas fa-envelope" aria-hidden="true"></i> koowexa@gmail.com
       </a>
     </section>
-
-    <!-- Sección de Menú Principal e Interacción -->
-    <section class="action-section">
-      <h2 class="action-title">Explora nuestras soluciones</h2>
-      <p class="action-subtitle">Elige cómo deseas interactuar con KOOWEXA</p>
-      
-      <div class="action-container">
-        <!-- Opción 1: Menú de Servicios -->
-        <div class="action-card">
-          <div class="action-card-icon">
-            <i class="fas fa-bars"></i>
-          </div>
-          <h3 class="action-card-title">Menú de Servicios</h3>
-          <p class="action-card-text">Accede a todos nuestros servicios, planes, descargas y más opciones.</p>
-          <button class="action-btn action-btn-menu" id="mainMenuBtn" aria-label="Abrir menú de servicios">
-            <i class="fas fa-arrow-right"></i> Abrir Menú
-          </button>
-        </div>
-
-        <!-- Opción 2: Asistente Bot -->
-        <div class="action-card">
-          <div class="action-card-icon bot-icon">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h3 class="action-card-title">Asistente Bot</h3>
-          <p class="action-card-text">Obtén respuestas inmediatas a tus preguntas con nuestro asistente inteligente.</p>
-          <button class="action-btn action-btn-bot" id="mainBotBtn" aria-label="Iniciar asistente bot">
-            <i class="fas fa-comments"></i> Iniciar Chat
-          </button>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Menú flotante (oculto por defecto, se muestra en la sección principal) -->
-  <div class="smart-menu" id="smartMenu">
+  <div class="smart-menu">
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
       <i class="fas fa-bars"></i>
     </button>
@@ -198,7 +165,6 @@
     </div>
   </div>
 
-  <!-- Modales -->
   <div class="modal" id="docsModal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="docsClose" aria-label="Cerrar modal">&times;</button>
@@ -280,7 +246,6 @@
     </div>
   </footer>
 
-  <!-- Scripts en orden de dependencia -->
   <script src="script.js"></script>
   <script src="apis.js"></script>
   <script src="servicios.js"></script>
@@ -290,6 +255,5 @@
   <script src="bot.js"></script>
   <script src="share.js"></script>
   <script src="download.js"></script>
-  <script src="main-actions.js"></script>
 </body>
 </html>
