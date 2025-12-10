@@ -1,141 +1,152 @@
 // bot.js - Chatbot optimizado para KOOWEXA (Versión Mejorada y Simplificada)
 
 class KOOWEXAChatbot {
-    constructor() {
-        this.isOpen = false;
-        this.chatHistory = [];
-        this.isLoading = false;
-        this.API_TIMEOUT = 20000; // 20 segundos para conexiones lentas
-        this.MAX_HISTORY_TURNS = 5; // Limitar el historial a las últimas 5 interacciones (usuario + bot)
-        
-        // =================================================================================================
-        // !!! ADVERTENCIA DE SEGURIDAD CRÍTICA !!!
-        // La clave API NUNCA debe estar en el código JavaScript del lado del cliente.
-        // Debe ser manejada por un servidor proxy seguro (backend) para evitar su exposición.
-        // Si se usa DeepSeek u otro servicio de IA, la clave expuesta puede ser robada y usada.
-        // Por favor, reemplace 'YOUR_SECURE_API_KEY' con una clave de acceso temporal o,
-        // preferiblemente, configure un endpoint de backend seguro.
-        // =================================================================================================
-        this.API_CONFIG = {
-            url: 'https://api.deepseek.com/v1/chat/completions',
-            key: 'YOUR_SECURE_API_KEY' // Reemplazar con la clave o usar un proxy seguro
-        };
-        
-        this.init();
-        this.autoDeleteHistory(); // Nueva llamada para la auto-eliminación
-    }
+  constructor() {
+    this.isOpen = false;
+    this.chatHistory = [];
+    this.isLoading = false;
+    this.API_TIMEOUT = 20000; // 20 segundos para conexiones lentas
+    this.MAX_HISTORY_TURNS = 5; // Limitar el historial a las últimas 5 interacciones (usuario + bot)
 
     // =================================================================================================
-    // NUEVAS FUNCIONALIDADES SOLICITADAS
+    // !!! ADVERTENCIA DE SEGURIDAD CRÍTICA !!!
+    // La clave API NUNCA debe estar en el código JavaScript del lado del cliente.
+    // Debe ser manejada por un servidor proxy seguro (backend) para evitar su exposición.
+    // Si se usa DeepSeek u otro servicio de IA, la clave expuesta puede ser robada y usada.
+    // Por favor, reemplace 'YOUR_SECURE_API_KEY' con una clave de acceso temporal o,
+    // preferiblemente, configure un endpoint de backend seguro.
     // =================================================================================================
+    this.API_CONFIG = {
+      url: "https://api.deepseek.com/v1/chat/completions",
+      key: "YOUR_SECURE_API_KEY", // Reemplazar con la clave o usar un proxy seguro
+    };
 
-    // 1. Auto Eliminado de Historial (Ejemplo: Eliminar historial si tiene más de 7 días)
-    autoDeleteHistory() {
-        const lastActivity = localStorage.getItem('koowexaChatLastActivity');
-        const now = new Date().getTime();
-        const sevenDays = 7 * 24 * 60 * 60 * 1000; // 7 días en milisegundos
+    this.init();
+    this.autoDeleteHistory(); // Nueva llamada para la auto-eliminación
+  }
 
-        if (lastActivity && (now - parseInt(lastActivity) > sevenDays)) {
-            this.clearChatHistory(false); // Eliminar sin notificar al usuario
-            console.log('Historial de chat eliminado automáticamente por inactividad de 7 días.');
-        }
-        // Actualizar la actividad cada vez que se inicializa el bot
-        localStorage.setItem('koowexaChatLastActivity', now.toString());
+  // =================================================================================================
+  // NUEVAS FUNCIONALIDADES SOLICITADAS
+  // =================================================================================================
+
+  // 1. Auto Eliminado de Historial (Ejemplo: Eliminar historial si tiene más de 7 días)
+  autoDeleteHistory() {
+    const lastActivity = localStorage.getItem("koowexaChatLastActivity");
+    const now = new Date().getTime();
+    const sevenDays = 7 * 24 * 60 * 60 * 1000; // 7 días en milisegundos
+
+    if (lastActivity && now - parseInt(lastActivity) > sevenDays) {
+      this.clearChatHistory(false); // Eliminar sin notificar al usuario
+      console.log(
+        "Historial de chat eliminado automáticamente por inactividad de 7 días.",
+      );
     }
+    // Actualizar la actividad cada vez que se inicializa el bot
+    localStorage.setItem("koowexaChatLastActivity", now.toString());
+  }
 
-    clearChatHistory(notify = true) {
-        this.chatHistory = [];
-        localStorage.removeItem('koowexaChatHistory');
-        const messagesContainer = document.getElementById('chatbotMessages');
-        if (messagesContainer) {
-            // Eliminar todos los mensajes excepto el de bienvenida
-            const initialMessage = messagesContainer.querySelector('.message.bot-message');
-            messagesContainer.innerHTML = '';
-            if (initialMessage) {
-                messagesContainer.appendChild(initialMessage);
-            }
-        }
-        if (notify) {
-            this.showTempMessage('Historial de chat eliminado.', 'info');
-        }
+  clearChatHistory(notify = true) {
+    this.chatHistory = [];
+    localStorage.removeItem("koowexaChatHistory");
+    const messagesContainer = document.getElementById("chatbotMessages");
+    if (messagesContainer) {
+      // Eliminar todos los mensajes excepto el de bienvenida
+      const initialMessage = messagesContainer.querySelector(
+        ".message.bot-message",
+      );
+      messagesContainer.innerHTML = "";
+      if (initialMessage) {
+        messagesContainer.appendChild(initialMessage);
+      }
     }
+    if (notify) {
+      this.showTempMessage("Historial de chat eliminado.", "info");
+    }
+  }
 
-    // 2. Solicitud de Permisos (Almacenamiento, Ubicación, Notificaciones)
-    requestPermissions() {
-        // Permiso de Almacenamiento (Persistencia) - Solo se puede solicitar, el navegador decide
-        if (navigator.storage && navigator.storage.persist) {
-            navigator.storage.persisted().then(isPersisted => {
-                if (!isPersisted) {
-                    navigator.storage.persist().then(granted => {
-                        console.log(`Permiso de persistencia de almacenamiento: ${granted ? 'Concedido' : 'Denegado'}`);
-                    });
-                }
-            });
-        }
-
-        // Permiso de Ubicación
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    console.log('Permiso de ubicación concedido.');
-                    // Aquí se podría usar la ubicación, por ejemplo, para ofrecer servicios locales
-                },
-                (error) => {
-                    console.warn(`Permiso de ubicación denegado o error: ${error.message}`);
-                },
-                { timeout: 10000 }
+  // 2. Solicitud de Permisos (Almacenamiento, Ubicación, Notificaciones)
+  requestPermissions() {
+    // Permiso de Almacenamiento (Persistencia) - Solo se puede solicitar, el navegador decide
+    if (navigator.storage && navigator.storage.persist) {
+      navigator.storage.persisted().then((isPersisted) => {
+        if (!isPersisted) {
+          navigator.storage.persist().then((granted) => {
+            console.log(
+              `Permiso de persistencia de almacenamiento: ${granted ? "Concedido" : "Denegado"}`,
             );
+          });
         }
-
-        // Permiso de Notificaciones
-        if ('Notification' in window) {
-            if (Notification.permission !== 'granted' && Notification.permission !== 'denied') {
-                Notification.requestPermission().then(permission => {
-                    console.log(`Permiso de notificaciones: ${permission}`);
-                });
-            }
-        }
+      });
     }
 
-    // =================================================================================================
-    // FIN DE NUEVAS FUNCIONALIDADES
-    // =================================================================================================
-
-    init() {
-        // Asegurar que el DOM esté listo antes de crear el HTML
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this._initAfterDOM());
-        } else {
-            this._initAfterDOM();
-        }
+    // Permiso de Ubicación
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log("Permiso de ubicación concedido.");
+          // Aquí se podría usar la ubicación, por ejemplo, para ofrecer servicios locales
+        },
+        (error) => {
+          console.warn(
+            `Permiso de ubicación denegado o error: ${error.message}`,
+          );
+        },
+        { timeout: 10000 },
+      );
     }
 
-    _initAfterDOM() {
-        this.loadChatHistory();
-        this.createChatbotHTML();
-        this.bindEvents();
-        this.setupErrorHandling();
-        this.injectStyles();
-        this.requestPermissions(); // Llamada a la solicitud de permisos
-    }
-
-    setupErrorHandling() {
-        window.addEventListener('error', (e) => {
-            console.error('Global error:', e.error);
+    // Permiso de Notificaciones
+    if ("Notification" in window) {
+      if (
+        Notification.permission !== "granted" &&
+        Notification.permission !== "denied"
+      ) {
+        Notification.requestPermission().then((permission) => {
+          console.log(`Permiso de notificaciones: ${permission}`);
         });
-        
-        window.addEventListener('unhandledrejection', (e) => {
-            console.error('Unhandled promise rejection:', e.reason);
-        });
+      }
+    }
+  }
+
+  // =================================================================================================
+  // FIN DE NUEVAS FUNCIONALIDADES
+  // =================================================================================================
+
+  init() {
+    // Asegurar que el DOM esté listo antes de crear el HTML
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => this._initAfterDOM());
+    } else {
+      this._initAfterDOM();
+    }
+  }
+
+  _initAfterDOM() {
+    this.loadChatHistory();
+    this.createChatbotHTML();
+    this.bindEvents();
+    this.setupErrorHandling();
+    this.injectStyles();
+    this.requestPermissions(); // Llamada a la solicitud de permisos
+  }
+
+  setupErrorHandling() {
+    window.addEventListener("error", (e) => {
+      console.error("Global error:", e.error);
+    });
+
+    window.addEventListener("unhandledrejection", (e) => {
+      console.error("Unhandled promise rejection:", e.reason);
+    });
+  }
+
+  createChatbotHTML() {
+    if (document.getElementById("koowexaChatbot")) {
+      return;
     }
 
-    createChatbotHTML() {
-        if (document.getElementById('koowexaChatbot')) {
-            return;
-        }
-
-        // Interfaz simplificada: Eliminadas las preguntas rápidas y el contador de caracteres
-        const chatbotHTML = `
+    // Interfaz simplificada: Eliminadas las preguntas rápidas y el contador de caracteres
+    const chatbotHTML = `
             <div class="chatbot-widget" id="koowexaChatbot">
                 <div class="chatbot-toggle" id="chatbotToggle">
                     <i class="fas fa-robot"></i>
@@ -174,12 +185,12 @@ class KOOWEXAChatbot {
             </div>
         `;
 
-        document.body.insertAdjacentHTML('beforeend', chatbotHTML);
-    }
+    document.body.insertAdjacentHTML("beforeend", chatbotHTML);
+  }
 
-    injectStyles() {
-        // CSS simplificado: Eliminados estilos de preguntas rápidas y contador de caracteres
-        const chatbotStyles = `
+  injectStyles() {
+    // CSS simplificado: Eliminados estilos de preguntas rápidas y contador de caracteres
+    const chatbotStyles = `
             <style>
             /* Estilos CSS para el Chatbot KOOWEXA */
             @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
@@ -496,195 +507,212 @@ class KOOWEXAChatbot {
             }
             </style>
         `;
-        document.head.insertAdjacentHTML('beforeend', chatbotStyles);
+    document.head.insertAdjacentHTML("beforeend", chatbotStyles);
+  }
+
+  bindEvents() {
+    const toggle = document.getElementById("chatbotToggle");
+    const container = document.getElementById("chatbotContainer");
+    const close = document.getElementById("chatbotClose");
+    const messages = document.getElementById("chatbotMessages");
+    const input = document.getElementById("chatbotInput");
+    const send = document.getElementById("chatbotSend");
+    const clearHistory = document.getElementById("chatbotClearHistory"); // Nuevo elemento
+
+    if (
+      !toggle ||
+      !container ||
+      !close ||
+      !messages ||
+      !input ||
+      !send ||
+      !clearHistory
+    ) {
+      console.error(
+        "Error: No se encontraron todos los elementos del DOM. Asegúrese de que el HTML se haya creado correctamente.",
+      );
+      return;
     }
 
-    bindEvents() {
-        const toggle = document.getElementById('chatbotToggle');
-        const container = document.getElementById('chatbotContainer');
-        const close = document.getElementById('chatbotClose');
-        const messages = document.getElementById('chatbotMessages');
-        const input = document.getElementById('chatbotInput');
-        const send = document.getElementById('chatbotSend');
-        const clearHistory = document.getElementById('chatbotClearHistory'); // Nuevo elemento
+    // Eventos principales
+    toggle.addEventListener("click", () => this.toggleChat());
+    close.addEventListener("click", () => this.closeChat());
+    send.addEventListener("click", () => this.sendMessage());
+    clearHistory.addEventListener("click", () => this.clearChatHistory()); // Nuevo evento
 
-        if (!toggle || !container || !close || !messages || !input || !send || !clearHistory) {
-            console.error('Error: No se encontraron todos los elementos del DOM. Asegúrese de que el HTML se haya creado correctamente.');
-            return;
-        }
+    // Eventos de entrada
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter" && !this.isLoading) {
+        e.preventDefault(); // Prevenir el salto de línea en algunos casos
+        this.sendMessage();
+      }
+    });
 
-        // Eventos principales
-        toggle.addEventListener('click', () => this.toggleChat());
-        close.addEventListener('click', () => this.closeChat());
-        send.addEventListener('click', () => this.sendMessage());
-        clearHistory.addEventListener('click', () => this.clearChatHistory()); // Nuevo evento
-        
-        // Eventos de entrada
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !this.isLoading) {
-                e.preventDefault(); // Prevenir el salto de línea en algunos casos
-                this.sendMessage();
-            }
-        });
+    // Cerrar chatbot al hacer clic fuera (mejorado para evitar cerrar al hacer clic en el toggle)
+    document.addEventListener("click", (e) => {
+      const chatbot = document.getElementById("koowexaChatbot");
+      const isToggle = e.target.closest("#chatbotToggle");
+      if (this.isOpen && chatbot && !chatbot.contains(e.target) && !isToggle) {
+        this.closeChat();
+      }
+    });
 
-        // Cerrar chatbot al hacer clic fuera (mejorado para evitar cerrar al hacer clic en el toggle)
-        document.addEventListener('click', (e) => {
-            const chatbot = document.getElementById('koowexaChatbot');
-            const isToggle = e.target.closest('#chatbotToggle');
-            if (this.isOpen && chatbot && !chatbot.contains(e.target) && !isToggle) {
-                this.closeChat();
-            }
-        });
+    window.addEventListener("beforeunload", () => {
+      this.cleanup();
+    });
+  }
 
-        window.addEventListener('beforeunload', () => {
-            this.cleanup();
-        });
+  toggleChat() {
+    const container = document.getElementById("chatbotContainer");
+    if (container) {
+      this.isOpen = !this.isOpen;
+      container.classList.toggle("active", this.isOpen);
+      if (this.isOpen) {
+        this.scrollToBottom();
+        document.getElementById("chatbotInput").focus();
+      }
+    }
+  }
+
+  closeChat() {
+    const container = document.getElementById("chatbotContainer");
+    if (container) {
+      this.isOpen = false;
+      container.classList.remove("active");
+    }
+  }
+
+  // Se elimina updateCharCounter para simplificar la interfaz
+
+  async sendMessage() {
+    const input = document.getElementById("chatbotInput");
+    const message = this.sanitizeInput(input.value.trim());
+
+    if (!message || this.isLoading) return;
+
+    if (message.length < 2) {
+      this.showTempMessage(
+        "Por favor, escribe un mensaje más largo.",
+        "warning",
+      );
+      return;
     }
 
-    toggleChat() {
-        const container = document.getElementById('chatbotContainer');
-        if (container) {
-            this.isOpen = !this.isOpen;
-            container.classList.toggle('active', this.isOpen);
-            if (this.isOpen) {
-                this.scrollToBottom();
-                document.getElementById('chatbotInput').focus();
-            }
-        }
+    if (message.length > 500) {
+      this.showTempMessage(
+        "El mensaje es demasiado largo. Máximo 500 caracteres.",
+        "warning",
+      );
+      return;
     }
 
-    closeChat() {
-        const container = document.getElementById('chatbotContainer');
-        if (container) {
-            this.isOpen = false;
-            container.classList.remove('active');
-        }
+    // Deshabilitar entrada y botón de envío
+    this.setLoadingState(true);
+
+    // Agregar mensaje del usuario
+    this.addMessage(message, "user");
+    input.value = "";
+
+    try {
+      const response = await this.getAIResponse(message);
+      this.addMessage(response, "bot");
+    } catch (error) {
+      this.handleError(error);
+    } finally {
+      this.setLoadingState(false);
     }
+  }
 
-    // Se elimina updateCharCounter para simplificar la interfaz
+  sanitizeInput(input) {
+    // Mejorar la sanitización para XSS
+    const div = document.createElement("div");
+    div.textContent = input;
+    return div.innerHTML
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+      .replace(/javascript:/gi, "")
+      .replace(/on\w+=/gi, "")
+      .substring(0, 500)
+      .trim();
+  }
 
-    async sendMessage() {
-        const input = document.getElementById('chatbotInput');
-        const message = this.sanitizeInput(input.value.trim());
+  getTrimmedHistory() {
+    // Limitar el historial para evitar exceder el límite de tokens
+    // Cada turno son 2 mensajes (usuario y bot). Mantenemos los últimos N turnos.
+    const historyToKeep = this.chatHistory.slice(-this.MAX_HISTORY_TURNS * 2);
+    return historyToKeep;
+  }
 
-        if (!message || this.isLoading) return;
+  async getAIResponse(userMessage) {
+    const PLATFORM_CONTEXT = this.getPlatformContext();
+    const trimmedHistory = this.getTrimmedHistory();
 
-        if (message.length < 2) {
-            this.showTempMessage('Por favor, escribe un mensaje más largo.', 'warning');
-            return;
-        }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), this.API_TIMEOUT);
 
-        if (message.length > 500) {
-            this.showTempMessage('El mensaje es demasiado largo. Máximo 500 caracteres.', 'warning');
-            return;
-        }
+    try {
+      const response = await fetch(this.API_CONFIG.url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.API_CONFIG.key}`,
+        },
+        body: JSON.stringify({
+          model: "deepseek-chat",
+          messages: [
+            {
+              role: "system",
+              content: PLATFORM_CONTEXT,
+            },
+            ...trimmedHistory, // Usar historial limitado
+            {
+              role: "user",
+              content: userMessage,
+            },
+          ],
+          max_tokens: 1500, // Aumentar un poco el límite de respuesta
+          temperature: 0.7,
+        }),
+        signal: controller.signal,
+      });
 
-        // Deshabilitar entrada y botón de envío
-        this.setLoadingState(true);
+      clearTimeout(timeoutId);
 
-        // Agregar mensaje del usuario
-        this.addMessage(message, 'user');
-        input.value = '';
-        
-        try {
-            const response = await this.getAIResponse(message);
-            this.addMessage(response, 'bot');
-        } catch (error) {
-            this.handleError(error);
-        } finally {
-            this.setLoadingState(false);
-        }
+      if (response.status === 401) {
+        throw new Error("API_AUTH_ERROR");
+      }
+      if (response.status === 429) {
+        throw new Error("API_RATE_LIMIT");
+      }
+      if (!response.ok) {
+        throw new Error(
+          `API_HTTP_ERROR: ${response.status} - ${response.statusText}`,
+        );
+      }
+
+      const data = await response.json();
+
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error("API_INVALID_RESPONSE");
+      }
+
+      const aiResponse = data.choices[0].message.content;
+
+      // Actualizar historial de chat (el historial completo)
+      this.updateChatHistory(userMessage, aiResponse);
+
+      return aiResponse;
+    } catch (error) {
+      clearTimeout(timeoutId);
+      if (error.name === "AbortError") {
+        throw new Error("API_TIMEOUT");
+      }
+      throw error;
     }
+  }
 
-    sanitizeInput(input) {
-        // Mejorar la sanitización para XSS
-        const div = document.createElement('div');
-        div.textContent = input;
-        return div.innerHTML
-            .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-            .replace(/javascript:/gi, '')
-            .replace(/on\w+=/gi, '')
-            .substring(0, 500)
-            .trim();
-    }
-
-    getTrimmedHistory() {
-        // Limitar el historial para evitar exceder el límite de tokens
-        // Cada turno son 2 mensajes (usuario y bot). Mantenemos los últimos N turnos.
-        const historyToKeep = this.chatHistory.slice(-this.MAX_HISTORY_TURNS * 2);
-        return historyToKeep;
-    }
-
-    async getAIResponse(userMessage) {
-        const PLATFORM_CONTEXT = this.getPlatformContext();
-        const trimmedHistory = this.getTrimmedHistory();
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), this.API_TIMEOUT);
-
-        try {
-            const response = await fetch(this.API_CONFIG.url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${this.API_CONFIG.key}`
-                },
-                body: JSON.stringify({
-                    model: 'deepseek-chat',
-                    messages: [
-                        {
-                            role: 'system',
-                            content: PLATFORM_CONTEXT
-                        },
-                        ...trimmedHistory, // Usar historial limitado
-                        {
-                            role: 'user',
-                            content: userMessage
-                        }
-                    ],
-                    max_tokens: 1500, // Aumentar un poco el límite de respuesta
-                    temperature: 0.7
-                }),
-                signal: controller.signal
-            });
-
-            clearTimeout(timeoutId);
-
-            if (response.status === 401) {
-                throw new Error('API_AUTH_ERROR');
-            }
-            if (response.status === 429) {
-                throw new Error('API_RATE_LIMIT');
-            }
-            if (!response.ok) {
-                throw new Error(`API_HTTP_ERROR: ${response.status} - ${response.statusText}`);
-            }
-
-            const data = await response.json();
-            
-            if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-                throw new Error('API_INVALID_RESPONSE');
-            }
-
-            const aiResponse = data.choices[0].message.content;
-
-            // Actualizar historial de chat (el historial completo)
-            this.updateChatHistory(userMessage, aiResponse);
-
-            return aiResponse;
-
-        } catch (error) {
-            clearTimeout(timeoutId);
-            if (error.name === 'AbortError') {
-                throw new Error('API_TIMEOUT');
-            }
-            throw error;
-        }
-    }
-
-    getPlatformContext() {
-        // Contexto de la plataforma (mantenido del original)
-        return `Eres un asistente especializado en KOOWEXA y KOOPAGES. Responde de manera amable, profesional y detallada, enfocándote en las necesidades específicas del usuario cubano.
+  getPlatformContext() {
+    // Contexto de la plataforma (mantenido del original)
+    return `Eres un asistente especializado en KOOWEXA y KOOPAGES. Responde de manera amable, profesional y detallada, enfocándote en las necesidades específicas del usuario cubano.
 
 **INFORMACIÓN ACTUALIZADA DE KOOWEXA:**
 
@@ -743,123 +771,129 @@ KOOPAGES es el servicio de hospedaje web de KOOWEXA, optimizado para garantizar 
 4. ¿Ofrecen soporte después de la entrega? Sí, todos los planes incluyen soporte técnico continuo para asegurar el correcto funcionamiento de la plataforma.
 5. ¿Qué pasa si necesito más de 50 productos en mi tienda? Ofrecemos planes personalizados para catálogos más grandes. Contacta a nuestro equipo de ventas para una cotización.
 `;
+  }
+
+  updateChatHistory(userMessage, aiResponse) {
+    this.chatHistory.push({ role: "user", content: userMessage });
+    this.chatHistory.push({ role: "assistant", content: aiResponse });
+    this.saveChatHistory();
+  }
+
+  loadChatHistory() {
+    try {
+      const history = localStorage.getItem("koowexaChatHistory");
+      if (history) {
+        this.chatHistory = JSON.parse(history);
+        // Reconstruir los mensajes en el DOM al cargar
+        this.chatHistory.forEach((msg) => {
+          if (msg.role !== "system") {
+            this.addMessage(msg.content, msg.role, false); // No guardar de nuevo
+          }
+        });
+        this.scrollToBottom();
+      }
+    } catch (e) {
+      console.error("Error al cargar el historial de chat:", e);
+      localStorage.removeItem("koowexaChatHistory");
     }
+  }
 
-    updateChatHistory(userMessage, aiResponse) {
-        this.chatHistory.push({ role: 'user', content: userMessage });
-        this.chatHistory.push({ role: 'assistant', content: aiResponse });
-        this.saveChatHistory();
+  saveChatHistory() {
+    try {
+      // Guardar solo el historial limitado para no saturar localStorage
+      const historyToSave = this.chatHistory.slice(-20); // Guardar los últimos 10 turnos
+      localStorage.setItem("koowexaChatHistory", JSON.stringify(historyToSave));
+      // Actualizar la marca de tiempo de actividad
+      localStorage.setItem(
+        "koowexaChatLastActivity",
+        new Date().getTime().toString(),
+      );
+    } catch (e) {
+      console.error("Error al guardar el historial de chat:", e);
     }
+  }
 
-    loadChatHistory() {
-        try {
-            const history = localStorage.getItem('koowexaChatHistory');
-            if (history) {
-                this.chatHistory = JSON.parse(history);
-                // Reconstruir los mensajes en el DOM al cargar
-                this.chatHistory.forEach(msg => {
-                    if (msg.role !== 'system') {
-                        this.addMessage(msg.content, msg.role, false); // No guardar de nuevo
-                    }
-                });
-                this.scrollToBottom();
-            }
-        } catch (e) {
-            console.error('Error al cargar el historial de chat:', e);
-            localStorage.removeItem('koowexaChatHistory');
-        }
-    }
+  addMessage(text, sender, save = true) {
+    const messagesContainer = document.getElementById("chatbotMessages");
+    if (!messagesContainer) return;
 
-    saveChatHistory() {
-        try {
-            // Guardar solo el historial limitado para no saturar localStorage
-            const historyToSave = this.chatHistory.slice(-20); // Guardar los últimos 10 turnos
-            localStorage.setItem('koowexaChatHistory', JSON.stringify(historyToSave));
-            // Actualizar la marca de tiempo de actividad
-            localStorage.setItem('koowexaChatLastActivity', new Date().getTime().toString());
-        } catch (e) {
-            console.error('Error al guardar el historial de chat:', e);
-        }
-    }
+    // Crear el elemento del mensaje
+    const messageElement = document.createElement("div");
+    messageElement.classList.add("message", `${sender}-message`);
 
-    addMessage(text, sender, save = true) {
-        const messagesContainer = document.getElementById('chatbotMessages');
-        if (!messagesContainer) return;
+    // Convertir Markdown a HTML básico (solo para saltos de línea y negritas)
+    const formattedText = this.formatMarkdown(text);
 
-        // Crear el elemento del mensaje
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', `${sender}-message`);
-
-        // Convertir Markdown a HTML básico (solo para saltos de línea y negritas)
-        const formattedText = this.formatMarkdown(text);
-
-        messageElement.innerHTML = `
+    messageElement.innerHTML = `
             <div class="message-content">${formattedText}</div>
             <div class="message-time">${this.getCurrentTime()}</div>
         `;
 
-        // Si es un mensaje del bot, eliminar el indicador de carga si existe
-        if (sender === 'bot') {
-            const loadingMessage = document.getElementById('loadingMessage');
-            if (loadingMessage) {
-                messagesContainer.removeChild(loadingMessage);
-            }
-        }
-
-        messagesContainer.appendChild(messageElement);
-        this.scrollToBottom();
-
-        if (save && sender !== 'bot') {
-            // El historial se actualiza en getAIResponse para incluir la respuesta del bot
-            // Si es un mensaje inicial del bot o cargado, no se guarda.
-        }
+    // Si es un mensaje del bot, eliminar el indicador de carga si existe
+    if (sender === "bot") {
+      const loadingMessage = document.getElementById("loadingMessage");
+      if (loadingMessage) {
+        messagesContainer.removeChild(loadingMessage);
+      }
     }
 
-    formatMarkdown(text) {
-        // Simple Markdown a HTML: Negritas y saltos de línea
-        let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/\n/g, '<br>');
-        return html;
+    messagesContainer.appendChild(messageElement);
+    this.scrollToBottom();
+
+    if (save && sender !== "bot") {
+      // El historial se actualiza en getAIResponse para incluir la respuesta del bot
+      // Si es un mensaje inicial del bot o cargado, no se guarda.
     }
+  }
 
-    getCurrentTime() {
-        const now = new Date();
-        return now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+  formatMarkdown(text) {
+    // Simple Markdown a HTML: Negritas y saltos de línea
+    let html = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\n/g, "<br>");
+    return html;
+  }
+
+  getCurrentTime() {
+    const now = new Date();
+    return now.toLocaleTimeString("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  scrollToBottom() {
+    const messagesContainer = document.getElementById("chatbotMessages");
+    if (messagesContainer) {
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
+  }
 
-    scrollToBottom() {
-        const messagesContainer = document.getElementById('chatbotMessages');
-        if (messagesContainer) {
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
+  setLoadingState(isLoading) {
+    this.isLoading = isLoading;
+    const input = document.getElementById("chatbotInput");
+    const sendButton = document.getElementById("chatbotSend");
+
+    if (input) input.disabled = isLoading;
+    if (sendButton) sendButton.disabled = isLoading;
+
+    if (isLoading) {
+      this.showLoading();
+    } else {
+      this.hideLoading();
     }
+  }
 
-    setLoadingState(isLoading) {
-        this.isLoading = isLoading;
-        const input = document.getElementById('chatbotInput');
-        const sendButton = document.getElementById('chatbotSend');
-        
-        if (input) input.disabled = isLoading;
-        if (sendButton) sendButton.disabled = isLoading;
+  showLoading() {
+    const messagesContainer = document.getElementById("chatbotMessages");
+    if (!messagesContainer) return;
 
-        if (isLoading) {
-            this.showLoading();
-        } else {
-            this.hideLoading();
-        }
-    }
+    // Evitar duplicados
+    if (document.getElementById("loadingMessage")) return;
 
-    showLoading() {
-        const messagesContainer = document.getElementById('chatbotMessages');
-        if (!messagesContainer) return;
-
-        // Evitar duplicados
-        if (document.getElementById('loadingMessage')) return;
-
-        const loadingElement = document.createElement('div');
-        loadingElement.id = 'loadingMessage';
-        loadingElement.classList.add('message', 'bot-message');
-        loadingElement.innerHTML = `
+    const loadingElement = document.createElement("div");
+    loadingElement.id = "loadingMessage";
+    loadingElement.classList.add("message", "bot-message");
+    loadingElement.innerHTML = `
             <div class="message-content">
                 <div class="loading-dots">
                     <div></div>
@@ -868,65 +902,72 @@ KOOPAGES es el servicio de hospedaje web de KOOWEXA, optimizado para garantizar 
                 </div>
             </div>
         `;
-        messagesContainer.appendChild(loadingElement);
-        this.scrollToBottom();
+    messagesContainer.appendChild(loadingElement);
+    this.scrollToBottom();
+  }
+
+  hideLoading() {
+    const loadingMessage = document.getElementById("loadingMessage");
+    if (loadingMessage) {
+      loadingMessage.remove();
+    }
+  }
+
+  showTempMessage(text, type = "info") {
+    const messagesContainer = document.getElementById("chatbotMessages");
+    if (!messagesContainer) return;
+
+    const tempMessage = document.createElement("div");
+    tempMessage.classList.add("message", "bot-message", "temp-message", type);
+    tempMessage.style.cssText =
+      "background: #fefcbf; color: #92400e; border-color: #f6e05e;";
+    if (type === "warning") {
+      tempMessage.style.cssText =
+        "background: #fed7d7; color: #c53030; border-color: #feb2b2;";
+    }
+    tempMessage.innerHTML = `<div class="message-content">${text}</div>`;
+    messagesContainer.appendChild(tempMessage);
+    this.scrollToBottom();
+
+    setTimeout(() => {
+      tempMessage.remove();
+    }, 3000);
+  }
+
+  handleError(error) {
+    console.error("Error del Chatbot:", error);
+    let userMessage =
+      "Lo siento, ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.";
+
+    if (error.message === "API_TIMEOUT") {
+      userMessage =
+        "La solicitud ha tardado demasiado. Por favor, revisa tu conexión o intenta con una pregunta más corta.";
+    } else if (error.message === "API_AUTH_ERROR") {
+      userMessage =
+        "Error de autenticación (401). La clave API es inválida o ha expirado. Por favor, contacta al administrador.";
+    } else if (error.message === "API_RATE_LIMIT") {
+      userMessage =
+        "Hemos excedido el límite de solicitudes (429). Por favor, espera un momento e inténtalo de nuevo.";
+    } else if (error.message.startsWith("API_HTTP_ERROR")) {
+      userMessage = `Error de conexión con la API: ${error.message.split(": ")[1]}.`;
+    } else if (error.message === "API_INVALID_RESPONSE") {
+      userMessage =
+        "La respuesta de la IA fue inválida. Intenta reformular tu pregunta.";
     }
 
-    hideLoading() {
-        const loadingMessage = document.getElementById('loadingMessage');
-        if (loadingMessage) {
-            loadingMessage.remove();
-        }
-    }
+    this.addMessage(userMessage, "bot");
+  }
 
-    showTempMessage(text, type = 'info') {
-        const messagesContainer = document.getElementById('chatbotMessages');
-        if (!messagesContainer) return;
-
-        const tempMessage = document.createElement('div');
-        tempMessage.classList.add('message', 'bot-message', 'temp-message', type);
-        tempMessage.style.cssText = 'background: #fefcbf; color: #92400e; border-color: #f6e05e;';
-        if (type === 'warning') {
-            tempMessage.style.cssText = 'background: #fed7d7; color: #c53030; border-color: #feb2b2;';
-        }
-        tempMessage.innerHTML = `<div class="message-content">${text}</div>`;
-        messagesContainer.appendChild(tempMessage);
-        this.scrollToBottom();
-
-        setTimeout(() => {
-            tempMessage.remove();
-        }, 3000);
-    }
-
-    handleError(error) {
-        console.error('Error del Chatbot:', error);
-        let userMessage = 'Lo siento, ha ocurrido un error inesperado. Por favor, inténtalo de nuevo.';
-
-        if (error.message === 'API_TIMEOUT') {
-            userMessage = 'La solicitud ha tardado demasiado. Por favor, revisa tu conexión o intenta con una pregunta más corta.';
-        } else if (error.message === 'API_AUTH_ERROR') {
-            userMessage = 'Error de autenticación (401). La clave API es inválida o ha expirado. Por favor, contacta al administrador.';
-        } else if (error.message === 'API_RATE_LIMIT') {
-            userMessage = 'Hemos excedido el límite de solicitudes (429). Por favor, espera un momento e inténtalo de nuevo.';
-        } else if (error.message.startsWith('API_HTTP_ERROR')) {
-            userMessage = `Error de conexión con la API: ${error.message.split(': ')[1]}.`;
-        } else if (error.message === 'API_INVALID_RESPONSE') {
-            userMessage = 'La respuesta de la IA fue inválida. Intenta reformular tu pregunta.';
-        }
-
-        this.addMessage(userMessage, 'bot');
-    }
-
-    cleanup() {
-        // Limpieza de eventos si fuera necesario, aunque en este caso no es crítico
-        // ya que el chatbot vive durante toda la sesión de la página.
-    }
+  cleanup() {
+    // Limpieza de eventos si fuera necesario, aunque en este caso no es crítico
+    // ya que el chatbot vive durante toda la sesión de la página.
+  }
 }
 
 // Inicializar el chatbot
 new KOOWEXAChatbot();
 
 // Exportar para uso modular (si es necesario)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = KOOWEXAChatbot;
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = KOOWEXAChatbot;
 }

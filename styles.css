@@ -19,7 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
 }
 
 html {
@@ -388,7 +388,8 @@ body.planes-page {
   font-weight: 700;
 }
 
-.modal-body ul, .modal-body ol {
+.modal-body ul,
+.modal-body ol {
   margin-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -689,7 +690,11 @@ body.planes-page {
 }
 
 .highlight {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.15) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.08) 0%,
+    rgba(37, 99, 235, 0.15) 100%
+  );
   padding: 1.5rem;
   border-radius: 12px;
   margin: 1.5rem 0;
@@ -733,67 +738,67 @@ body.planes-page {
   .container {
     padding: 0 12px;
   }
-  
+
   .header {
     padding: 1.5rem 0;
   }
-  
+
   .logo-container {
     flex-direction: column;
     gap: 14px;
   }
-  
+
   .logo {
     width: 70px;
     height: 70px;
   }
-  
+
   .title {
     font-size: 2rem;
     text-align: center;
   }
-  
+
   .title-container {
     text-align: center;
   }
-  
+
   .main {
     padding: 2rem 0;
   }
-  
+
   .hero-title {
     font-size: 1.7rem;
   }
-  
+
   .email-btn {
     padding: 14px 24px;
     font-size: 1rem;
   }
-  
+
   .modal-content {
     padding: 2rem;
     margin: 10% auto;
   }
-  
+
   .share-options {
     grid-template-columns: 1fr;
   }
-  
+
   .image-modal-content {
     max-width: 95%;
     max-height: 95%;
   }
-  
+
   .smart-menu {
     bottom: 20px;
     right: 20px;
   }
-  
+
   .menu-toggle {
     width: 60px;
     height: 60px;
   }
-  
+
   .menu-items {
     min-width: 200px;
   }

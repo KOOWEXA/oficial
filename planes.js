@@ -1,28 +1,28 @@
 // planes.js - Gestión de planes KOOWEXA (Versión Compacta)
 
 class KOOWEXAPlans {
-    constructor() {
-        this.plansContent = document.getElementById('plansContent');
-        this.init();
-    }
+  constructor() {
+    this.plansContent = document.getElementById("plansContent");
+    this.init();
+  }
 
-    init() {
-        try {
-            this.loadPlansContent();
-            this.setupPlanInteractions();
-        } catch (error) {
-            console.error('Error inicializando planes:', error);
-        }
+  init() {
+    try {
+      this.loadPlansContent();
+      this.setupPlanInteractions();
+    } catch (error) {
+      console.error("Error inicializando planes:", error);
     }
+  }
 
-    loadPlansContent() {
-        if (this.plansContent) {
-            this.plansContent.innerHTML = this.getPlansHTML();
-        }
+  loadPlansContent() {
+    if (this.plansContent) {
+      this.plansContent.innerHTML = this.getPlansHTML();
     }
+  }
 
-    getPlansHTML() {
-        return `
+  getPlansHTML() {
+    return `
             <div class="plans-container">
                 <!-- PLAN GRATUITO -->
                 <div class="plan-card free">
@@ -309,57 +309,61 @@ class KOOWEXAPlans {
                 }
             </style>
         `;
+  }
+
+  setupPlanInteractions() {
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".plan-btn");
+      if (btn) {
+        const plan = btn.getAttribute("data-plan");
+        this.selectPlan(plan);
+      }
+    });
+  }
+
+  selectPlan(planType) {
+    const planNames = {
+      gratuito: "Presencia Básica (Gratuito)",
+      "tienda-online": "Tienda Online",
+      "servicio-local": "Servicio Local",
+    };
+
+    const planName = planNames[planType] || "Plan Seleccionado";
+    const email = "koowexa@gmail.com";
+
+    let subject, body;
+
+    if (planType === "gratuito") {
+      subject = `Solicitud de Plan Gratuito - KOOWEXA`;
+      body = `Hola, estoy interesado en comenzar con el Plan Gratuito (Presencia Básica) de KOOWEXA. Por favor contáctenme para activar mi perfil online.`;
+    } else {
+      subject = `Solicitud de ${planName} - KOOWEXA`;
+      body = `Hola, estoy interesado en el plan ${planName} de KOOWEXA. Por favor contácteme lo antes posible.`;
     }
 
-    setupPlanInteractions() {
-        document.addEventListener('click', (e) => {
-            const btn = e.target.closest('.plan-btn');
-            if (btn) {
-                const plan = btn.getAttribute('data-plan');
-                this.selectPlan(plan);
-            }
-        });
-    }
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, "_blank");
 
-    selectPlan(planType) {
-        const planNames = {
-            'gratuito': 'Presencia Básica (Gratuito)',
-            'tienda-online': 'Tienda Online',
-            'servicio-local': 'Servicio Local'
-        };
-        
-        const planName = planNames[planType] || 'Plan Seleccionado';
-        const email = 'koowexa@gmail.com';
-        
-        let subject, body;
-        
-        if (planType === 'gratuito') {
-            subject = `Solicitud de Plan Gratuito - KOOWEXA`;
-            body = `Hola, estoy interesado en comenzar con el Plan Gratuito (Presencia Básica) de KOOWEXA. Por favor contáctenme para activar mi perfil online.`;
-        } else {
-            subject = `Solicitud de ${planName} - KOOWEXA`;
-            body = `Hola, estoy interesado en el plan ${planName} de KOOWEXA. Por favor contácteme lo antes posible.`;
-        }
-        
-        const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.open(mailtoLink, '_blank');
-        
-        this.trackConversion(planType);
-    }
+    this.trackConversion(planType);
+  }
 
-    trackConversion(planType) {
-        try {
-            if (window.KOOWEXA_API?.getAPI('analytics')) {
-                const price = planType === 'gratuito' ? 0 : 2000;
-                window.KOOWEXA_API.getAPI('analytics').trackConversion('plan_selection', price, planType);
-            }
-        } catch (error) {
-            console.log('Error en tracking:', error);
-        }
+  trackConversion(planType) {
+    try {
+      if (window.KOOWEXA_API?.getAPI("analytics")) {
+        const price = planType === "gratuito" ? 0 : 2000;
+        window.KOOWEXA_API.getAPI("analytics").trackConversion(
+          "plan_selection",
+          price,
+          planType,
+        );
+      }
+    } catch (error) {
+      console.log("Error en tracking:", error);
     }
+  }
 }
 
 // Inicializar planes
-document.addEventListener('DOMContentLoaded', function() {
-    new KOOWEXAPlans();
+document.addEventListener("DOMContentLoaded", function () {
+  new KOOWEXAPlans();
 });
