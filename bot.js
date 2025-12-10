@@ -1,4 +1,4 @@
-// bot.js - Chatbot optimizado para KOOWEXA (Versión Mejorada)
+// bot.js - Chatbot optimizado para KOOWEXA (Versión Mejorada y Simplificada)
 
 class KOOWEXAChatbot {
     constructor() {
@@ -22,7 +22,84 @@ class KOOWEXAChatbot {
         };
         
         this.init();
+        this.autoDeleteHistory(); // Nueva llamada para la auto-eliminación
     }
+
+    // =================================================================================================
+    // NUEVAS FUNCIONALIDADES SOLICITADAS
+    // =================================================================================================
+
+    // 1. Auto Eliminado de Historial (Ejemplo: Eliminar historial si tiene más de 7 días)
+    autoDeleteHistory() {
+        const lastActivity = localStorage.getItem('koowexaChatLastActivity');
+        const now = new Date().getTime();
+        const sevenDays = 7 * 24 * 60 * 60 * 1000; // 7 días en milisegundos
+
+        if (lastActivity && (now - parseInt(lastActivity) > sevenDays)) {
+            this.clearChatHistory(false); // Eliminar sin notificar al usuario
+            console.log('Historial de chat eliminado automáticamente por inactividad de 7 días.');
+        }
+        // Actualizar la actividad cada vez que se inicializa el bot
+        localStorage.setItem('koowexaChatLastActivity', now.toString());
+    }
+
+    clearChatHistory(notify = true) {
+        this.chatHistory = [];
+        localStorage.removeItem('koowexaChatHistory');
+        const messagesContainer = document.getElementById('chatbotMessages');
+        if (messagesContainer) {
+            // Eliminar todos los mensajes excepto el de bienvenida
+            const initialMessage = messagesContainer.querySelector('.message.bot-message');
+            messagesContainer.innerHTML = '';
+            if (initialMessage) {
+                messagesContainer.appendChild(initialMessage);
+            }
+        }
+        if (notify) {
+            this.showTempMessage('Historial de chat eliminado.', 'info');
+        }
+    }
+
+    // 2. Solicitud de Permisos (Almacenamiento, Ubicación, Notificaciones)
+    requestPermissions() {
+        // Permiso de Almacenamiento (Persistencia) - Solo se puede solicitar, el navegador decide
+        if (navigator.storage && navigator.storage.persist) {
+            navigator.storage.persisted().then(isPersisted => {
+                if (!isPersisted) {
+                    navigator.storage.persist().then(granted => {
+                        console.log(`Permiso de persistencia de almacenamiento: ${granted ? 'Concedido' : 'Denegado'}`);
+                    });
+                }
+            });
+        }
+
+        // Permiso de Ubicación
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    console.log('Permiso de ubicación concedido.');
+                    // Aquí se podría usar la ubicación, por ejemplo, para ofrecer servicios locales
+                },
+                (error) => {
+                    console.warn(`Permiso de ubicación denegado o error: ${error.message}`);
+                },
+                { timeout: 10000 }
+            );
+        }
+
+        // Permiso de Notificaciones
+        if ('Notification' in window) {
+            if (Notification.permission !== 'granted' && Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    console.log(`Permiso de notificaciones: ${permission}`);
+                });
+            }
+        }
+    }
+
+    // =================================================================================================
+    // FIN DE NUEVAS FUNCIONALIDADES
+    // =================================================================================================
 
     init() {
         // Asegurar que el DOM esté listo antes de crear el HTML
@@ -39,6 +116,7 @@ class KOOWEXAChatbot {
         this.bindEvents();
         this.setupErrorHandling();
         this.injectStyles();
+        this.requestPermissions(); // Llamada a la solicitud de permisos
     }
 
     setupErrorHandling() {
@@ -56,6 +134,7 @@ class KOOWEXAChatbot {
             return;
         }
 
+        // Interfaz simplificada: Eliminadas las preguntas rápidas y el contador de caracteres
         const chatbotHTML = `
             <div class="chatbot-widget" id="koowexaChatbot">
                 <div class="chatbot-toggle" id="chatbotToggle">
@@ -64,6 +143,9 @@ class KOOWEXAChatbot {
                 <div class="chatbot-container" id="chatbotContainer">
                     <div class="chatbot-header">
                         <h3>Asistente KOOWEXA</h3>
+                        <button class="chatbot-clear-history" id="chatbotClearHistory" aria-label="Eliminar historial">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                         <button class="chatbot-close" id="chatbotClose" aria-label="Cerrar chat">
                             <i class="fas fa-times"></i>
                         </button>
@@ -77,13 +159,6 @@ class KOOWEXAChatbot {
                         </div>
                     </div>
                     <div class="chatbot-input-container">
-                        <div class="quick-questions" id="quickQuestions">
-                            <button class="quick-question" data-question="¿Qué servicios ofrece KOOWEXA?">Servicios</button>
-                            <button class="quick-question" data-question="¿Cuáles son los precios de los planes?">Precios</button>
-                            <button class="quick-question" data-question="¿Qué es KOOPAGES?">KOOPAGES</button>
-                            <button class="quick-question" data-question="¿Cómo funciona la optimización para Cuba?">Optimización</button>
-                            <button class="quick-question" data-question="¿Cómo puedo contactarlos?">Contacto</button>
-                        </div>
                         <div class="input-group">
                             <input type="text" 
                                    id="chatbotInput" 
@@ -94,7 +169,6 @@ class KOOWEXAChatbot {
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </div>
-                        <div class="char-counter" id="charCounter">0/500</div>
                     </div>
                 </div>
             </div>
@@ -104,6 +178,7 @@ class KOOWEXAChatbot {
     }
 
     injectStyles() {
+        // CSS simplificado: Eliminados estilos de preguntas rápidas y contador de caracteres
         const chatbotStyles = `
             <style>
             /* Estilos CSS para el Chatbot KOOWEXA */
@@ -187,6 +262,28 @@ class KOOWEXAChatbot {
                 font-weight: 700;
                 letter-spacing: -0.02em;
             }
+
+            .chatbot-clear-history {
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                font-size: 1rem;
+                cursor: pointer;
+                padding: 8px;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+            }
+
+            .chatbot-clear-history:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(1.1);
+            }
             
             .chatbot-close {
                 background: rgba(255, 255, 255, 0.2);
@@ -261,229 +358,140 @@ class KOOWEXAChatbot {
                 align-self: flex-end;
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 color: white;
-                border-bottom-right-radius: 6px;
-                box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+                border-bottom-right-radius: 4px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             }
             
             .bot-message {
                 align-self: flex-start;
-                background: white;
-                color: #2d3748;
+                background: #ffffff;
+                color: #1a202c;
                 border: 1px solid #e2e8f0;
-                border-bottom-left-radius: 6px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+                border-bottom-left-radius: 4px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             }
             
             .message-content {
-                margin-bottom: 0.375rem;
                 word-wrap: break-word;
             }
             
-            .message-content p {
-                margin: 0.5rem 0;
-            }
-            
-            .message-content p:first-child {
-                margin-top: 0;
-            }
-            
-            .message-content p:last-child {
-                margin-bottom: 0;
-            }
-            
             .message-time {
-                font-size: 0.75rem;
+                font-size: 0.65rem;
                 opacity: 0.7;
+                margin-top: 5px;
                 text-align: right;
+                color: inherit;
+            }
+            
+            .bot-message .message-time {
+                text-align: left;
             }
             
             .chatbot-input-container {
-                padding: 1.2rem;
+                padding: 1rem;
                 border-top: 1px solid #e2e8f0;
                 background: white;
             }
             
-            .quick-questions {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-                margin-bottom: 1rem;
-            }
-            
-            .quick-question {
-                background: rgba(102, 126, 234, 0.08);
-                color: #667eea;
-                border: 1px solid rgba(102, 126, 234, 0.2);
-                border-radius: 20px;
-                padding: 0.6rem 1rem;
-                font-size: 0.8rem;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                font-weight: 500;
-                backdrop-filter: blur(10px);
-            }
-            
-            .quick-question:hover {
-                background: #667eea;
-                color: white;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-            }
-            
             .input-group {
                 display: flex;
-                gap: 0.5rem;
                 align-items: center;
+                border: 1px solid #cbd5e0;
+                border-radius: 25px;
+                overflow: hidden;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             }
             
             #chatbotInput {
                 flex: 1;
-                padding: 0.875rem 1.2rem;
-                border: 1.5px solid #e2e8f0;
-                border-radius: 25px;
+                border: none;
+                padding: 0.75rem 1rem;
+                font-size: 1rem;
                 outline: none;
-                font-size: 0.9rem;
-                transition: all 0.3s ease;
-                background: #f8fafc;
-            }
-            
-            #chatbotInput:focus {
-                border-color: #667eea;
-                background: white;
-                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
             }
             
             #chatbotSend {
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
                 border: none;
-                border-radius: 50%;
-                width: 48px;
-                height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                color: white;
+                padding: 0.75rem 1rem;
                 cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+                transition: background 0.2s;
+                font-size: 1.1rem;
+                line-height: 1;
             }
             
-            #chatbotSend:hover:not(:disabled) {
-                transform: scale(1.05) rotate(5deg);
-                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            #chatbotSend:hover {
+                opacity: 0.9;
             }
             
             #chatbotSend:disabled {
-                opacity: 0.5;
+                background: #a0aec0;
                 cursor: not-allowed;
-                transform: none;
             }
             
-            .char-counter {
-                font-size: 0.75rem;
-                color: #718096;
-                text-align: right;
-                margin-top: 0.5rem;
-                font-weight: 500;
+            /* Estilos para mensajes temporales */
+            .temp-message {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+                border-radius: 10px;
+                border: 1px solid;
+                max-width: 100%;
+                text-align: center;
+                align-self: center;
             }
             
+            /* Estilos para la animación de carga */
             .loading-dots {
-                display: inline-flex;
-                gap: 4px;
-                padding: 8px 0;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
             }
             
             .loading-dots div {
                 width: 8px;
                 height: 8px;
+                margin: 0 2px;
+                background-color: #667eea;
                 border-radius: 50%;
-                background: #667eea;
                 animation: bounce 1.4s infinite ease-in-out both;
             }
             
-            .loading-dots div:nth-child(1) { animation-delay: -0.32s; }
-            .loading-dots div:nth-child(2) { animation-delay: -0.16s; }
+            .loading-dots div:nth-child(1) {
+                animation-delay: -0.32s;
+            }
+            
+            .loading-dots div:nth-child(2) {
+                animation-delay: -0.16s;
+            }
             
             @keyframes bounce {
-                0%, 80%, 100% { 
-                    transform: scale(0.8);
-                    opacity: 0.5;
+                0%, 80%, 100% {
+                    transform: scale(0);
                 }
-                40% { 
-                    transform: scale(1);
-                    opacity: 1;
+                40% {
+                    transform: scale(1.0);
                 }
             }
             
             @keyframes slideUp {
                 from {
                     opacity: 0;
-                    transform: translateY(20px) scale(0.95);
+                    transform: translateY(20px);
                 }
                 to {
                     opacity: 1;
-                    transform: translateY(0) scale(1);
+                    transform: translateY(0);
                 }
             }
             
             @media (max-width: 480px) {
-                .chatbot-widget {
-                    bottom: 10px;
-                    right: 10px;
-                }
-            
                 .chatbot-container {
-                    width: calc(100vw - 20px);
-                    height: 85vh;
+                    width: 100vw;
+                    height: 100vh;
+                    bottom: 0;
                     right: 0;
-                    bottom: 70px;
-                }
-            
-                .chatbot-toggle {
-                    width: 55px;
-                    height: 55px;
-                    font-size: 1.3rem;
-                }
-            }
-            
-            /* Mejoras de accesibilidad */
-            @media (prefers-reduced-motion: reduce) {
-                .chatbot-toggle,
-                .chatbot-close,
-                .quick-question,
-                #chatbotSend,
-                .message {
-                    transition: none !important;
-                    animation: none !important;
-                }
-            }
-            
-            /* Modo oscuro opcional */
-            @media (prefers-color-scheme: dark) {
-                .chatbot-container {
-                    background: #2d3748;
-                    border-color: #4a5568;
-                }
-                
-                .chatbot-messages {
-                    background: #1a202c;
-                }
-                
-                .bot-message {
-                    background: #4a5568;
-                    color: #e2e8f0;
-                    border-color: #718096;
-                }
-                
-                #chatbotInput {
-                    background: #4a5568;
-                    border-color: #718096;
-                    color: #e2e8f0;
-                }
-                
-                #chatbotInput:focus {
-                    border-color: #667eea;
-                    background: #2d3748;
+                    border-radius: 0;
                 }
             }
             </style>
@@ -493,12 +501,14 @@ class KOOWEXAChatbot {
 
     bindEvents() {
         const toggle = document.getElementById('chatbotToggle');
+        const container = document.getElementById('chatbotContainer');
         const close = document.getElementById('chatbotClose');
-        const send = document.getElementById('chatbotSend');
+        const messages = document.getElementById('chatbotMessages');
         const input = document.getElementById('chatbotInput');
-        const quickQuestions = document.getElementById('quickQuestions');
+        const send = document.getElementById('chatbotSend');
+        const clearHistory = document.getElementById('chatbotClearHistory'); // Nuevo elemento
 
-        if (!toggle || !close || !send || !input || !quickQuestions) {
+        if (!toggle || !container || !close || !messages || !input || !send || !clearHistory) {
             console.error('Error: No se encontraron todos los elementos del DOM. Asegúrese de que el HTML se haya creado correctamente.');
             return;
         }
@@ -507,26 +517,12 @@ class KOOWEXAChatbot {
         toggle.addEventListener('click', () => this.toggleChat());
         close.addEventListener('click', () => this.closeChat());
         send.addEventListener('click', () => this.sendMessage());
+        clearHistory.addEventListener('click', () => this.clearChatHistory()); // Nuevo evento
         
         // Eventos de entrada
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !this.isLoading) {
                 e.preventDefault(); // Prevenir el salto de línea en algunos casos
-                this.sendMessage();
-            }
-        });
-
-        input.addEventListener('input', (e) => {
-            this.updateCharCounter(e.target.value.length);
-        });
-
-        // Preguntas rápidas
-        quickQuestions.addEventListener('click', (e) => {
-            const target = e.target.closest('.quick-question');
-            if (target) {
-                const question = target.getAttribute('data-question');
-                input.value = question;
-                this.updateCharCounter(question.length);
                 this.sendMessage();
             }
         });
@@ -565,13 +561,7 @@ class KOOWEXAChatbot {
         }
     }
 
-    updateCharCounter(length) {
-        const counter = document.getElementById('charCounter');
-        if (counter) {
-            counter.textContent = `${length}/500`;
-            counter.style.color = length > 450 ? '#e53e3e' : '#718096';
-        }
-    }
+    // Se elimina updateCharCounter para simplificar la interfaz
 
     async sendMessage() {
         const input = document.getElementById('chatbotInput');
@@ -595,7 +585,6 @@ class KOOWEXAChatbot {
         // Agregar mensaje del usuario
         this.addMessage(message, 'user');
         input.value = '';
-        this.updateCharCounter(0);
         
         try {
             const response = await this.getAIResponse(message);
@@ -786,6 +775,8 @@ KOOPAGES es el servicio de hospedaje web de KOOWEXA, optimizado para garantizar 
             // Guardar solo el historial limitado para no saturar localStorage
             const historyToSave = this.chatHistory.slice(-20); // Guardar los últimos 10 turnos
             localStorage.setItem('koowexaChatHistory', JSON.stringify(historyToSave));
+            // Actualizar la marca de tiempo de actividad
+            localStorage.setItem('koowexaChatLastActivity', new Date().getTime().toString());
         } catch (e) {
             console.error('Error al guardar el historial de chat:', e);
         }
